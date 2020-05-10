@@ -30,21 +30,12 @@ public class UserController {
 		System.out.println(">>>>>>>>EmplyrCreat" + menu);
 	}
 
-	/**
-	 * get
-	 * post
-	 * put
-	 * options
-	 * delete
-	 * head
-	 * trace
-	 *
-	 * restAPI
-	 *
-	 * 관공서에서는 get,post 이외에는 못쓰게 보통 막아둠. 보안정책에 걸림.
-	 * 대충 어떤건지만 알면됨.
-	 *
-	 */
+
+	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
+	public void home() {
+		log.info("Welcome home!");
+	}
+
 }
 
 
