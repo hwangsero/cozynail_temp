@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 public class UserDao {
 
 	public void getUserList() {
-
+		System.out.println(">>>>>>>>>>>>>>> sql sql");
 	}
 
 }
