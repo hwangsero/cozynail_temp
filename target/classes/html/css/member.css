@@ -1,0 +1,91 @@
+body,
+html {
+  margin: 0;
+  padding: 2rem;
+  background: #edf2f7;
+  font-family: system-ui, sans-serif;
+  color: #2d3748;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+.card {
+  display: flex;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-top: 4px solid #ddd;
+  margin-bottom: 4rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 999px;
+    background-position: 50%;
+    background-size: cover;
+    flex-shrink: 0;
+    /**
+    * This is a Tumblr or Twitter trick (I think), it forces white dominant images to be off white.
+    */
+    background-color: #f7fafc;
+    background-blend-mode: multiply;
+    //
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    > img {
+      display: none;
+    }
+  }
+
+  &__info {
+    padding-left: 2rem;
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__name {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    line-height: 1;
+  }
+
+  &__name,
+  &__location {
+    margin-bottom: 1rem;
+  }
+
+  &__location {
+    margin-top: 0;
+  }
+
+  &__button {
+    border: none;
+    border-radius: 3px;
+    background: #dddddd;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.container {
+  min-width: 330px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.intro {
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  li {
+    margin-bottom: 0.8rem;
+  }
+  p {
+    font-weight: bold;
+  }
+}
