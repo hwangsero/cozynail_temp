@@ -35,11 +35,16 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- AspectJ -->
+		<!-- AspectJ 트랜젝션을 위한 라이브러리 -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.5.4</version>
 		</dependency>
 
 		<!-- Logging -->
@@ -146,6 +151,12 @@
          	<version>2.4</version>
          	<classifier>jdk15</classifier>
       	</dependency>
+      	<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.18</version>
+			<scope>provided</scope>
+		</dependency>
       	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<!-- getter setter JPA 타입으로 변환 lombok.jar로 따로 한번더 설치 해줘야된다. -->
 		<dependency>
@@ -153,6 +164,51 @@
 		   <artifactId>lombok</artifactId>
 		   <version>1.16.18</version>
 		   <scope>provided</scope>
+		</dependency>
+		<!-- transaction 대상의 aop를 동작시킬 프록시를 cglib 프록시를 사용하게 설정
+		      	이 뜻은 인터페이스가 있든 없든 상관없이 무조건 cglib를 사용해서 aop를 사용한다
+		      https://minwan1.github.io/2017/10/29/2017-10-29-Spring-AOP-Proxy/
+		      -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>3.2.5</version>
+		</dependency>
+		<!-- mybatis https://mvnrepository.com/ 에서 버전 맞추는 방법 설명 해줘야됨 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<!-- mysql connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.15</version>
+			<!-- <version>5.1.32</version> -->
+		</dependency>
+		<!-- https://linked2ev.github.io/spring/2019/08/14/Spring-3-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EC%9D%B4%EB%9E%80/ -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- pretty sql log  -->
+		<dependency>
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+			<version>0.2.7</version>
 		</dependency>
 
 	</dependencies>
