@@ -204,7 +204,7 @@
 			<version>1.4</version>
 		</dependency>
 
-		<!-- pretty sql log  -->
+		<!-- pretty sql log     -->
 		<dependency>
 			<groupId>org.lazyluke</groupId>
 			<artifactId>log4jdbc-remix</artifactId>
