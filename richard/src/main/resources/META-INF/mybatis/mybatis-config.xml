@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+   <settings>
+      <setting name="cacheEnabled" value="true"/>
+      <setting name="mapUnderscoreToCamelCase" value="true"/>
+      <setting name="callSettersOnNulls" value="true"/><!-- ResultSet 컬럼 값이 NULL일때 컬럼키는 만들고 값은 NULL로 셋팅해준다. -->
+   </settings>
+
+   <typeAliases>
+      <typeAlias type="kr.co.sinsp.web.user.vo.UserVo" alias="user" />
+      <typeAlias type="java.util.HashMap" alias="paramMap" />
+      <typeAlias type="java.util.List" alias="paramList" />
+      <typeAlias type="java.util.HashMap" alias="resultMap" />
+      <typeAlias type="java.util.List" alias="resultList" />
+   </typeAliases>
+</configuration>
+
+<!-- http://www.mybatis.org/mybatis-3/ko/configuration.html 참고사이트 -->
