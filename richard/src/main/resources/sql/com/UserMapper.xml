@@ -24,7 +24,7 @@
 
 
 
-   <insert id="insertLog1" parameterType="kr.co.sinsp.web.user.vo.UserVo">
+   <insert id="insertLog1" parameterType="com.sinsp.richard.web.user.vo.UserVo">
       INSERT INTO CMM_LOG1
          (
             NAME
@@ -32,9 +32,9 @@
             #{name }
          )
 
-      /* kr.co.sinsp.web.user.dao.userDao.insertLog1 */
+      /* com.sinsp.richard.web.user.dao.userDao.insertLog1 */
    </insert>
-   <insert id="insertLog2" parameterType="kr.co.sinsp.web.user.vo.UserVo">
+   <insert id="insertLog2" parameterType="com.sinsp.richard.web.user.vo.UserVo">
       INSERT INTO CMM_LOG2
          (
             NAME
@@ -42,9 +42,9 @@
             #{name }
          )
 
-      /* kr.co.sinsp.web.user.dao.userDao.insertLog2 */
+      /* com.sinsp.richard.web.user.dao.userDao.insertLog2 */
    </insert>
-   <insert id="insertLog3" parameterType="kr.co.sinsp.web.user.vo.UserVo">
+   <insert id="insertLog3" parameterType="com.sinsp.richard.web.user.vo.UserVo">
       INSERT INTO CMM_LOG3
          (
             NAME
@@ -52,7 +52,7 @@
             #{name }
          )
 
-      /* kr.co.sinsp.web.user.dao.userDao.insertLog3 */
+      /* com.sinsp.richard.web.user.dao.userDao.insertLog3 */
    </insert>
 
 </mapper>

@@ -9,7 +9,7 @@
    </settings>
 
    <typeAliases>
-      <typeAlias type="kr.co.sinsp.web.user.vo.UserVo" alias="user" />
+      <typeAlias type="com.sinsp.richard.web.user.vo.UserVo" alias="user" />
       <typeAlias type="java.util.HashMap" alias="paramMap" />
       <typeAlias type="java.util.List" alias="paramList" />
       <typeAlias type="java.util.HashMap" alias="resultMap" />
