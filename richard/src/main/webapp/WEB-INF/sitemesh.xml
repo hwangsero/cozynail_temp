@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemesh><!-- http://wiki.sitemesh.org/wiki/display/sitemesh/DecoratorMappers -->
-	<page-parsers>
-		<parser default="true"
-			class="com.opensymphony.module.sitemesh.parser.DefaultPageParser" />
-		<parser content-type="text/html"
-			class="com.opensymphony.module.sitemesh.parser.FastPageParser" />
-	</page-parsers>
+	<property name="decorators-file" value="/WEB-INF/decorators.xml" />
 	<!-- decorators.xml 에 정의된 excludes 태그를 사용한다는 선언이다. decorators.xml 이 아닌 별도의 파일을 생성할 수 도 있다. -->
-	<excludes file="/WEB-INF/decorators.xml" />
+    <excludes file="${decorators-file}" />
+
+<!-- <page-parsers> 엘리먼트는 content-type에 따라 적용할 파서를 정의한다. SiteMesh는 현재 text/html을 파싱할 때 사용되는 FastPage Parser만 구현되어 있다. 나머지에 대해서는 디폴트로 DefaultPageParser가 사용가능하다. -->
+	<page-parsers>
+		<parser default="true" class="com.opensymphony.module.sitemesh.parser.DefaultPageParser" />
+		<parser content-type="text/html" class="com.opensymphony.module.sitemesh.parser.FastPageParser" />
+	</page-parsers>
 
 	<!-- decorator 를 연결해주는 맵퍼를 정의, 정의된 순서대로 우선순위가 결정되는것 같다. -->
 	<decorator-mappers>
 
 	<!-- PageDecoratorMapper : meta 태그를 사용하여 decorator을 선택할 수 있다.
-PageDecoratorMapper는 <meta>태그에 decorator 항목이 있을 때 장식자를 리턴한다. 예를 들어 현재 layout.jsp 라는 장식자가 default 로 결정되어 있지만 popup이라는 이름의 장식자를 특정 페이지에 적용하고 싶다면 <meta name="decorator" content="popup"></meta> 라고 작성-->
+PageDecoratorMapper는 <meta>태그에 decorator 항목이 있을 때 장식자를 리턴한다.
+예를 들어 현재 layout.jsp 라는 장식자가 default 로 결정되어 있지만
+popup이라는 이름의 장식자를 특정 페이지에 적용하고 싶다면 <meta name="decorator" content="popup"></meta> 라고 작성-->
 		<mapper class="com.opensymphony.module.sitemesh.mapper.PageDecoratorMapper">
 			<param name="property.1" value="meta.decorator" />
 			<param name="property.2" value="decorator" />
@@ -28,7 +31,8 @@ decorator의 이름은 주어진 property에서 지정할 수 있다.-->
 		<!-- AgentDecoratorMapper : 브라우저별로 다른 decorator을 설정할 경우
 AgentDecoratorMapper는 브라우저에 따른 장식자를 선택할수 있도록 한다.
 예를 들어 http클라이언트가 익스플로러 라면 /decorators/layout-ie.jsp 장식자 페이지를 적용하게 된다.
-모질라 기반 브라우저라면 /decorators/layout-ns.jsp 가 장식자 페이지로 결정될 것이다. 만약 선정된 장식자 페이지를 찾는데 실패한다면 기본 장식자 페이지인 layout.jsp 가 적용될 것이다. -->
+모질라 기반 브라우저라면 /decorators/layout-ns.jsp 가 장식자 페이지로 결정될 것이다.
+만약 선정된 장식자 페이지를 찾는데 실패한다면 기본 장식자 페이지인 layout.jsp 가 적용될 것이다. -->
 		<mapper class="com.opensymphony.module.sitemesh.mapper.AgentDecoratorMapper">
 			<param name="match.MSIE" value="ie" />
 			<param name="match.Mozilla [" value="ns" />
@@ -70,7 +74,7 @@ url쿼리 스트링의 decorator=decoratorName&confirm=true라는 문자열에 �
 
 		<!-- ConfigDecoratorMapper : decorators.xml 에 정의된 decorator를 사용한다. -->
 		<mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper">
-			<param name="config" value="/WEB-INF/decorators.xml" />
+			<param name="config" value="${decorators-file}" />
 		</mapper>
 	</decorator-mappers>
 </sitemesh>

@@ -154,7 +154,7 @@
           <span class="badge-sonar"></span>
         </a>
         <!-- 로그인/로그아웃 -->
-        <a href="/login/login.html" style="margin-top: 10px;">
+        <a href="/user/login.do" style="margin-top: 10px;">
 			<i class="fa fa-power-off"></i>
 		</a>
       </div>

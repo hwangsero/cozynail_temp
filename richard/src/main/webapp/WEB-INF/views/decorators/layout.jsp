@@ -6,7 +6,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title><decorator:title /></title> <!-- decorator:title : 컨텐츠 페이지에서 title을 가져온다. -->
-		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+		<link rel='stylesheet' href="<c:url value='/css/bootstrap.css' />">
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
 		<link href="<c:url value='/css/main.css' />" rel="stylesheet" type="text/css">
 		<script>

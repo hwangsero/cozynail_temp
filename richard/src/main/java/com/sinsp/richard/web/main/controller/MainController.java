@@ -38,8 +38,13 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 
+	@RequestMapping(value={"user/main.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String goLogin(Model model) throws RichardException{
+		return "redirect:/main.do";
+	}
+
 	@RequestMapping(value={"main.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String log(Model model) throws RichardException{
+	public String login(Model model) throws RichardException{
 		logger.info(">>>>>>>>  main");
 		mainService.getMainList();
 		return "main";
