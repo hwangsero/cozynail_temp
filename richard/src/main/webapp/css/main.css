@@ -354,7 +354,7 @@
     display: inline-block;
     width: 100%;
     padding-left: 0px;
-    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .page-wrapper .page-content > div {
@@ -478,3 +478,88 @@
   .chiller-theme .sidebar-footer>a:last-child {
       border-right: none;
   }
+
+/*----------------- container-header  HEADER-------------------*/
+.page-wrapper .page-content .container-header {
+  z-index: -99;
+  background-color: #333;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
+  box-sizing: border-box;
+  color: #eee;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  padding: 3rem 25%;
+  padding-bottom: 0px;
+  pointer-events: none;
+  position: relative;
+  left: -25%;
+  width: 150%;
+  transition: all .25s ease-in-out;
+}
+.page-wrapper .page-content .container-header:before {
+  background-image: linear-gradient(115deg, rgba(255, 255, 255, 0.025) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(to left, #005952 0%, #005E20 100%);
+  content: "";
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all .25s ease-in-out;
+}
+.page-wrapper .page-content .container-header:hover:before {
+  opacity: 1;
+}
+.page-wrapper .page-content .container-header > * {
+  position: relative;
+}
+.page-wrapper .page-content .container-header h1 {
+  font-weight: bold;
+  font-size: 3em;
+  line-height: 1em;
+  text-align: center;
+}
+.page-wrapper .page-content .container-header .byline {
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  font-size: .8em;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/*------------------FOOTER------------------------*/
+.page-wrapper .page-content .container-footer {
+    z-index: -99;
+	background-color: #333;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
+	box-sizing: border-box;
+	color: #eee;
+	margin-bottom: 1.5rem;
+	overflow: hidden;
+	padding: 3rem 25%;
+	padding-bottom: 0px;
+	pointer-events: none;
+	position: relative;
+	left: -25%;
+	width: 150%;
+	transition: all .25s ease-in-out;
+}
+.page-wrapper .page-content .container-footer .ftdiv{
+	line-height: 1em;
+	text-align: left;
+	padding-left: 5rem !important;
+}
+.top_menu_sep {
+	height: 1.8em;
+	color: #EEEEFF;
+	font-size: 0.8em;
+	display: inline-block; /* 크기 지정 가능, 줄바꿈 안됨 */
+	vertical-align: middle;
+	margin-left: 0.5em;
+}
+.footer-line {
+    height:2px;
+    background-color:rgb(206,206,206);
+    width:100%;
+}

@@ -9,9 +9,6 @@
 
 	<!-- List 첫번째 타입 시작 -->
 	<div class="container-fluid">
-    	<h2>Education</h2>
-        <h4>유튜브 이러닝 플랫폼</h4>
-        <hr>
         <div class="row">
           <div class="form-group col-md-12">
 
@@ -52,12 +49,9 @@
 		</div>
 	</div>
 	<!-- List 첫번째 타입 끝 -->
-	<hr><hr>	
+	<hr><hr>
 	<!-- List 두번째 타입 시작 -->
 	<div class="container-fluid">
-    	<h2>Education</h2>
-        <h4>유튜브 이러닝 플랫폼</h4>
-        <hr>
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	            <div class="card rounded-0 p-0 shadow-sm">
@@ -149,6 +143,7 @@
 	            </div>
 	        </div>
 		</div>
+	</div>
 	</div>
 	<!-- List 두번째 타입 끝 -->
 </body>

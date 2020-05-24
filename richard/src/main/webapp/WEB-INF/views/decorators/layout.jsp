@@ -15,7 +15,7 @@
 		      window.parent.postMessage("resize", "*");
 		    }
 	  	</script>
-		<!-- header -->
+	  	<!-- header -->
 		<decorator:head></decorator:head><!-- decorator:head : 컨텐츠 페이지에서 head 를 가져온다 -->
 		<!-- //header -->
 	</head>
@@ -25,10 +25,11 @@
 				<i class="fas fa-bars"></i>
 			</a>
 			<jsp:include page="nav.jsp" />
-
 			<!-- 페이지 컨텐트 시작 -->
-			<main class="page-content">
+			<main class="page-content" style="padding-bottom: 0px;">
+			<jsp:include page="header.jsp" />
 			<decorator:body />
+			<jsp:include page="footer.jsp" />
 			</main>
 			<!-- 페이지 컨텐트 끝 -->
   		</div>
