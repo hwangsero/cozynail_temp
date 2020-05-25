@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 정의된 decorator 파일들이 있는 기본 디렉토리를 설정 -->
+<decorators defaultdir="/WEB-INF/views">
+
+	<!-- decorator를 사용하지 않을 url 패턴-->
+	<excludes>
+		<pattern>/user/login.*</pattern><!-- login은 데코레이터 적용 제외 -->
+	</excludes>
+
+	<!-- decorator를 사용할 url 패턴-->
+	<decorator name="sitemeshSample" page="decorators/layout.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	<decorator name="sitemeshSamplePopup" page="decorators/popup.jsp">
+		<pattern>/popup/*</pattern>
+	</decorator>
+
+	<!-- 패턴이 없는 decorator이다. sitemesh.xml 에서 정의한 mapper로 사용가능하다 -->
+	<decorator name="popup" page="popup.jsp" />
+	<decorator name="printable" page="printable.jsp" />
+	<decorator name="printable2" page="printable2.jsp" />
+	<decorator name="help" page="help.jsp" />
+</decorators>
