@@ -2,13 +2,16 @@ package com.sinsp.richard.web.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,6 +75,11 @@ public class UserController {
 	public String login(UserVo vo, Model model) throws RichardException{
 
 		return "user/login/login";
+	}
+	@RequestMapping(value={"userJoinSuccess.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String userJoinSuccess(@RequestParam Map<String, Object> map, Model model) throws RichardException{
+		logger.info(map.toString());
+		return "user/login/userJoinSuccess";
 	}
 
 	@RequestMapping(value={"log.do"}, method={RequestMethod.POST, RequestMethod.GET})

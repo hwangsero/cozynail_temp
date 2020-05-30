@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="<c:url value='/css/login.css' />">
   <link rel="stylesheet" href="<c:url value='/css/reg.css' />">
   <script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
+  <script src="<c:url value='/js/pagejs/login/login.js' />"></script>
+  <script src="<c:url value='/js/common.js' />"></script>
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
 <body>
@@ -47,13 +50,13 @@
         <!-- 회원가입 -->
         <div id="reg">
           <!-- Login Form -->
-          <form class="reg-wrap">
+          <form class="reg-wrap" name="reg-wrap">
             <div class="reg-title-con">
               <div class="reg-title">
                 고객 ID
               </div>
               <div class="reg-input">
-                <input type="text" id="login" placeholder="login">
+                <input class="reg-submit" id="id" name="id" type="text" placeholder="login">
               </div>
               <button type="button" class="btn btn-primary type2">중복체크</button>
             </div>
@@ -63,7 +66,7 @@
                 비밀번호
               </div>
               <div class="reg-input">
-                <input type="password">
+                <input class="reg-submit" id="password1" name="password1" type="password">
               </div>
             </div>
 
@@ -72,7 +75,7 @@
                 비밀번호 확인
               </div>
               <div class="reg-input">
-                <input type="password">
+                <input class="reg-submit" id="password2" name="password2" type="password">
               </div>
             </div>
 
@@ -81,7 +84,7 @@
                 이름
               </div>
               <div class="reg-input">
-                <input type="text">
+                <input class="reg-submit" id="name" name="name" type="text">
               </div>
             </div>
 
@@ -91,10 +94,10 @@
               </div>
               <div class="reg-input">
                 <div class="radio-con">
-                  <input type="radio" name="sex" class="mr-2">
-                  <label for="" class="mr-2">남자</label>
-                  <input type="radio" name="sex" class="mr-2">
-                  <label for="">여자</label>
+                  <input class="mr-2" type="radio" name="gender" id="male" value='male' checked/>
+                  <label for="male" class="mr-2">남자</label>
+                  <input class="mr-2" type="radio" name="gender" id="female" value='female'/>
+                  <label for="female">여자</label>
                 </div>
               </div>
             </div>
@@ -105,15 +108,15 @@
               </div>
               <div class="reg-input-wrap">
                 <div class="reg-input type2">
-                  <input type="text">
+                  <input class="reg-submit" id="birth" name="birth" type="text">
                 </div>
                 <div class="">년</div>
                 <div class="reg-input type2">
-                  <input type="text">
+                  <input class="reg-submit" id="month" name="month" type="text">
                 </div>
                 <div class="">월</div>
                 <div class="reg-input type2">
-                  <input type="text">
+                  <input class="reg-submit" id="date" name="date" type="text">
                 </div>
                 <div class="">일</div>
               </div>
@@ -125,17 +128,18 @@
               </div>
               <div class="reg-input-wrap">
                 <div class="reg-input type2">
-                  <input type="text">
+                  <input name="phoneFirst" id="phoneFirst" class="reg-submit" type="text" value="010">
                 </div>
                 <div class="">-</div>
                 <div class="reg-input type2">
-                  <input type="text">
+                  <input name="phoneSecond" id="phoneSecond" class="reg-submit" type="text">
                 </div>
                 <div class="">-</div>
                 <div class="reg-input type2">
-                  <input type="text">
+                  <input name="phoneThird" id="phoneThird" class="reg-submit" type="text">
                 </div>
               </div>
+              <input type="hidden" name="phone" id="phone" />
             </div>
 
             <div class="reg-title-con">
@@ -143,7 +147,7 @@
                 이메일
               </div>
               <div class="reg-input">
-                <input type="text">
+                <input class="reg-submit" id="email" name="email" type="text">
               </div>
             </div>
 
@@ -152,25 +156,22 @@
                 이메일 수신여부
               </div>
               <div class="reg-checkbox">
-                <input type="checkbox" name="sex" class="mr-2">
+                <input class="reg-submit mr-2" id="emailcheck" name="emailcheck" type="checkbox">
                 <label for="">본 사이트에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</label>
               </div>
             </div>
 
             <div class="reg-title-con mb-5">
               <div class="reg-title">
-                지역
+                주소
               </div>
-              <div class="reg-select">
-                <select name="" id="">
-                  <option value="">서울</option>
-                  <option value="">경기</option>
-                </select>
+              <div class="reg-input">
+                <input class="servay-input" id="address" name="address" placeholder="클릭하세요!" onclick="execDaumPostcode()" type="text" readonly/>
               </div>
             </div>
 
             <div class="">
-              <button type="button" class="btn btn-success">가입하기</button>
+              <button type="button" class="btn btn-success" onclick="userJoin();">가입하기</button>
               <button type="button" class="btn btn-secondary">취소</button>
             </div>
           </form>
@@ -186,26 +187,6 @@
 
       </div>
   </div>
-
-  <script>
-    $(function () {
-      $("#reg").hide();
-      $("#loginBtn").on("click", function () {
-        $("h2").removeClass("active")
-        $(this).addClass("active")
-        $("#reg").hide();
-        $("#login").show();
-      })
-
-      $("#regBtn").on("click", function () {
-        $("h2").removeClass("active")
-        $(this).addClass("active")
-        $("#reg").show();
-        $("#login").hide();
-      })
-
-    })
-  </script>
 </body>
 
 </html>
