@@ -78,7 +78,9 @@
   }
 
   /*----------------toggeled sidebar----------------*/
-
+  .sidebar-wrapper {
+  	z-index: 999;
+  }
   .page-wrapper.toggled .sidebar-wrapper {
     left: 0px;
   }
@@ -96,9 +98,11 @@
     border-radius: 0 4px 4px 0px;
     width: 35px;
     transition-delay: 0.3s;
+    z-index: 999;
   }
   .page-wrapper.toggled #show-sidebar {
     left: -40px;
+    z-index: 999;
   }
   /*----------------sidebar-wrapper----------------*/
 
@@ -116,10 +120,12 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    z-index: 999;
   }
 
   .sidebar-wrapper a {
     text-decoration: none;
+    z-index: 999;
   }
 
   /*----------------sidebar-content----------------*/
@@ -141,23 +147,27 @@
     padding: 10px 20px;
     display: flex;
     align-items: center;
+    z-index: 999;
   }
 
   .sidebar-wrapper .sidebar-brand > a {
     text-transform: uppercase;
     font-weight: bold;
     flex-grow: 1;
+    z-index: 999;
   }
 
   .sidebar-wrapper .sidebar-brand #close-sidebar {
     cursor: pointer;
     font-size: 20px;
+    z-index: 999;
   }
   /*--------------------sidebar-header----------------------*/
 
   .sidebar-wrapper .sidebar-header {
     padding: 20px;
     overflow: hidden;
+    z-index: 999;
   }
 
   .sidebar-wrapper .sidebar-header .user-pic {
@@ -333,6 +343,7 @@
     width: 8px;
     position: absolute;
     top: 0;
+    z-index: 999;
   }
 
   .badge-sonar:after {
@@ -350,7 +361,11 @@
 
   /*--------------------------page-content-----------------------------*/
 
+  .container-fluid{
+	z-index: -999;
+  }
   .page-wrapper .page-content {
+  	z-index: -999;
     display: inline-block;
     width: 100%;
     padding-left: 0px;
@@ -358,11 +373,13 @@
   }
 
   .page-wrapper .page-content > div {
+    z-index: -999;
     padding: 20px 40px;
   }
 
   .page-wrapper .page-content {
     overflow-x: hidden;
+    z-index: -999;
   }
 
   /*------scroll bar---------------------*/

@@ -38,7 +38,7 @@
 
           <!-- Remind Passowrd -->
           <div id="formFooter">
-          	<a class="underlineHover" href="<c:url value='main.do 	' />">Go to home</a>
+          	<a class="underlineHover" href="<c:url value='main.do' />">Go to home</a>
           	<hr>
             <a class="underlineHover" href="#">Forgot Password?</a>
           </div>
@@ -178,6 +178,8 @@
 
           <!-- Remind Passowrd -->
           <div id="formFooter">
+          	<a class="underlineHover" href="<c:url value='main.do' />">Go to home</a>
+          	<hr>
             <a class="underlineHover" href="#">Forgot Password?</a>
           </div>
         </div>
