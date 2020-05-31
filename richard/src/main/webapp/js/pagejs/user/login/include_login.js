@@ -1,4 +1,3 @@
-
 function userLogin() {
 
 	if(validForm()){

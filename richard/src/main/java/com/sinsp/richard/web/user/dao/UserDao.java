@@ -1,3 +1,4 @@
+
 package com.sinsp.richard.web.user.dao;
 
 import org.springframework.stereotype.Repository;

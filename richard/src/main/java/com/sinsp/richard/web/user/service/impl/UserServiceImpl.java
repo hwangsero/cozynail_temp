@@ -50,5 +50,4 @@ public class UserServiceImpl implements UserService{
 		return userDao.login(userVo);
 	}
 
-
 }
