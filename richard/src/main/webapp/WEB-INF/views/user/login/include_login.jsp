@@ -5,10 +5,10 @@
   <img src="<c:url value='/img/bt21_door.gif' />" id="icon" alt="User Icon" />
 </div>
 <!-- Login Form -->
-<form class="login" name="login">
-  <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-  <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-  <input type="submit" class="fadeIn fourth" value="Log In">
+<form class="login" name="login-form">
+  <input type="text" id="id" class="fadeIn second" name="id" placeholder="login">
+  <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+  <input type="button" class="fadeIn fourth" value="Log In" onclick="userLogin()">
 <!-- 중복방지 Token Parameter -->
 <input type="hidden" name="TOKEN_KEY" value="${TOKEN_KEY }" />
 <!-- 중복방지 Token Parameter -->

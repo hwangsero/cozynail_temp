@@ -6,7 +6,7 @@ import com.sinsp.richard.common.exception.RichardException;
 import com.sinsp.richard.web.user.vo.UserVo;
 import com.sinsp.richard.common.dao.CommonSqlDao;
 
-@Repository //이부분에 선언해야한다고 메모해놓고 선언 안하는 실수를 바로 함;;;;;;;;
+@Repository
 public class UserDao extends CommonSqlDao{
 
 	/** NameSpace 정의 */
@@ -20,6 +20,19 @@ public class UserDao extends CommonSqlDao{
 
 	public void getUserList() {
 		System.out.println(">>>>>>>>>>>>>>> sql sql");
+	}
+
+	public UserVo getUserInfo(String id) {
+		UserVo userVo = new UserVo();
+		selectOne(prefix + "", id);
+		return userVo;
+	}
+
+	public Boolean login(UserVo userVo) {
+		if(getSelect(prefix + "", userVo) == 1) {
+			return true;
+		}
+		return false;
 	}
 
 }

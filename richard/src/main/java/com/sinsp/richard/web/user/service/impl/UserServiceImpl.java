@@ -40,7 +40,15 @@ public class UserServiceImpl implements UserService{
 //		}
 	}
 
-	// 트랜잭션도 셋팅 해줘야 작동 함...
-	// error 시 트랜잭션 작동하도록 셋팅할 생각일때 할 수 있는 방법
+	@Override
+	public UserVo getUserInfo(String id) throws RichardException {
+		return userDao.getUserInfo(id);
+	}
+
+	@Override
+	public boolean login(UserVo userVo) throws RichardException {
+		return userDao.login(userVo);
+	}
+
 
 }
