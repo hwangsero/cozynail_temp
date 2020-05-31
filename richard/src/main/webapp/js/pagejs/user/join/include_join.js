@@ -1,25 +1,7 @@
-
-$(function () {
-    $("#reg").hide();
-    $("#loginBtn").on("click", function () {
-      $("h2").removeClass("active")
-      $(this).addClass("active")
-      $("#reg").hide();
-      $("#login").show();
-    })
-
-    $("#regBtn").on("click", function () {
-      $("h2").removeClass("active")
-      $(this).addClass("active")
-      $("#reg").show();
-      $("#login").hide();
-    })
-
-  })
-
 function userJoin() {
 	var writeInput = 0;
 	var checkInputLen = $('.reg-submit').length;
+	var phoneNum = $('#phone');
 
 	$('.reg-submit').each(function (idx, ele){
 		if(ele.value.trim().length === 0){
@@ -31,7 +13,18 @@ function userJoin() {
 		}
 	});
 
-	$('#phone').val($('#phoneFirst').val() + $('#phoneSecond').val() + $('#phoneThird').val());
+	phoneNum.val($('#phoneFirst').val() + $('#phoneSecond').val() + $('#phoneThird').val());
+
+	if(!checkedNumber($('#phoneFirst')) || !checkedNumber($('#phoneSecond')) || !checkedNumber($('#phoneThird'))){
+		//alert("폰번호는 숫자만 입력해주세요.");
+		return false;
+	}
+
+	if($('#password1').val() != $('#password2').val()){
+		alert("비밀번호가 일치하지 않습니다.");
+		return false;
+	}
+	$('#password').val($('#password1').val());
 
 	if(writeInput === checkInputLen){
 		if(confirm("제출 하시겠습니까?") == true){ //확인

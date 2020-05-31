@@ -1,7 +1,7 @@
 //숫자만 입력 가능
 function checkedNumber(obj) {
-	str = obj.value;
-	len = str.length;
+	var str = obj.val();
+	var len = str.length;
 	ch = str.charAt(0);
 	for (i = 0; i < len; i++) {
 		ch = str.charAt(i);
@@ -9,7 +9,7 @@ function checkedNumber(obj) {
 			continue;
 		} else {
 			alert("숫자만 입력이 가능합니다.");
-			obj.value = "";
+			obj.val("");
 			obj.focus();
 			return false;
 		}
@@ -25,4 +25,14 @@ function doubleSubmitCheck(){
       doubleSubmitFlag = true;
       return false;
    }
+}
+//html 불러오기
+function htmlAjax(url, obj){
+	$.ajax({
+        url : url,
+        dataType : 'html',
+        success : function(result) {
+        	obj.html(result);
+        }
+    });
 }

@@ -51,7 +51,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 
 			// String excludeDir = {"login"}; //체크 페이지 디렉토리
 			// 짧으니까 ㄱㅊ지만 이렇게 코딩하면 뭐 하나 추가할때마다 배포를 계속 해야한다. 그래서 DB에 넣고 service만들어서 불러오도록 짜야함. 안그러면 실무에서 개욕먹음.
-			String[] excludePage = {"log.do", "main.do", "EmplyrCreat.do", "myweb.do", "login.do", "userJoinSuccess.do"}; //체크 페이지
+			String[] excludePage = {"log.do", "main.do", "EmplyrCreat.do", "myweb.do", "user_login.do", "include_join.do", "include_login.do", "userJoinSuccess.do"}; //체크 페이지
 
 
 			// 세션이 있을때
