@@ -54,6 +54,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<h6 class="card-title">Product description <a href="#" target="_blank" class="btn btn-primary btn-sm">펼쳐보기</a></h6>
 	            <div class="card rounded-0 p-0 shadow-sm">
 	              <img src="<c:url value='/img/이미지.png' />" class="card-img-top rounded-0" alt="Angular pro sidebar">
 	              <div class="card-body text-center">
@@ -65,6 +66,7 @@
 	            </div>
 	        </div>
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	        <h6 class="card-title">Product description <a href="#" target="_blank" class="btn btn-primary btn-sm">펼쳐보기</a></h6>
 	            <div class="card rounded-0 p-0 shadow-sm">
 	              <img src="<c:url value='/img/이미지.png' />" class="card-img-top rounded-0" alt="Angular pro sidebar">
 	              <div class="card-body text-center">
