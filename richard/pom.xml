@@ -157,6 +157,12 @@
 			<version>1.16.18</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- json-simple -->
+		<dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
       	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<!-- getter setter JPA 타입으로 변환 lombok.jar로 따로 한번더 설치 해줘야된다. -->
 		<dependency>
@@ -217,6 +223,23 @@
 			<groupId>opensymphony</groupId>
 			<artifactId>sitemesh</artifactId>
 			<version>2.4.2</version>
+		</dependency>
+
+		<!-- oracle ojdbc6 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>12.1.0.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jasypt/jasypt-spring31 -->
+		<!-- DB정보 암호화를 위한 라이브러리 -->
+		<!-- 스프링4버전이면 spring31 3버전이면 spring3으로 변경한다 -->
+		<!-- 추가 -->
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt-spring31</artifactId>
+			<version>1.9.2</version>
 		</dependency>
 
 	</dependencies>
