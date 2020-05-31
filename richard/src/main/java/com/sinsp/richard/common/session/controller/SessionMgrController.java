@@ -95,8 +95,6 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 			response.sendRedirect("/authority.do?GBN=SCOPEERROR");
 		}
 		return result;
-
-//		return true;
 	}
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
