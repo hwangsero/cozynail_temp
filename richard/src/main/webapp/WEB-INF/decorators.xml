@@ -4,7 +4,10 @@
 
 	<!-- decorator를 사용하지 않을 url 패턴-->
 	<excludes>
-		<pattern>/user/login.*</pattern><!-- login은 데코레이터 적용 제외 -->
+		<pattern>/user/*_login.*</pattern><!-- login은 데코레이터 적용 제외 -->
+		<pattern>/user/*_join.*</pattern>
+		<pattern>/user/userJoinSuccess.*</pattern>
+		<pattern>/user/userLoginFail.*</pattern>
 	</excludes>
 
 	<!-- decorator를 사용할 url 패턴-->

@@ -11,7 +11,7 @@ function userLogin() {
 	}
 }
 function validForm(){
-	var id = $('#login');
+	var id = $('#id');
 	var password = $('#password');
 
 	if(id.val().trim().length === 0){

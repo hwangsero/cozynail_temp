@@ -154,7 +154,7 @@ public class UserController {
 				mav.setViewName("redirect:/main.do");
 
 			} else { // 로그인 실패시
-				mav.setViewName("redirect:");
+				mav.setViewName("redirect:/login/userLoginFail");
 			}
 			// DB 로직 구현
 			// Login 로직
