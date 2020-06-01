@@ -16,6 +16,7 @@ public class UserVo implements Serializable{
 
 	private static final long serialVersionUID = -7240044547872807682L;
 
+	private String memberno;
 	private String id;
 	private String password;
 	private String name;
@@ -27,5 +28,4 @@ public class UserVo implements Serializable{
 	private String address;
 
 	//class를 decompile하여 확인하면 getter, setter, tostring이 자동으로 생성되어 있는 것을 확인 할 수 있음.
-
 }

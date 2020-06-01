@@ -1,0 +1,68 @@
+.reg-wrap {
+  padding:20px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom:30px;
+}
+
+.reg-input-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.reg-wrap .reg-title-con {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.reg-wrap .reg-title-con:last-of-type {
+  margin-bottom: 30px;
+}
+
+.reg-title-con .reg-title {
+  min-width : 130px;
+  text-align: left;
+}
+
+.reg-title-con .reg-input {
+  width : 300px;
+  text-align: left;
+}
+
+.reg-title-con .reg-input.type2 {
+  width : 80px;
+}
+
+.reg-title-con .reg-input.type2 input{
+  padding: 10px;
+}
+
+
+.reg-title-con .reg-input input {
+  text-align: left;
+}
+
+.reg-checkbox label {
+  font-size: 10px;
+  text-align: left;
+}
+
+.radio-con {
+  margin-left: 10px;
+}
+
+.radio-con label {
+  margin-bottom: 0;
+}
+
+.reg-checkbox {
+  display: flex;
+}
+
+.btn-primary.type2 {
+  position: absolute;
+  height: 60px;
+  right: 40px;
+}
