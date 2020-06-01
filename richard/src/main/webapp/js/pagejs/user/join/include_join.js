@@ -12,6 +12,7 @@ function userJoin() {
 			writeInput ++;
 		}
 	});
+	//email이 올바른지 검증 추가 해야함.
 
 	phoneNum.val($('#phoneFirst').val() + $('#phoneSecond').val() + $('#phoneThird').val());
 
