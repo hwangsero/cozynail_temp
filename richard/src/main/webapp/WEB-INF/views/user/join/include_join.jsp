@@ -10,7 +10,7 @@
     <div class="reg-input">
       <input class="reg-submit" id="id" name="id" type="text" placeholder="login">
     </div>
-    <button type="button" class="btn btn-primary type2">중복체크</button>
+    <button type="button" class="btn btn-primary type2" onclick="idCheck();">중복체크</button>
   </div>
 
   <div class="reg-title-con">
@@ -39,6 +39,16 @@
     <div class="reg-input">
       <input class="reg-submit" id="name" name="name" type="text">
     </div>
+  </div>
+
+  <div class="reg-title-con">
+    <div class="reg-title">
+      별명
+    </div>
+    <div class="reg-input">
+      <input class="reg-submit" id="nickname" name="nickname" type="text">
+    </div>
+    <div id="nicknm" style="font-size:0.8em"></div>
   </div>
 
   <div class="reg-title-con">

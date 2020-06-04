@@ -16,10 +16,10 @@ public class UserVo implements Serializable{
 
 	private static final long serialVersionUID = -7240044547872807682L;
 
-	private String memberno;
 	private String id;
 	private String password;
 	private String name;
+	private String nickname;
 	private String gender;
 	private String birthDate;
 	private String phone;
