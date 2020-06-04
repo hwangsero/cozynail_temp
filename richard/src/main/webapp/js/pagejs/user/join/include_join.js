@@ -1,3 +1,60 @@
+
+var oldVal = "";
+$(document).on('propertychange change keyup paste input','#nickname', function() {
+	var currentVal = $(this).val().trim();
+    if(currentVal == oldVal) {
+    	nicknameCheck();
+    	return;
+    }
+    oldVal = currentVal;
+});
+
+var isIdOk = false;
+function idCheck(){
+	$.ajax({
+		type:"post",
+	   	url:"/user/user_id_check_ajax.do",
+	    dataType:"json",
+	    success:function(data){
+	    	//alert(data.result);
+	    	alert(data.msg);
+	    	if(data.result == 'Y'){
+	    		isIdOk = true;
+	    	}
+	    },
+	    error: function(xhr,status,error){
+	    	alert(error);
+	    },
+	    beforeSend:function(){
+	    	//여기에 로딩중 아이콘 show
+	    },
+	    complete:function()
+	    {
+	     	//여기에 로딩중 아이콘 hide
+	    }
+    });
+}
+function nicknameCheck(){
+	$.ajax({
+		type:"post",
+	   	url:"/user/user_nickname_check_ajax.do",
+	    dataType:"json",
+	    success:function(data){
+	    	$('#nicknm').text(data.msg);
+	    },
+	    error: function(xhr,status,error){
+	    	alert(error);
+	    },
+	    beforeSend:function(){
+	    	//여기에 로딩중 아이콘 show
+	    },
+	    complete:function()
+	    {
+	     	//여기에 로딩중 아이콘 hide
+	    }
+    });
+}
+
 function userJoin() {
 	var writeInput = 0;
 	var checkInputLen = $('.reg-submit').length;
@@ -27,12 +84,17 @@ function userJoin() {
 	}
 	$('#password').val($('#password1').val());
 
+	if(!isIdOk){
+		alert("id 중복체크를 해주세요.");
+		return false;
+	}
+
 	if(writeInput === checkInputLen){
 		if(confirm("제출 하시겠습니까?") == true){ //확인
 			if(doubleSubmitCheck()){return false;}
 			var form = $('form[name="reg-wrap"]');
 			form.attr("method", "POST");
-			form.attr("action", "/user/userJoinSuccess.do");
+			form.attr("action", "/user/user_join_success.do");
 		    form.submit();
 		} else {
 			return false;
