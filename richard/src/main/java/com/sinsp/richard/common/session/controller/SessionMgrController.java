@@ -15,9 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.sinsp.richard.common.session.service.SessionMgrService;
-
-
 //참고 블로그
 //https://offbyone.tistory.com/33
 
@@ -31,9 +28,6 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 	private Log log1 = LogFactory.getLog(this.getClass());
 	private Logger log2 = LoggerFactory.getLogger(SessionMgrController.class);
 	private Logger log3 = LoggerFactory.getLogger(this.getClass());
-
-	@Autowired //스프링에서 제공하는 어노테이션
-	private SessionMgrService sessionMgrService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -60,14 +54,10 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 
 			// String excludeDir = {"login"}; //체크 페이지 디렉토리
 			// 짧으니까 ㄱㅊ지만 이렇게 코딩하면 뭐 하나 추가할때마다 배포를 계속 해야한다. 그래서 DB에 넣고 service만들어서 불러오도록 짜야함. 안그러면 실무에서 개욕먹음.
-			//String[] excludePage = {"log.do", "main.do", "EmplyrCreat.do", "myweb.do", "user_login.do", "include_join.do", "include_login.do", "userJoinSuccess.do",  "userLoginFail.do", "login_process.do","user_id_check_ajax.do", "user_nickname_check_ajax.do"}; //체크 페이지
-
-			List<String> pageList = sessionMgrService.getPageList();
-			// List -> String[]
-	        String[] excludePage = pageList.toArray(new String[pageList.size()]);
-	        // String[] -> List
-	        //ArrayList<string> mNewList = new ArrayList<string>(Arrays.asList(sArrays));
-
+			String[] excludePage = {"log.do", "main.do", "EmplyrCreat.do", "myweb.do"
+					, "user_login.do", "include_join.do", "include_login.do"
+					, "user_join_success.do",  "user_login_fail.do", "login_process.do"
+					,"user_id_check_ajax.do", "user_nickname_check_ajax.do"}; //체크 페이지
 
 			// 세션이 있을때
 			if(session != null) {
