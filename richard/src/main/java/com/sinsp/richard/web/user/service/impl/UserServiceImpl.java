@@ -50,4 +50,22 @@ public class UserServiceImpl implements UserService{
 		return userDao.login(userVo);
 	}
 
+	@Override
+	public void insertJoinUser(UserVo vo) throws RichardException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int getUserIdCount(String id) throws RichardException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getUserNicknameCount(String nickname) throws RichardException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

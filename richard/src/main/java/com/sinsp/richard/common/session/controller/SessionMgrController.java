@@ -1,5 +1,7 @@
 package com.sinsp.richard.common.session.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,9 +10,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.sinsp.richard.web.comm.service.CommService;
 
 //참고 블로그
 //https://offbyone.tistory.com/33
@@ -18,13 +23,18 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 //스프링 시큐리티를 사용하지 않는다면 보안을 위해 인터셉터를 사용해야함.
 
-@Controller
 public class SessionMgrController extends HandlerInterceptorAdapter{
 	//syso을 안쓰는 것이 좋음. log 찍는 방법.총 4가지
 	private Log log = LogFactory.getLog(SessionMgrController.class);
 	private Log log1 = LogFactory.getLog(this.getClass());
 	private Logger log2 = LoggerFactory.getLogger(SessionMgrController.class);
 	private Logger log3 = LoggerFactory.getLogger(this.getClass());
+
+	@Autowired
+	public CommService beanCommService;
+
+	List<String> pageList = null;
+	String[] pageArray = null;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -49,10 +59,14 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 
 			String[] uriData = uriTemp.split("/");
 
-			// String excludeDir = {"login"}; //체크 페이지 디렉토리
-			// 짧으니까 ㄱㅊ지만 이렇게 코딩하면 뭐 하나 추가할때마다 배포를 계속 해야한다. 그래서 DB에 넣고 service만들어서 불러오도록 짜야함. 안그러면 실무에서 개욕먹음.
-			String[] excludePage = {"log.do", "main.do", "EmplyrCreat.do", "myweb.do", "user_login.do", "include_join.do", "include_login.do", "userJoinSuccess.do",  "userLoginFail.do", "login_process.do"}; //체크 페이지
+			// DB에서 읽어온다.
+			if(pageList == null) {
+				pageList = beanCommService.getPageList();
+				pageArray = pageList.toArray(new String[pageList.size()]);
+				log.info("pageList : " + pageList);
+			}
 
+			String[] excludePage = pageArray;
 
 			// 세션이 있을때
 			if(session != null) {

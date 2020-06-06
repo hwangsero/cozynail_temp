@@ -79,7 +79,7 @@ public class UserController {
 	}
 	// 회원 로그인/가입 메인 페이지
 	@RequestMapping(value={"user_login.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String login() throws RichardException{
+	public String user_login() throws RichardException{
 
 		return "user/user_login";
 	}
@@ -102,8 +102,8 @@ public class UserController {
 	}
 
 	// 회원 가입 성공
-	@RequestMapping(value={"userJoinSuccess.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String userJoinSuccess(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException{
+	@RequestMapping(value={"user_join_success.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String user_join_success(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
 
@@ -115,9 +115,45 @@ public class UserController {
 			// TODO
 
 			// DB 로직 구현
-			//userService.insertJoinMem(userVo);
+			//userService.insertJoinUser(userVo);
 		}
-		return "user/join/userJoinSuccess";
+		return "user/join/user_join_success";
+	}
+
+	//아이디 중복체크
+	@RequestMapping(value= {"user_id_check_ajax.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView user_id_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("jsonView");
+
+		int existingUser = userService.getUserIdCount(userVo.getId());
+
+		if(existingUser == 0) {
+			mav.addObject("result", "Y"); // Y/N
+			mav.addObject("msg", "사용 가능");
+		} else {
+			mav.addObject("result", "N"); // Y/N
+			mav.addObject("msg", "사용 불가능");
+		}
+		return mav;
+	}
+
+	//닉네임 중복체크
+	@RequestMapping(value= {"user_nickname_check_ajax.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView user_nickname_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("jsonView");
+
+		int existingUser = userService.getUserNicknameCount(userVo.getNickname());
+
+		if(existingUser == 0) {
+			mav.addObject("result", "Y"); // Y/N
+			mav.addObject("msg", "사용 가능");
+		} else {
+			mav.addObject("result", "N"); // Y/N
+			mav.addObject("msg", "사용 불가능");
+		}
+		return mav;
 	}
 
 	// 회원 로그인 성공/실패
@@ -138,14 +174,14 @@ public class UserController {
 
 			if (userService.login(userVo)) { // 로그인 성공시 회원정보 불러옴.
 
-				UserVo memInfo = userService.getUserInfo(userVo.getId());
+				UserVo userInfo = userService.getUserInfo(userVo.getId());
 
 				// -------------------------------------------------------------------
 				// session 세션 저장
 				// -------------------------------------------------------------------
-				session.setAttribute("memberno", memInfo.getMemberno());
+				session.setAttribute("id", userInfo.getId());
 				// session 내부 객체
-				session.setAttribute("email", memInfo.getEmail());
+				session.setAttribute("name", userInfo.getName());
 
 
 				// 로그인 내역 추가
@@ -154,7 +190,7 @@ public class UserController {
 				mav.setViewName("redirect:/main.do");
 
 			} else { // 로그인 실패시
-				mav.setViewName("redirect:/login/userLoginFail");
+				mav.setViewName("redirect:/login/user_login_fail");
 			}
 			// DB 로직 구현
 			// Login 로직
