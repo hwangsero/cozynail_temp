@@ -23,7 +23,6 @@ import com.sinsp.richard.web.comm.service.CommService;
 
 //스프링 시큐리티를 사용하지 않는다면 보안을 위해 인터셉터를 사용해야함.
 
-@Controller
 public class SessionMgrController extends HandlerInterceptorAdapter{
 	//syso을 안쓰는 것이 좋음. log 찍는 방법.총 4가지
 	private Log log = LogFactory.getLog(SessionMgrController.class);
