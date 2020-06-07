@@ -23,8 +23,8 @@
           </div>
         </div>
 
+<!-- 통합검색창 :: S -->
         <div class="sidebar-search">
-          <!--통합검색창-->
           <div>
             <div class="input-group">
               <input type="text" class="form-control search-menu" placeholder="Search..." />
@@ -36,25 +36,25 @@
             </div>
           </div>
         </div>
-
+<!-- 통합검색창 :: E -->
         <div class="sidebar-menu">
           <ul>
             <li class="header-menu">
               <span>Hello</span>
             </li>
             <li>
-              <a href="#">
+              <a href="main.do">
                 <i class="fa fa-folder"></i>
                 <span>Home</span>
               </a>
             </li>
-            <li class="sidebar-dropdown">
+            <li class="sidebar-dropdown" id="mypage">
               <a href="#">
                 <i class="fa fa-chart-line"></i>
                 <span>마이페이지</span>
                 <span class="badge badge-pill badge-warning">New</span>
               </a>
-              <div class="sidebar-submenu">
+              <div class="sidebar-submenu" id="mypage-sub">
                 <ul>
                   <li>
                     <a href="#">커리큘럼 관리
