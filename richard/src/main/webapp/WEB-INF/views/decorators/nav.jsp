@@ -22,7 +22,6 @@
             </span>
           </div>
         </div>
-
 <!-- 통합검색창 :: S -->
         <div class="sidebar-search">
           <div>
@@ -43,29 +42,32 @@
               <span>Hello</span>
             </li>
             <li>
-              <a href="main.do">
+              <a href="/main.do">
                 <i class="fa fa-folder"></i>
                 <span>Home</span>
               </a>
             </li>
-            <li class="sidebar-dropdown" id="mypage">
-              <a href="#">
+            <li class="sidebar-dropdown">
+              <a href="/manage/myPageMain.do">
                 <i class="fa fa-chart-line"></i>
                 <span>마이페이지</span>
                 <span class="badge badge-pill badge-warning">New</span>
               </a>
-              <div class="sidebar-submenu" id="mypage-sub">
+              <div style="display:inline" class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">커리큘럼 관리
+                    <a href="#" onclick="alert('개발중입니다');">나의 커리큘럼
                       <span class="badge badge-pill badge-success">Pro</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">나의 커리큘럼 진행률</a>
+                    <a href="#" onclick="alert('개발중입니다');">커리큘럼 진행</a>
                   </li>
                   <li>
-                    <a href="#">즐겨찾는 회원</a>
+                    <a href="/manage/activeList.do">활동</a>
+                  </li>
+                  <li>
+                    <a href="/manage/likeUserList.do">즐겨찾는 회원</a>
                   </li>
                 </ul>
               </div>
@@ -158,4 +160,4 @@
 			<i class="fa fa-power-off"></i>
 		</a>
       </div>
-</nav>
+    </nav>

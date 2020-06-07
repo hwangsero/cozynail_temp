@@ -5,10 +5,12 @@
 	<head>
 	  <meta charset="UTF-8">
 	  <title>Richard MAIN</title>
-	  <script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
 	</head>
 <body>
       <div class="container-fluid">
+        <h2>Education</h2>
+        <h4>유튜브 이러닝 플랫폼</h4>
+        <hr>
         <div class="row">
           <div class="form-group col-md-4">
 
@@ -93,14 +95,5 @@
           </div>
         </div>
       </div>
-	<script>
-	$(document).ready(function () {
-		$("#mypage-sub").slideUp(200);
-		$("#mypage-sub").show();
-		$("#mypage > a").parent().addClass("active");
-
-	});
-
-	</script>
 </body>
 </html>
