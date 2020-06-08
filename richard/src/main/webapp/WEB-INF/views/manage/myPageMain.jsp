@@ -5,6 +5,7 @@
     <head>
       <meta charset="UTF-8">
       <title>Richard MAIN</title>
+      <script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
     </head>
 <body>
     <div class="container-fluid">
@@ -85,5 +86,14 @@
         <div class="form-group col-md-12"></div>
 
     </div>
+
+    <script>
+	$(document).ready(function () {
+		$("#mypage-sub").slideUp(200);
+		$("#mypage-sub").show();
+		$("#mypage > a").parent().addClass("active");
+
+	});
+	</script>
 </body>
 </html>

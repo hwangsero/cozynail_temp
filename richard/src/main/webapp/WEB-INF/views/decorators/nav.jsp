@@ -47,13 +47,13 @@
                 <span>Home</span>
               </a>
             </li>
-            <li class="sidebar-dropdown">
+            <li class="sidebar-dropdown" id="mypage">
               <a href="/manage/myPageMain.do">
                 <i class="fa fa-chart-line"></i>
                 <span>마이페이지</span>
                 <span class="badge badge-pill badge-warning">New</span>
               </a>
-              <div style="display:inline" class="sidebar-submenu">
+              <div class="sidebar-submenu" id="mypage-sub">
                 <ul>
                   <li>
                     <a href="#" onclick="alert('개발중입니다');">나의 커리큘럼
