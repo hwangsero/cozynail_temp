@@ -9,4 +9,10 @@
       /* com.sinsp.richard.web.comm.dao.commDao.getPages */
    </select>
 
+   <select id="getCategory" resultType="String">
+      SELECT category_no, seqno, category_name, visible, reg_id, reg_date
+	  FROM category
+      /* com.sinsp.richard.web.comm.dao.commDao.getCategory */
+   </select>
+
 </mapper>

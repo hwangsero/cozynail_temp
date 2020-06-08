@@ -8,6 +8,9 @@
 	</head>
 <body>
       <div class="container-fluid">
+        <h2>Education</h2>
+        <h4>유튜브 이러닝 플랫폼</h4>
+        <hr>
         <div class="row">
           <div class="form-group col-md-4">
 

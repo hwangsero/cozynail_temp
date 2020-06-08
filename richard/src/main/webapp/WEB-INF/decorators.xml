@@ -8,6 +8,7 @@
 		<pattern>/user/*_join.*</pattern>
 		<pattern>/user/userJoinSuccess.*</pattern>
 		<pattern>/user/userLoginFail.*</pattern>
+		<pattern>/login/loginForm</pattern>
 	</excludes>
 
 	<!-- decorator를 사용할 url 패턴-->
