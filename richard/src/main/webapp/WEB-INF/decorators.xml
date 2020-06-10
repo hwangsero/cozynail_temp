@@ -6,8 +6,8 @@
 	<excludes>
 		<pattern>/user/*_login.*</pattern><!-- login은 데코레이터 적용 제외 -->
 		<pattern>/user/*_join.*</pattern>
-		<pattern>/user/userJoinSuccess.*</pattern>
-		<pattern>/user/userLoginFail.*</pattern>
+		<pattern>/user/user_join_success.*</pattern>
+		<pattern>/user/user_login_fail.*</pattern>
 		<pattern>/login/loginForm</pattern>
 	</excludes>
 

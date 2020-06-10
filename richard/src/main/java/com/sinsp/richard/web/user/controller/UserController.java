@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 
@@ -114,8 +116,26 @@ public class UserController {
 
 			// TODO
 
+			//아이피가 0:0:0:0:0:0:0:1 이라는건 ipv6의 주소를 가져온것으로 ipv4로 봤을때 127.0.0.1 이 맞다
+			//출처: https://rainny.tistory.com/177 [긍정적 사고방식^^]
+			//메뉴의 Run -> Run Configurations -> Arguments 탭 -> -Djava.net.preferIPv4Stack=true 추가
+			HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+			String ip = req.getHeader("X-FORWARDED-FOR");
+			if (ip == null)
+				ip = req.getRemoteAddr();
+
+			userVo.setReg_ip(ip);
+
+			if(userVo.getEmail_yn().equals("1")){
+				userVo.setEmail_yn("Y");
+			} else {
+				userVo.setEmail_yn("N");
+			}
+
+			//비밀번호 암호화도 추후에 추가해야함.
+
 			// DB 로직 구현
-			//userService.insertJoinUser(userVo);
+			userService.insertJoinUser(userVo);
 		}
 		return "user/join/user_join_success";
 	}
