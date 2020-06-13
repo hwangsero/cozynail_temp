@@ -37,7 +37,7 @@
 
 		<script src="<c:url value='/js/main.min.js' />"></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js'></script>
+		<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js'></script> --> <!-- 콘솔에러 발생하여 임시 주석처리 (Uncaught SyntaxError: Unexpected token export)-->
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js'></script>
 		<script id="rendered-js">
 		/*
