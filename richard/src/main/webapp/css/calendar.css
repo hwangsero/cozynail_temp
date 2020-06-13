@@ -1,0 +1,26 @@
+.detail-table tbody tr {
+	margin-bottom: 10px;
+}
+.detail-table tbody th {
+	width : 100px;
+}
+.detail-table tbody td {
+	border: hidden;
+	padding: 0px;
+}
+
+.detail-savebtn {
+	background-color : #4160b8;
+	color: white;
+	margin-bottom : 10px;
+	float: right;
+	height: 38px;
+	width: 50px;
+}
+
+.detail-input {
+	width: 390px; 
+	height: 41px;
+	border-spacing: 0px;
+	font-size: 14pt;
+}

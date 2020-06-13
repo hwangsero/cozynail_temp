@@ -39,14 +39,26 @@ public class MainController {
 	private MainService mainService;
 
 	@RequestMapping(value={"user/main.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String goLogin(Model model) throws RichardException{
+	public String main_con(Model model) throws RichardException{
 		return "redirect:/main.do";
 	}
 
 	@RequestMapping(value={"main.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String login(Model model) throws RichardException{
+	public String main(Model model) throws RichardException{
 		logger.info(">>>>>>>>  main");
 		mainService.getMainList();
 		return "main";
+	}
+
+	@RequestMapping(value={"calendar.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String calen_ex(Model model) throws RichardException{
+		logger.info(">>>>>>>>  calendar");
+		return "calendar/calendar";
+	}
+
+	@RequestMapping(value={"calendar_detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String calen_ex2(Model model) throws RichardException{
+		logger.info(">>>>>>>>  calendar_detail");
+		return "calendar/detail";
 	}
 }
