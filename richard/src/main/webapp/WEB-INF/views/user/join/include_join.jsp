@@ -57,9 +57,9 @@
     </div>
     <div class="reg-input">
       <div class="radio-con">
-        <input class="mr-2" type="radio" name="gender" id="male" value='male' checked/>
+        <input class="mr-2" type="radio" name="gender" id="male" value='M' checked/>
         <label for="male" class="mr-2">남자</label>
-        <input class="mr-2" type="radio" name="gender" id="female" value='female'/>
+        <input class="mr-2" type="radio" name="gender" id="female" value='F'/>
         <label for="female">여자</label>
       </div>
     </div>
@@ -70,7 +70,7 @@
       생년월일
     </div>
     <div class="reg-input-wrap">
-      <input type="date" name="birthDate" id="birthdate" />
+      <input type="date" name="birth_date" id="birth_date" />
     </div>
   </div>
 
@@ -108,7 +108,7 @@
       이메일 수신여부
     </div>
     <div class="reg-checkbox">
-      <input class="reg-submit mr-2" id="emailCheck" name="emailCheck" type="checkbox">
+      <input class="reg-submit mr-2" id="email_yn" name="email_yn" type="checkbox">
       <label for="">본 사이트에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</label>
     </div>
   </div>

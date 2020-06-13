@@ -71,6 +71,7 @@ function userJoin() {
 	});
 	//email이 올바른지 검증 추가 해야함.
 
+	//전화번호 최대 4글자 체크. value값도 수정.
 	phoneNum.val($('#phoneFirst').val() + $('#phoneSecond').val() + $('#phoneThird').val());
 
 	if(!checkedNumber($('#phoneFirst')) || !checkedNumber($('#phoneSecond')) || !checkedNumber($('#phoneThird'))){
@@ -78,6 +79,7 @@ function userJoin() {
 		return false;
 	}
 
+	//비밀번호 암호화도 추후에 추가해야함.
 	if($('#password1').val() != $('#password2').val()){
 		alert("비밀번호가 일치하지 않습니다.");
 		return false;

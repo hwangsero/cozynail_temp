@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void insertLog(UserVo vo) throws RichardException{
-		userDao.insertLog(vo);
+		//userDao.insertLog(vo);
 
 //		try {
 //			userDao.insertLog(vo);
@@ -51,9 +51,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void insertJoinUser(UserVo vo) throws RichardException {
-		// TODO Auto-generated method stub
-
+	public boolean insertJoinUser(UserVo vo) throws RichardException {
+		return userDao.insertJoinUser(vo);
 	}
 
 	@Override

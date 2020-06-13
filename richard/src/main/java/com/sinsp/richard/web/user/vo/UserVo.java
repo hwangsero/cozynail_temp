@@ -21,10 +21,16 @@ public class UserVo implements Serializable{
 	private String name;
 	private String nickname;
 	private String gender;
-	private String birthDate;
+	private String birth_date;
 	private String phone;
+	private String reg_date;
+	private String reg_ip;
+	private String last_login_ip;
+	private String last_login_date;
+	private String user_img;
 	private String email;
-	private Boolean emailCheck;
+	private String email_yn;
+	private String email_cert_yn;
 	private String address;
 
 	//class를 decompile하여 확인하면 getter, setter, tostring이 자동으로 생성되어 있는 것을 확인 할 수 있음.

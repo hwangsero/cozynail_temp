@@ -7,8 +7,8 @@
       <title>Richard MAIN</title>
       <script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
     </head>
-<body>
-    <div class="container-fluid">
+<body >
+    <div class="container-fluid" style="min-height: 66vh;">
         <div class="row">
             <div class="col-md-12">
                 <h5>즐겨찾는 회원</h5>

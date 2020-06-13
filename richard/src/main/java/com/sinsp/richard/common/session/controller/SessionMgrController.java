@@ -62,7 +62,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 			// DB에서 읽어온다.
 			if(pageList == null) {
 				pageList = beanCommService.getPageList();
-				pageArray = pageList.toArray(new String[pageList.size()]);
+				pageArray = pageList.toArray(new String[pageList.size() + 2]);
 				log.info("pageList : " + pageList);
 			}
 

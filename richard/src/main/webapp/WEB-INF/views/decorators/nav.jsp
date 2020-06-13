@@ -128,7 +128,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/calendar.do">
                 <i class="fa fa-calendar"></i>
                 <span>달력</span>
               </a>
