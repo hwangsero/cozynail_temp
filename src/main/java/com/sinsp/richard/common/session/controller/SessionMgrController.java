@@ -60,13 +60,45 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 			String[] uriData = uriTemp.split("/");
 
 			// DB에서 읽어온다.
-			if(pageList == null) {
-				pageList = beanCommService.getPageList();
-				pageArray = pageList.toArray(new String[pageList.size() + 2]);
-				log.info("pageList : " + pageList);
-			}
+//			if(pageList == null) {
+//				pageList = beanCommService.getPageList();
+//				pageArray = pageList.toArray(new String[pageList.size() + 2]);
+//				log.info("pageList : " + pageList);
+//			}
+//
+//			String[] excludePage = pageArray;
 
-			String[] excludePage = pageArray;
+			//String [] excludeSubDir	= {"login"}; //체크 페이지 디렉토리
+			String [] excludePage	= {
+					"log.do"
+					, "main.do"
+					, "EmplyrCreat.do"
+					, "myweb.do"
+					, "user_login.do"
+					, "include_join.do"
+					, "include_login.do"
+					, "user_join_success.do"
+					, "user_login_fail.do"
+					, "login_process.do"
+					, "user_id_check_ajax.do"
+					, "user_nickname_check_ajax.do"
+					, "myPageMain.do"
+					, "activeList.do"
+					, "likeUserList.do"
+					, "curriculums.do"
+					, "UserMng.do"
+					, "calendar.do"
+					, "detail.do"
+					, "statistics.do"
+					, "member.do"
+					, "register.do"
+					, "wherecozynail.do"
+					, "rates.do"
+					, "onevsone.do"
+					, "faq.do"
+					}; //체크 페이지
+
+			//String [] levelSubDir	= {"file", "image"};	// 권한 페이지
 
 			// 세션이 있을때
 			if(session != null) {

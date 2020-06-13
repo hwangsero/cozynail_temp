@@ -9,6 +9,7 @@
 		<link rel='stylesheet' href="<c:url value='/css/bootstrap.css' />">
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
 		<link href="<c:url value='/css/main.css' />" rel="stylesheet" type="text/css">
+		<script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
 		<script>
 		    window.console = window.console || function (t) { };
 		    if (document.location.search.match(/type=embed/gi)) {

@@ -3,7 +3,7 @@
 	<nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
         <div class="sidebar-brand">
-          <a href="#">Youtube Lecture Management</a>
+          <a href="#">COZY NAIL 코지네일</a>
           <div id="close-sidebar">
             <i class="fas fa-times"></i>
           </div>
@@ -22,7 +22,7 @@
             </span>
           </div>
         </div>
-<!-- 통합검색창 :: S -->
+<!-- 통합검색창 :: S
         <div class="sidebar-search">
           <div>
             <div class="input-group">
@@ -35,33 +35,30 @@
             </div>
           </div>
         </div>
-<!-- 통합검색창 :: E -->
+통합검색창 :: E -->
         <div class="sidebar-menu">
           <ul>
             <li class="header-menu">
-              <span>Hello</span>
+              <span></span>
             </li>
             <li>
               <a href="/main.do">
                 <i class="fa fa-folder"></i>
-                <span>Home</span>
+                <span>코지 네일 살롱 소개</span>
               </a>
             </li>
             <li class="sidebar-dropdown" id="mypage">
-              <a href="/manage/myPageMain.do">
-                <i class="fa fa-chart-line"></i>
-                <span>마이페이지</span>
-                <span class="badge badge-pill badge-warning">New</span>
+              <a href="javascript:void(0);">
+                <i class="fa fa-book"></i>
+                <span>예약 현황</span>
+                <!-- <span class="badge badge-pill badge-warning">New</span> -->
               </a>
               <div class="sidebar-submenu" id="mypage-sub">
                 <ul>
                   <li>
-                    <a href="#" onclick="alert('개발중입니다');">나의 커리큘럼
-                      <span class="badge badge-pill badge-success">Pro</span>
+                    <a href="/manage/myPageMain.do">나의 커리큘럼
+                      <!-- <span class="badge badge-pill badge-success">Pro</span>-->
                     </a>
-                  </li>
-                  <li>
-                    <a href="#" onclick="alert('개발중입니다');">커리큘럼 진행</a>
                   </li>
                   <li>
                     <a href="/manage/activeList.do">활동</a>
@@ -72,59 +69,43 @@
                 </ul>
               </div>
             </li>
-            <li class="sidebar-dropdown">
-              <a href="#">
+            <li class="sidebar-dropdown" id="priceplace">
+              <a href="javascript:void(0);">
                 <i class="far fa-gem"></i>
-                <span>커리큘럼 카테고리</span>
-                <span class="badge badge-pill badge-danger">3</span>
+                <span>가격 & 장소</span>
+                <!-- <span class="badge badge-pill badge-danger">3</span> -->
               </a>
-              <div class="sidebar-submenu">
-                <ul><!--이건 유튜브 카테고리 그대로 쓴것.-->
-                  <li><a href="#">자동차</a></li>
-                  <li><a href="#">뷰티/패션</a></li>
-                  <li><a href="#">코미디</a></li>
-                  <li><a href="#">교육</a></li>
-                  <li><a href="#">엔터테인먼트</a></li>
-                  <li><a href="#">가족 엔터테인먼트</a></li>
-                  <li><a href="#">영화/애니메이션</a></li>
-                  <li><a href="#">음식</a></li>
-                  <li><a href="#">게임</a></li>
-                  <li><a href="#">노하우/스타일</a></li>
-                  <li><a href="#">음악</a></li>
-                  <li><a href="#">뉴스/정치</a></li>
-                  <li><a href="#">비영리/사회운동</a></li>
-                  <li><a href="#">인물/블로그</a></li>
-                  <li><a href="#">애완동물/동물</a></li>
-                  <li><a href="#">과학기술</a></li>
-                  <li><a href="#">스포츠</a></li>
-                  <li><a href="#">여행/이벤트</a></li>
+              <div class="sidebar-submenu" id="priceplace-sub">
+                <ul>
+                  <li><a href="/wherecozynail.do">오시는 길</a></li>
+                  <li><a href="/rates.do">가격표</a></li>
                 </ul>
               </div>
             </li>
-            <li class="sidebar-dropdown">
+            <li class="sidebar-dropdown" id="questions">
               <a href="javascript:void(0);">
                 <i class="fa fa-globe"></i>
-                <span>관리자 페이지</span>
+                <span>문의사항</span>
               </a>
-              <div class="sidebar-submenu">
+              <div class="sidebar-submenu" id="questions-sub">
                 <ul>
                   <li>
-                    <a href="javascript:void(0);">회원 관리</a>
+                    <a href="/faq.do">FAQ</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0);">리뷰 글 관리</a>
+                    <a href="/onevsone.do">1:1 문의</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li class="header-menu">
-              <span>Extra</span>
+              <span>관리자페이지</span>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-book"></i>
-                <span>리뷰보드</span>
-                <span class="badge badge-pill badge-primary">Beta</span>
+              <a href="/statistics.do">
+                <i class="fa fa-chart-line"></i>
+                <span>통계</span>
+                <!-- <span class="badge badge-pill badge-primary">Beta</span>-->
               </a>
             </li>
             <li>
@@ -140,24 +121,24 @@
       </div>
 
       <div class="sidebar-footer">
-      	<!-- 알림 -->
+      	<!-- 알림
         <a href="#" style="margin-top: 10px;">
           <i class="fa fa-bell"></i>
           <span class="badge badge-pill badge-warning notification">3</span>
         </a>
-        <!--쪽지함-->
+        <!--쪽지함
         <a href="#" style="margin-top: 10px;">
           <i class="fa fa-envelope"></i>
           <span class="badge badge-pill badge-success notification">7</span>
         </a>
-        <!--내 정보 수정-->
+        <!--내 정보 수정
         <a href="#" style="margin-top: 10px;">
           <i class="fa fa-cog"></i>
           <span class="badge-sonar"></span>
-        </a>
+        </a>-->
         <!-- 로그인/로그아웃 -->
         <a href="/user/user_login.do" style="margin-top: 10px;">
-			<i class="fa fa-power-off"></i>
+			<i class="fa fa-power-off"> 로그인</i>
 		</a>
       </div>
     </nav>

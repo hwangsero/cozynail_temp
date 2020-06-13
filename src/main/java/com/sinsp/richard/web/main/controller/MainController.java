@@ -56,9 +56,45 @@ public class MainController {
 		return "calendar/calendar";
 	}
 
-	@RequestMapping(value={"calendar_detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value={"/{id}/detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String calen_ex2(Model model) throws RichardException{
 		logger.info(">>>>>>>>  calendar_detail");
 		return "calendar/detail";
+	}
+
+	@RequestMapping(value={"statistics.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String statistics(Model model) throws RichardException{
+		logger.info(">>>>>>>>  statistics");
+		return "statistics/statistics";
+	}
+	@RequestMapping(value={"member.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String member(Model model) throws RichardException{
+		logger.info(">>>>>>>>  member");
+		return "member/member";
+	}
+	@RequestMapping(value={"register.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String register(Model model) throws RichardException{
+		logger.info(">>>>>>>>  register");
+		return "member/register";
+	}
+	@RequestMapping(value={"wherecozynail.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String place(Model model) throws RichardException{
+		logger.info(">>>>>>>>  wherecozynail");
+		return "place/map";
+	}
+	@RequestMapping(value={"rates.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String rates(Model model) throws RichardException{
+		logger.info(">>>>>>>>  rates");
+		return "rates/rates";
+	}
+	@RequestMapping(value={"faq.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String faq(Model model) throws RichardException{
+		logger.info(">>>>>>>>  faq");
+		return "questions/faq";
+	}
+	@RequestMapping(value={"onevsone.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String onevsone(Model model) throws RichardException{
+		logger.info(">>>>>>>>  onevsone");
+		return "questions/1vs1";
 	}
 }

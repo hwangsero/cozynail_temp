@@ -5,40 +5,40 @@
 
 <html>
 <head>
-	<title>Home</title>
-	<script src="/resources/js/utils/fullcalendar/core/main.js"></script>
-	<script src="/resources/js/utils/fullcalendar/daygrid/main.js"></script>
-	<script src="/resources/js/utils/fullcalendar/timegrid/main.js"></script>
-	<script src="/resources/js/utils/fullcalendar/interaction/main.js"></script>
-	<script src="/resources/js/utils/fullcalendar/list/main.js"></script>
-	<link rel="stylesheet" href="/resources/css/calendar.css" />
-	<link rel="stylesheet" href="/resources/js/utils/fullcalendar/core/main.css"/>
-	<link rel="stylesheet" href="/resources/js/utils/fullcalendar/daygrid/main.css"/>
-	<link rel="stylesheet" href="/resources/js/utils/fullcalendar/list/main.css"/>
-	<link rel="stylesheet" href="/resources/js/utils/fullcalendar/timegrid/main.css"/>
+	<title>Calendar</title>
+	<script src='<c:url value="/js/utils/fullcalendar/core/main.js" />'></script>
+	<script src='<c:url value="/js/utils/fullcalendar/daygrid/main.js" />'></script>
+	<script src='<c:url value="/js/utils/fullcalendar/timegrid/main.js" />'></script>
+	<script src='<c:url value="/js/utils/fullcalendar/interaction/main.js" />'></script>
+	<script src='<c:url value="/js/utils/fullcalendar/list/main.js" />'></script>
+	<link rel="stylesheet" href='<c:url value="/css/calendar.css" />' />
+	<link rel="stylesheet" href='<c:url value="/js/utils/fullcalendar/core/main.css" />'/>
+	<link rel="stylesheet" href='<c:url value="/js/utils/fullcalendar/daygrid/main.css" />'/>
+	<link rel="stylesheet" href='<c:url value="/js/utils/fullcalendar/list/main.css" />'/>
+	<link rel="stylesheet" href='<c:url value="/js/utils/fullcalendar/timegrid/main.css" />'/>
 </head>
 <body>
+<div class="container-fluid" style="min-height: 66vh;">
+        <div class="row">
+          <div id='calendar' class="form-group col-md-offset-2 col-md-10 ">
 
-<div>
-  <div style="max-width: 600px; margin: 50px auto 0px auto">
-    <div id='calendar'></div>
-
-    <div class="price-con">
-      <div class="">
-        <div class="">현금 : 1원</div>
-        <div class="">이체 : 1원</div>
-        <div class="">카드 : 1원</div>
-        <div class="">현:영 : 1원</div>
-        <div class="">외상 : 1원</div>
-      </div>
-      <div class="">
-        <div class="">총 월 매출</div>
-        <div class="">원장님 : 50원</div>
-        <div class="">선생님A : 50원</div>
-        <div class="">선생님B : 50원</div>
-      </div>
-    </div>
-  </div>
+          </div>
+        </div>
+        <div class="price-con">
+			<div class="">
+			  <div class="">현금 : 1원</div>
+			  <div class="">이체 : 1원</div>
+			  <div class="">카드 : 1원</div>
+			  <div class="">현:영 : 1원</div>
+			  <div class="">외상 : 1원</div>
+			</div>
+			<div class="">
+			  <div class="">총 월 매출</div>
+			  <div class="">원장님 : 50원</div>
+			  <div class="">선생님A : 50원</div>
+			  <div class="">선생님B : 50원</div>
+			</div>
+        </div>
 </div>
 
 <script>
