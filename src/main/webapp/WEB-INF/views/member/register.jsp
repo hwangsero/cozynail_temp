@@ -1,36 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>코지 네일 신규 회원 등록</title>
+</head>
+<body>
+<div class="container-fluid" style="min-height: 66vh;">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">신규 회원 등록</h4>
+              <p>회원 가입 입력 양식</p>
+            </div>
+			<form class="login" name="login-form">
+			  <div class="form-group row">
+			    <label for="name" class="col-sm-2 col-form-label">이름</label>
+			    <div class="col-sm-10">
+			      <input id="name" type="text" class="form-control">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="phone" class="col-sm-2 col-form-label">연락처</label>
+			    <div class="col-sm-10">
+			      <input id="phone" type="text" class="form-control">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="email" class="col-sm-2 col-form-label">Email</label>
+			    <div class="col-sm-10">
+			      <input id="email" type="text" class="form-control">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="email" class="col-sm-11 col-form-label"></label>
+			    <div class="col">
+			      <input type="button" class="btn btn-dark" value="저장" onclick="validForm()">
+			    </div>
+			  </div>
 
-<h2 class="page_title">신규 회원 등록</h2>
-<div class="group_form_wrap">
-	<div class="group_form">
-		<form name="RegisterForm">
-			<fieldset>
-				<legend>회원 가입 입력 양식</legend>
-				<div class="group_form_item">
-					<span class="form_name">이름</span>
-		            <span class="inp_box">
-		            <input type="text" name="clientNm" title="이름 입력" class="inp_not_full">
-		            </span>
-				</div>
-				<div class="group_form_item">
-					<span class="form_name">연락처</span>
-		            <span class="inp_box">
-		            <input type="text" name="clientTel" title="연락처 입력" class="inp_not_full">
-		            </span>
-				</div>
-				<div>
-					<button id="saveRegister" type="submit" onclick="validForm(event);">저장</button>
-				</div>
-				
-				<!-- 중복방지 Token Parameter -->
-				<input type="hidden" name="TOKEN_KEY" value="${TOKEN_KEY }" />
-				<!-- 중복방지 Token Parameter -->
-			</fieldset>
-		</form>
+			  <!-- 중복방지 Token Parameter -->
+			  <input type="hidden" name="TOKEN_KEY" value="${TOKEN_KEY }" />
+			  <!-- 중복방지 Token Parameter -->
+			</form>
+		</div>
 	</div>
 </div>
-
 
 <script>
 	function validForm(event) {
@@ -41,9 +57,9 @@
 		form.action = "${pageContext.request.contextPath}/registersuccess.do"
 		form.submit();
 	}
-	
+
 	/* $(document).ready(function(){
-		  
+
 		  $("#saveRegister").click(function(event){
 			  confirm("등록하시겠습니까?"
 					  ,function(event){
@@ -51,11 +67,14 @@
 				  		validForm(event);
 			 		  }
 			  		  ,function(){
-						return false;			  
+						return false;
 					  }
 			  );
-			  
+
 		  });
-		  
+
 	  }); */
 </script>
+
+</body>
+</html>

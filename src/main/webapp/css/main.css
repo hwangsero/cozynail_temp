@@ -1149,3 +1149,9 @@
 .pagination {
    justify-content: center;
 }
+
+/*---------테이블 셀렉트----------*/
+.row-selected {
+    background-color: gray !important;
+    font-weight: bold;
+}

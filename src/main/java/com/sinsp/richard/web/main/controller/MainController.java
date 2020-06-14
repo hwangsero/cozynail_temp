@@ -72,9 +72,9 @@ public class MainController {
 		logger.info(">>>>>>>>  member");
 		return "member/member";
 	}
-	@RequestMapping(value={"register.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value={"toRegister.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String register(Model model) throws RichardException{
-		logger.info(">>>>>>>>  register");
+		logger.info(">>>>>>>>  toRegister.do");
 		return "member/register";
 	}
 	@RequestMapping(value={"wherecozynail.do"}, method={RequestMethod.POST, RequestMethod.GET})
