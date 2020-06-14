@@ -47,27 +47,11 @@
                 <span>코지 네일 살롱 소개</span>
               </a>
             </li>
-            <li class="sidebar-dropdown" id="mypage">
-              <a href="javascript:void(0);">
-                <i class="fa fa-book"></i>
+            <li>
+              <a href="/calendar.do">
+                <i class="fa fa-calendar"></i>
                 <span>예약 현황</span>
-                <!-- <span class="badge badge-pill badge-warning">New</span> -->
               </a>
-              <div class="sidebar-submenu" id="mypage-sub">
-                <ul>
-                  <li>
-                    <a href="/manage/myPageMain.do">나의 커리큘럼
-                      <!-- <span class="badge badge-pill badge-success">Pro</span>-->
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/manage/activeList.do">활동</a>
-                  </li>
-                  <li>
-                    <a href="/manage/likeUserList.do">즐겨찾는 회원</a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li class="sidebar-dropdown" id="priceplace">
               <a href="javascript:void(0);">
@@ -109,9 +93,10 @@
               </a>
             </li>
             <li>
-              <a href="/calendar.do">
-                <i class="fa fa-calendar"></i>
-                <span>달력</span>
+              <a href="/member.do">
+                <i class="fa fa-book"></i>
+                <span>회원 관리</span>
+                <!-- <span class="badge badge-pill badge-warning">New</span> -->
               </a>
             </li>
             <!-- 추후에 지울 예정 -->

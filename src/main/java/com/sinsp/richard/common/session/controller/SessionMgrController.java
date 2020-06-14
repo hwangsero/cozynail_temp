@@ -91,7 +91,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "detail.do"
 					, "statistics.do"
 					, "member.do"
-					, "register.do"
+					, "toRegister.do"
 					, "wherecozynail.do"
 					, "rates.do"
 					, "onevsone.do"
