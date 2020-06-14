@@ -114,7 +114,14 @@
                 <span>달력</span>
               </a>
             </li>
-
+            <!-- 추후에 지울 예정 -->
+			<li>
+              <a href="/user/EmplyrCreat.do">
+                <i class="fa fa-calendar"></i>
+                <span>부트스트랩 샘플 페이지</span>
+              </a>
+            </li>
+             <!-- 추후에 지울 예정 -->
           </ul>
         </div>
 
