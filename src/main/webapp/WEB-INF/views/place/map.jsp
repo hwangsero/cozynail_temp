@@ -11,11 +11,15 @@
 <div class="container-fluid" style="min-height: 66vh;">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row col-md-offset-6 col-md-6"  style="font-size: 3em;">
+			<div class="col-md-offset-5 col-md-6"  style="font-size: 3em;">
 	      		<p class="text-center">코지 네일 오시는 길</p>
 	       	</div>
 			<div id="map" style="width:500px;height:400px;"></div>
 		</div>
+	</div>
+	<div class="row" style="margin:2px auto;">
+		<a target="_blank" href="https://map.kakao.com/link/to/코지네일살롱,37.4759787,126.9614359" class="btn btn-primary">길찾기 바로가기</a>
+		<a target="_blank" href="https://map.kakao.com/link/roadview/37.4759787,126.9614359" class="btn btn-info">로드뷰</a>
 	</div>
 </div>
 
@@ -35,6 +39,13 @@
 	});
 	// 지도에 마커를 표시합니다
 	marker.setMap(map);
+
+	// 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">코지네일살롱</div>'
+    });
+    infowindow.open(map, marker);
+
 </script>
 <script>
 	$(document).ready(function () {
