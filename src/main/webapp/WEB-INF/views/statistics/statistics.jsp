@@ -3,10 +3,49 @@
 <html>
 <head>
 	<title>Home</title>
+	<!-- 차트 링크 -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <body>
 
 <div class="container-fluid" style="min-height: 66vh;">
+<!-- 도넛 차트 예시 -->
+<div class="container">
+    <div class="row my-3">
+        <div class="col">
+            <h4>Bootstrap 4 Chart.js</h4>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-md-4 py-1">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="chDonut1"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 바 차트 예시 -->
+<div class="container">
+    <div class="row my-3">
+        <div class="col">
+            <h4>Bootstrap 4 Chart.js - Bar Chart</h4>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="chBar" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <form id="frm" name="frm" method="post">
 	<div class="custom-control custom-radio custom-control-inline">
 		<input type="radio" class="custom-control-input" id="RD" name="RDNM" value="YY" /><label class="custom-control-label" for="RD">연간</label>
@@ -124,9 +163,85 @@ $(document).ready(function(){
 	});
 });
 
+</script>
 
+<script>
+/* chart.js chart examples */
 
+//chart colors
+var colors = ['#007bff','#28a745','#444444','#c3e6cb','#dc3545','#6c757d'];
 
+var chBar = document.getElementById("chBar");
+var chartData = {
+labels: ["S", "M", "T", "W", "T", "F", "S"],
+datasets: [{
+ data: [589, 445, 483, 503, 689, 692, 634],
+ backgroundColor: colors[0]
+},
+{
+ data: [209, 245, 383, 403, 589, 692, 580],
+ backgroundColor: colors[1]
+},
+{
+ data: [489, 135, 483, 290, 189, 603, 600],
+ backgroundColor: colors[2]
+},
+{
+ data: [639, 465, 493, 478, 589, 632, 674],
+ backgroundColor: colors[4]
+}]
+};
+
+if (chBar) {
+new Chart(chBar, {
+type: 'bar',
+data: chartData,
+options: {
+ scales: {
+   xAxes: [{
+     barPercentage: 0.4,
+     categoryPercentage: 0.5
+   }],
+   yAxes: [{
+     ticks: {
+       beginAtZero: false
+     }
+   }]
+ },
+ legend: {
+   display: false
+ }
+}
+});
+}
+</script>
+
+<script>
+var donutOptions = {
+		  cutoutPercentage: 85,
+		  legend: {position:'bottom',
+		       labels:{pointStyle:'circle',
+		       usePointStyle:true}
+		  }
+		};
+		var chDonutData1 = {
+		    labels: ['Bootstrap', 'Popper', 'Other'],
+		    datasets: [
+		      {
+		        backgroundColor: colors.slice(0,3),
+		        borderWidth: 0,
+		        data: [74, 11, 40]
+		      }
+		    ]
+		};
+		var chDonut1 = document.getElementById("chDonut1");
+		if (chDonut1) {
+		  new Chart(chDonut1, {
+		      type: 'pie',
+		      data: chDonutData1,
+		      options: donutOptions
+		  });
+		}
 </script>
 </body>
 </html>
