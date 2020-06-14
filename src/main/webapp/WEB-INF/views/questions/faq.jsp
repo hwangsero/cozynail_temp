@@ -15,6 +15,32 @@
 	       	</div>
 		</div>
 	</div>
+	<div class="row">
+          <div class="form-group col-md-12">
+          <ul class="nav nav-tabs">
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" href="#qwe">자주받는 질문1</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#asd">자주받는 질문2</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#zxc">자주받는 질문3</a>
+			  </li>
+			</ul>
+			<div class="tab-content">
+			  <div class="tab-pane fade show active" id="qwe">
+			    <p>자주받는 질문의 답변 내용.111111111111111111111111111111111</p>
+			  </div>
+			  <div class="tab-pane fade" id="asd">
+			    <p>Nunc vitae turpis id nibh sodales commodo et non augue. Proin fringilla ex nunc. Integer tincidunt risus ut facilisis tristique.</p>
+			  </div>
+			  <div class="tab-pane fade" id="zxc">
+			    <p>Curabitur dignissim quis nunc vitae laoreet. Etiam ut mattis leo, vel fermentum tellus. Sed sagittis rhoncus venenatis. Quisque commodo consectetur faucibus. Aenean eget ultricies justo.</p>
+			  </div>
+			</div>
+          </div>
+        </div>
 </div>
 <script>
 	$(document).ready(function () {

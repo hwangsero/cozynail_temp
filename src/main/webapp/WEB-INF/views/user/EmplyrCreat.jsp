@@ -77,10 +77,12 @@
             <p class="text-danger">테이블 리스트, 테이블 리스트, 테이블 리스트, 테이블 리스트</p>
             <button type="button" class="btn btn-primary">버튼</button>
             <button type="button" class="btn btn-success">버튼</button>
-            <button type="button" class="btn btn-waring">버튼</button>
+            <button type="button" class="btn btn-warning">버튼</button>
             <button type="button" class="btn btn-info">버튼</button>
             <button type="button" class="btn btn-danger">버튼</button>
 			<button type="button" class="btn btn-default ">버튼</button>
+			<button type="button" class="btn btn-light">Light</button>
+			<button type="button" class="btn btn-dark">Dark</button>
             <div class="alert alert-success" role="alert">
               <h4 class="alert-heading">New !</h4>
               <p>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
