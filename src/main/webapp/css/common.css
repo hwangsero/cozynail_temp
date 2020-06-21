@@ -1,0 +1,340 @@
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+}
+
+.video-dim {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  background-color: black;
+  opacity: 0.6;
+}
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.login-wrap .login-form {
+  width: 100%;
+  text-align: center;
+}
+
+.login-input {
+  margin-bottom: 30px;;
+}
+
+.login-input label {
+  color: white;
+  font-size: 15px;
+  width: 80px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+}
+
+login-input label.black {
+  color: black;
+}
+
+.login-input input {
+  text-align: left;
+  border-radius: 4px;
+  padding:5px 10px;
+  outline: none;
+  box-shadow: 0 1px 2px 0 #efe4e0;
+  border: solid 1px #9d9b9b;
+  background-color: #ffffff;
+  font-size:16px;
+  box-sizing: border-box;
+  color: black;
+}
+
+.price-con {
+  display: flex;
+}
+
+.table-wrap {
+  max-width: 800px;
+  margin : 0 auto;
+}
+
+.table-wrap.type2 {
+  max-width: 1200px;
+}
+
+.table-con.type2 {
+  display: flex;
+  align-items: center;
+}
+
+.table-style3 {
+  width: 100%;
+  background-color:white;
+}
+
+.table-style3.wi250 {
+  width:250px;
+}
+
+.table-style3.wi800 {
+  width:800px;
+}
+.table-style3 tr{
+  cursor: pointer;
+}
+.table-style3 tr.active{
+  background-color:#ea9643;
+}
+.table-style3 tr.active td{
+  color:white;
+}
+
+.table-style3 thead th, .table-style3 thead td, .table-style3 tbody th{
+  background-color: #4160b8;
+  padding:10px;
+  font-size:15px;
+  font-size:1.5rem;
+  line-height:21px;
+  line-height:2.1rem;
+  border-right: 1px solid #e8ecef;
+  text-align: center; color:white;
+}
+
+.table-style3 thead td.today{
+  background-color: black;
+}
+
+.table-between {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.table-style3 td.hide {
+  display: none;
+}
+
+.table-style3 thead th:last-child{
+  border-right:none;
+}
+
+
+.table-style3 tbody td {
+  text-align: center;
+  padding:5px;
+  font-size:13px;
+  font-size:1.3rem;
+  line-height:19px;
+  line-height:1.9rem;
+  border:1px solid #e8ecef;
+}
+.table-style3 tbody td.active{
+  background-color:#4160b8;
+}
+.table-style3 tbody th {
+  text-align: center;
+  padding:5px;
+  font-size:14px;
+  font-size:1.4rem;
+  line-height:20px;
+  line-height:2.0rem;
+}
+
+.sub {
+  padding-top: 50px;
+}
+
+.title {
+  font-size:30px;
+}
+
+.chkbox-wrap {
+  display: flex;
+}
+
+.chkbox-con {
+  font-size: 0;
+  margin-bottom: 16px;
+  color: black;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+}
+
+.chkbox-con input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px 0 #efe4e0;
+  border: solid 1px #959595;
+  background-color: #ffffff;
+  appearance: none;
+  outline: none; cursor: pointer;
+  margin:0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.chkbox-con input[type="checkbox"] + label {
+  font-size:14px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left:8px;
+}
+
+.chkbox-con input[type="checkbox"]:checked {
+  box-shadow: 0 1px 2px 0 #efe4e0;
+  background-color: #333333;
+  background-image: url("../img/check-img.png");
+  background-size: 10px 8px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #333333;
+}
+
+.chkbox-con input[type="checkbox"]:checked + label {
+  cursor: pointer;
+  position: relative;
+}
+
+/* body {margin: 10px; font-size: 13px} */
+/* .where { */
+/*   display: block; */
+/*   margin: 25px 15px; */
+/*   font-size: 11px; */
+/*   color: #000; */
+/*   text-decoration: none; */
+/*   font-family: verdana; */
+/*   font-style: italic; */
+/* } */
+
+.checks {position: relative;}
+.checks input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+.checks input[type="radio"] + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.checks input[type="radio"] + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  width: 21px;
+  height: 21px;
+  text-align: center;
+  background: #fafafa;
+  border: 1px solid #cacece;
+  border-radius: 100%;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+}
+.checks input[type="radio"] + label:active:before,
+.checks input[type="radio"]:checked + label:active:before  {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.checks input[type="radio"]:checked + label:before {
+  background: #E9ECEE;
+  border-color: #adb8c0;
+}
+.checks input[type="radio"]:checked + label:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 13px;
+  height: 13px;
+  background: #99a1a7;
+  border-radius: 100%;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+/* radio size */
+.checks.small input[type="radio"] + label {
+  font-size: 14px;
+  padding-left: 25px;
+}
+.checks.small input[type="radio"] + label:before {
+    top: -2px;
+  width: 17px;
+  height: 17px;
+}
+.checks.small input[type="radio"]:checked + label:after {
+    top: 3px;
+  width: 9px;
+  height: 9px;
+}
+
+/* layer popup */
+.layer_popup {
+  display: none;
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  line-height: normal;
+  z-index: 99;
+  text-align: initial;
+}
+.layer_popup .dim {
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, .4);
+}
+.layer_popup .popup_box {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 500px; min-height: 200px;
+  padding: 0 40px 40px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-top: 6px solid #4160b8;
+}
+.layer_popup .popup_box .popup_title {
+  display: block;
+  margin-top: 40px;
+  font-size: 22px; font-weight: 400;
+  text-align: center;
+}
+.layer_popup .popup_box .popup_con {
+  margin-top: 30px;
+}
+.layer_popup .popup_box .popup_con .txt_desc {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.56;
+}
+.layer_popup .popup_box .popup_con .btn_wrap .btn {
+  width: 140px;
+}
+.layer_popup .popup_box .btn_pop_close {
+  position: absolute;
+  right: -42px; top: 0;
+  width: 32px; height: 32px;
+  background: url(../img/ico-close.png) no-repeat center;
+}
+.layer_popup.open {
+  display: block;
+}

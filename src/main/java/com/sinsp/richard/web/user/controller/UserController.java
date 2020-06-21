@@ -226,4 +226,10 @@ public class UserController {
 		userService.insertLog(vo);
 		return "user/log";
 	}
+	// 회원 로그인/가입 메인 페이지
+	@RequestMapping(value={"login.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String login() throws RichardException{
+
+		return "user/login";
+	}
 }

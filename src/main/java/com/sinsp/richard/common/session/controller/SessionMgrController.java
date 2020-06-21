@@ -96,6 +96,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "rates.do"
 					, "onevsone.do"
 					, "faq.do"
+					, "login.do"
 					}; //체크 페이지
 
 			//String [] levelSubDir	= {"file", "image"};	// 권한 페이지
