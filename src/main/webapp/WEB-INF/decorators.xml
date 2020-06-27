@@ -9,6 +9,7 @@
 		<pattern>/user/user_join_success.*</pattern>
 		<pattern>/user/user_login_fail.*</pattern>
 		<pattern>/login/loginForm</pattern>
+		<pattern>/user/login.*</pattern>
 	</excludes>
 
 	<!-- decorator를 사용할 url 패턴-->
