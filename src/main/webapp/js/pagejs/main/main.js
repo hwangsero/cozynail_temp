@@ -2,4 +2,8 @@
 $(function () {
 
 
-})
+});
+
+function nicknameCheck(){
+	
+}
