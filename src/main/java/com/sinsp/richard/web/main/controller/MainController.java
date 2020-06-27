@@ -82,11 +82,6 @@ public class MainController {
 		logger.info(">>>>>>>>  rates");
 		return "information/rates";
 	}
-	@RequestMapping(value={"faq.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String faq(Model model) throws RichardException{
-		logger.info(">>>>>>>>  faq");
-		return "questions/faq";
-	}
 	@RequestMapping(value={"onevsone.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String onevsone(Model model) throws RichardException{
 		logger.info(">>>>>>>>  onevsone");
