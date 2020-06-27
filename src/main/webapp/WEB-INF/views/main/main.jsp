@@ -6,16 +6,20 @@
 	  <meta charset="UTF-8">
 	  <title>Richard MAIN</title>
 	  <link rel='stylesheet' href="<c:url value='/css/timeline.css' />">
-	  <script src='<c:url value="/js/pagejs/main.js" />'></script>
+	  <script src='<c:url value="/js/pagejs/main/main.js" />'></script>
 	  <script async src="//www.instagram.com/embed.js"></script>
 	</head>
 <body>
 
-<div class="container">
-    <div class="page-header">
+<div class="container-fluid" style="min-height: 66vh;">
+    <div class="row page-header">
         <h1 id="timeline">Timeline</h1>
     </div>
-    <ul class="timeline">
+    <!-- jstl로 관리자 버튼 조절할것. -->
+    <div class="row col-sm-12 justify-content-end">
+		<button type="button" class="btn btn-dark" onclick="location.href='main_write_form.do'">글쓰기</button>
+    </div>
+    <ul class="timeline col-sm-12">
         <li>
           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">

@@ -47,7 +47,14 @@ public class MainController {
 	public String main(Model model) throws RichardException{
 		logger.info(">>>>>>>>  main");
 		mainService.getMainList();
-		return "main";
+		return "main/main";
+	}
+
+	@RequestMapping(value={"main_write_form.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String main_write(Model model) throws RichardException{
+		logger.info(">>>>>>>>  main_write_form");
+
+		return "main/write_form";
 	}
 
 	@RequestMapping(value={"calendar.do"}, method={RequestMethod.POST, RequestMethod.GET})
