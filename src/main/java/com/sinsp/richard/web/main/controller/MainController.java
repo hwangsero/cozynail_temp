@@ -67,11 +67,7 @@ public class MainController {
 		logger.info(">>>>>>>>  member");
 		return "member/member";
 	}
-	@RequestMapping(value={"toRegister.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String register(Model model) throws RichardException{
-		logger.info(">>>>>>>>  toRegister.do");
-		return "member/register";
-	}
+
 	@RequestMapping(value={"wherecozynail.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String place(Model model) throws RichardException{
 		logger.info(">>>>>>>>  wherecozynail");
@@ -81,11 +77,6 @@ public class MainController {
 	public String rates(Model model) throws RichardException{
 		logger.info(">>>>>>>>  rates");
 		return "information/rates";
-	}
-	@RequestMapping(value={"faq.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String faq(Model model) throws RichardException{
-		logger.info(">>>>>>>>  faq");
-		return "questions/faq";
 	}
 	@RequestMapping(value={"onevsone.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String onevsone(Model model) throws RichardException{

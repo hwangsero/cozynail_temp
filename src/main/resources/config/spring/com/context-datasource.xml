@@ -10,9 +10,9 @@
 
    <bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-      <property name="url" value="jdbc:mysql://www.skysky.xyz:1562/richard?serverTimezone=UTC"></property>
-      <property name="username" value="snoopy147"></property>
-      <property name="password" value="wltjs147"></property>
+      <property name="url" value="jdbc:mysql://www.skysky.xyz:1562/naildb?serverTimezone=UTC"></property>
+      <property name="username" value="hslee"></property>
+      <property name="password" value="1q2w3e4r"></property>
    </bean><!--  연동만 하는 역할 -->
    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
       <constructor-arg ref="dataSourceProxy" />

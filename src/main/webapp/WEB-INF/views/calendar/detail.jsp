@@ -114,7 +114,7 @@
 
 		    },
 		    complete : function(){
-
+				console.log("gg");
 			}
 	});
 

@@ -15,7 +15,7 @@
    이렇게 하나씩 대입되는 이름들을 맞춰주면 데이터를 잘 받아온다
    주의할 점은 이름이 다른 것들만 써주는 것이 아니라 써주려면 전부 다 써줘야 한다는 것 -->
 
-   <select id="selectCalendarAll" resultType="kr.co.sinsp.calendar.vo.reserveVO" parameterType="kr.co.sinsp.calendar.vo.reserveVO">
+   <select id="selectCalendarAll" resultType="com.sinsp.richard.web.calendar.vo.reserveVO" parameterType="com.sinsp.richard.web.calendar.vo.reserveVO">
         SELECT
 			 rm.RESERVE_TIME as reserveTime
 			,cm.CLIENT_NM as clientNm
@@ -25,7 +25,7 @@
 			,rm.PAY_STATE as payState
 			,wrm.WORKER_NM as workerNm
 			,cm.COUPON as coupon
-			,rm.RESERVE_DATE as reserveDate
+			,DATE_FORMAT(rm.RESERVE_DATE,'%Y%m%d') as reserveDate
 		FROM naildb.reserve_master rm
 		INNER JOIN naildb.client_master cm
 		ON rm.CLIENT_NO = cm.CLIENT_NO
@@ -37,25 +37,4 @@
 		ON rm.WORKER_CODE = wrm.WORKER_CODE
    </select>
 
-   <select id="getReserveInfo" resultType="kr.co.sinsp.calendar.vo.reserveVO" parameterType="kr.co.sinsp.calendar.vo.reserveVO">
-   		SELECT
-			 rm.RESERVE_TIME as reserveTime
-			,cm.CLIENT_NM as clientNm
-			,cm.CLIENT_TEL as clientTel
-			,wm.WORK_NM as workNm
-			,rm.OTHER_INFO as otherInfo
-			,rm.PAY_STATE as payState
-			,wrm.WORKER_NM as workerNm
-			,cm.COUPON as coupon
-		FROM naildb.reserve_master rm
-		INNER JOIN naildb.client_master cm
-		ON rm.CLIENT_NO = cm.CLIENT_NO
-		LEFT JOIN naildb.work_master wm
-		ON rm.WORK_STATE = wm.WORK_STATE
-		LEFT JOIN naildb.pay_master pm
-		ON rm.PAY_STATE = pm.PAY_STATE
-		LEFT JOIN naildb.worker_master wrm
-		ON rm.WORKER_CODE = wrm.WORKER_CODE
-		WHERE rm.RESERVE_DATE = '2020-05-31'
-   </select>
 </mapper>

@@ -48,7 +48,7 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
       eventClick: function(info) {
         console.log(info.event);
-        location.href="/1/detail.do"
+        location.href="/detail.do"
       },
       eventDrop: function(info) {
         console.log(info.event)

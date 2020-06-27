@@ -2,4 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="DetailMapper">
+	<select id="getReserveInfo" resultType="com.sinsp.richard.web.calendar.vo.reserveVO" parameterType="com.sinsp.richard.web.calendar.vo.reserveVO">
+   		SELECT
+			 rm.RESERVE_TIME as reserveTime
+			,cm.CLIENT_NM as clientNm
+			,cm.CLIENT_TEL as clientTel
+			,wm.WORK_NM as workNm
+			,rm.OTHER_INFO as otherInfo
+			,rm.PAY_STATE as payState
+			,wrm.WORKER_NM as workerNm
+			,cm.COUPON as coupon
+		FROM naildb.reserve_master rm
+		INNER JOIN naildb.client_master cm
+		ON rm.CLIENT_NO = cm.CLIENT_NO
+		LEFT JOIN naildb.work_master wm
+		ON rm.WORK_STATE = wm.WORK_STATE
+		LEFT JOIN naildb.pay_master pm
+		ON rm.PAY_STATE = pm.PAY_STATE
+		LEFT JOIN naildb.worker_master wrm
+		ON rm.WORKER_CODE = wrm.WORKER_CODE
+		WHERE rm.RESERVE_DATE = '2020-05-31'
+   </select>
 </mapper>

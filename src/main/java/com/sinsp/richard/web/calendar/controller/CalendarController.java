@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sinsp.richard.common.exception.RichardException;
 import com.sinsp.richard.web.calendar.service.CalendarService;
 import com.sinsp.richard.web.calendar.vo.reserveVO;
 
@@ -38,4 +39,10 @@ public class CalendarController {
         model.addAttribute("calList", result);
         return "calendar/calendar";
     }
+
+    @RequestMapping(value={"/detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String calen_ex2(Model model) throws RichardException{
+		logger.info(">>>>>>>>  calendar_detail");
+		return "calendar/detail";
+	}
 }
