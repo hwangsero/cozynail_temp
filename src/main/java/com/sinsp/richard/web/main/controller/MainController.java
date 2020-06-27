@@ -50,18 +50,6 @@ public class MainController {
 		return "main";
 	}
 
-	@RequestMapping(value={"calendar.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String calen_ex(Model model) throws RichardException{
-		logger.info(">>>>>>>>  calendar");
-		return "calendar/calendar";
-	}
-
-	@RequestMapping(value={"/{id}/detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String calen_ex2(Model model) throws RichardException{
-		logger.info(">>>>>>>>  calendar_detail");
-		return "calendar/detail";
-	}
-
 	@RequestMapping(value={"statistics.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String statistics(Model model) throws RichardException{
 		logger.info(">>>>>>>>  statistics");
