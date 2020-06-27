@@ -40,7 +40,7 @@ public class CalendarController {
         return "calendar/calendar";
     }
 
-    @RequestMapping(value={"/detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value={"/{id}/detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String calen_ex2(Model model) throws RichardException{
 		logger.info(">>>>>>>>  calendar_detail");
 		return "calendar/detail";

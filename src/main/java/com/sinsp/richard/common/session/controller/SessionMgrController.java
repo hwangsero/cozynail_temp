@@ -98,6 +98,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "faq.do"
 					, "login.do"
 					, "main_write_form.do"
+					, "getReserveInfo.do"
 					}; //체크 페이지
 
 			//String [] levelSubDir	= {"file", "image"};	// 권한 페이지
@@ -123,6 +124,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 		}
 
 		if(check != true) {
+
 			if(session == null) {
 				response.sendRedirect("/login/login.do?GBN=SESSIONOUT");
 			} else {
