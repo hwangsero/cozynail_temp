@@ -47,7 +47,14 @@ public class MainController {
 	public String main(Model model) throws RichardException{
 		logger.info(">>>>>>>>  main");
 		mainService.getMainList();
-		return "main";
+		return "main/main";
+	}
+
+	@RequestMapping(value={"main_write_form.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public String main_write(Model model) throws RichardException{
+		logger.info(">>>>>>>>  main_write_form");
+
+		return "main/write_form";
 	}
 
 	@RequestMapping(value={"statistics.do"}, method={RequestMethod.POST, RequestMethod.GET})
@@ -68,12 +75,12 @@ public class MainController {
 	@RequestMapping(value={"wherecozynail.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String place(Model model) throws RichardException{
 		logger.info(">>>>>>>>  wherecozynail");
-		return "place/map";
+		return "information/map";
 	}
 	@RequestMapping(value={"rates.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String rates(Model model) throws RichardException{
 		logger.info(">>>>>>>>  rates");
-		return "rates/rates";
+		return "information/rates";
 	}
 	@RequestMapping(value={"faq.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String faq(Model model) throws RichardException{

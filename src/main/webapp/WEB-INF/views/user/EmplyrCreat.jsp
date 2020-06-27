@@ -9,7 +9,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-          <div class="form-group col-md-12">
+          <div class="form-group col-sm-12">
           <ul class="nav nav-tabs">
 			  <li class="nav-item">
 			    <a class="nav-link active" data-toggle="tab" href="#qwe">QWE</a>
