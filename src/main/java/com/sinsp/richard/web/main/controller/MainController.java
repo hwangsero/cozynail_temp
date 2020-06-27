@@ -87,12 +87,12 @@ public class MainController {
 	@RequestMapping(value={"wherecozynail.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String place(Model model) throws RichardException{
 		logger.info(">>>>>>>>  wherecozynail");
-		return "place/map";
+		return "information/map";
 	}
 	@RequestMapping(value={"rates.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String rates(Model model) throws RichardException{
 		logger.info(">>>>>>>>  rates");
-		return "rates/rates";
+		return "information/rates";
 	}
 	@RequestMapping(value={"faq.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String faq(Model model) throws RichardException{
