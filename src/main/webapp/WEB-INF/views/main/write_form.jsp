@@ -15,7 +15,7 @@
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
     </div>
-
+<!-- 핀의 색깔은 라디오버튼으로 추후에 추가 예정 일단은 회색으로 고정 -->
 <div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert">

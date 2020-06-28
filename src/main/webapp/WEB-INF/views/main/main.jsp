@@ -19,13 +19,17 @@
     <div class="row col-sm-12 justify-content-end">
 		<button type="button" class="btn btn-dark" onclick="location.href='main_write_form.do'">글쓰기</button>
     </div>
+
     <ul class="timeline col-sm-12">
         <li>
           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">
+	        <button type="button" class="btn btn-dark" onclick="">수정</button>
+        	<button type="button" class="btn btn-dark" onclick="">삭제</button>
+        	<p>작성자 이름 - 전화번호</p>
             <div class="timeline-heading">
               <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>2020.06.28</small></p>
             </div>
             <div class="timeline-body">
               <img src="<c:url value='/img/cozy/95799837_137445281229552_3014634905752523466_n.jpg' />" />
