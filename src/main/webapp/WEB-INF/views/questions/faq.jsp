@@ -5,42 +5,36 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>코지 네일 FAQ</title>
+	<link rel='stylesheet' href="<c:url value='/css/faq.css' />">
 </head>
 <body>
 <div class="container-fluid" style="min-height: 66vh;">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row col-md-offset-6 col-md-6"  style="font-size: 3em;">
-	      		<p class="text-center">FAQ</p>
-	       	</div>
-		</div>
-	</div>
-	<div class="row">
-          <div class="form-group col-md-12">
-          <ul class="nav nav-tabs">
-			  <li class="nav-item">
-			    <a class="nav-link active" data-toggle="tab" href="#qwe">자주받는 질문1</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link" data-toggle="tab" href="#asd">자주받는 질문2</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link" data-toggle="tab" href="#zxc">자주받는 질문3</a>
-			  </li>
-			</ul>
-			<div class="tab-content">
-			  <div class="tab-pane fade show active" id="qwe">
-			    <p>자주받는 질문의 답변 내용.111111111111111111111111111111111</p>
-			  </div>
-			  <div class="tab-pane fade" id="asd">
-			    <p>Nunc vitae turpis id nibh sodales commodo et non augue. Proin fringilla ex nunc. Integer tincidunt risus ut facilisis tristique.</p>
-			  </div>
-			  <div class="tab-pane fade" id="zxc">
-			    <p>Curabitur dignissim quis nunc vitae laoreet. Etiam ut mattis leo, vel fermentum tellus. Sed sagittis rhoncus venenatis. Quisque commodo consectetur faucibus. Aenean eget ultricies justo.</p>
-			  </div>
-			</div>
-          </div>
-        </div>
+  <h1>FAQ</h1>
+
+  <div class="col-sm-12">
+
+    <div class="tab">
+      <input id="tab-one" type="checkbox" name="tabs">
+      <label for="tab-one">자주받는 질문 첫번째</label>
+      <div class="tab-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+      </div>
+    </div>
+    <div class="tab">
+      <input id="tab-two" type="checkbox" name="tabs">
+      <label for="tab-two">자주받는 질문 두번째</label>
+      <div class="tab-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+      </div>
+    </div>
+    <div class="tab">
+      <input id="tab-three" type="checkbox" name="tabs">
+      <label for="tab-three">자주받는 질문 세번째</label>
+      <div class="tab-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
 	$(document).ready(function () {
