@@ -99,6 +99,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "login.do"
 					, "main_write_form.do"
 					, "getReserveInfo.do"
+					, "main_write_submit.do"
 					}; //체크 페이지
 
 			//String [] levelSubDir	= {"file", "image"};	// 권한 페이지

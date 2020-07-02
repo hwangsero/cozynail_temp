@@ -7,7 +7,6 @@
 	  <title>Richard MAIN</title>
 	  <link rel='stylesheet' href="<c:url value='/css/timeline.css' />">
 	  <script src='<c:url value="/js/pagejs/main/main.js" />'></script>
-	  <script async src="//www.instagram.com/embed.js"></script>
 	</head>
 <body>
 
@@ -22,7 +21,21 @@
               <h4 class="alert-heading">타임 라인 등록</h4>
               <p>타임라인 등록 화면</p>
             </div>
-			<form class="login" name="login-form">
+			<form class="form" name="timeline-form">
+			  <div class="form-group row">
+			    <label for="title" class="col-sm-2 col-form-label">핀 색깔</label>
+			    <div class="btn-group col-sm-10" role="group" aria-label="color pick">
+				    <button id="green" name="green" type="button" class="btn btn-success">GREEN</button>
+				    <button id="sky" name="sky" type="button" class="btn btn-info">SKY</button>
+				    <button id="blue" name="blue" type="button" class="btn btn-primary">BLUE</button>
+				    <button id="red" name="red" type="button" class="btn btn-danger">RED</button>
+				    <button id="orange" name="orange" type="button" class="btn btn-warning">ORANGE</button>
+				    <button id="gray" name="gray" type="button" class="btn btn-secondary">GRAY</button>
+				    <input id="color" name="color" type="text" class="form-control" readonly>
+			    </div>
+
+			  </div>
+
 			  <div class="form-group row">
 			    <label for="title" class="col-sm-2 col-form-label">제목</label>
 			    <div class="col-sm-10">

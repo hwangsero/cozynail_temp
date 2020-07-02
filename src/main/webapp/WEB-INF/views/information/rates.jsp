@@ -8,48 +8,113 @@
 </head>
 <body>
 <div class="container-fluid" style="min-height: 66vh;">
+	<h1>NAIL</h1>
 	<div class="row">
-      <!-- Free Tier -->
+      <!-- NAIL 여성 -->
       <div class="col-lg-4">
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
-            <h6 class="card-price text-center">$0<span class="period">/month</span></h6>
+            <h5 class="card-title text-muted text-uppercase text-center">nail(여)</h5>
+            <h6 class="card-price text-center">15,000</h6>
             <hr>
             <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited Private Projects</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>케어</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>영양</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>손젤(풀칼라)</li>
             </ul>
           </div>
         </div>
       </div>
-      <!-- Plus Tier -->
+      <!-- Nail 여 -->
       <div class="col-lg-4">
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">Plus</h5>
-            <h6 class="card-price text-center">$9<span class="period">/month</span></h6>
+            <h5 class="card-title text-muted text-uppercase text-center">nail(여)</h5>
+            <h6 class="card-price text-center">50,000</h6>
             <hr>
             <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Users</strong></li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Free Subdomain</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>케어</strong></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>영양</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>손젤(풀칼라)</li>
             </ul>
           </div>
         </div>
       </div>
-      <!-- Pro Tier -->
+      <!-- Nail 남-->
+      <div class="col-lg-4">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">nail(남)</h5>
+            <h6 class="card-price text-center">20,000</h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>케어</strong></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>영양</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>손젤(풀칼라)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>PEDI</h1>
+	<div class="row">
+      <!-- PEDI -->
+      <div class="col-lg-4">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">pedi</h5>
+            <h6 class="card-price text-center">25,000</h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>케어</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>영양</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>발젤(풀칼라)</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>발 각질</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- PEDI -->
+      <div class="col-lg-4">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">nail(남)</h5>
+            <h6 class="card-price text-center">50,000</h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>케어</strong></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>영양</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>손젤(풀칼라)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Nail 남-->
+      <div class="col-lg-4">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">nail(남)</h5>
+            <h6 class="card-price text-center">20,000</h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>케어</strong></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>영양</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>손젤(풀칼라)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="row">
+    	<!-- Pro Tier -->
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">

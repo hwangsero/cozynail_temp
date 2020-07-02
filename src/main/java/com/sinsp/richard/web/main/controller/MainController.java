@@ -1,15 +1,25 @@
 package com.sinsp.richard.web.main.controller;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sinsp.richard.common.exception.RichardException;
+import com.sinsp.richard.common.util.TokenMngUtil;
 import com.sinsp.richard.web.main.service.MainService;
+import com.sinsp.richard.web.main.vo.MainVo;
 
 
 /**
@@ -44,18 +54,55 @@ public class MainController {
 	}
 
 	@RequestMapping(value={"main.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String main(Model model) throws RichardException{
+	public ModelAndView main(Model model) throws RichardException{
 		logger.info(">>>>>>>>  main");
-		mainService.getMainList();
-		return "main/main";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main/main");
+		ArrayList<MainVo> list = mainService.getMainList();// mainList 불러옴.
+
+		logger.info(list.toString());
+		mav.addObject("mainList",list);
+
+		//관리자 여부 값 넘겨줘야함.
+
+		return mav;
 	}
 
 	@RequestMapping(value={"main_write_form.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String main_write(Model model) throws RichardException{
+	public String main_write(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info(">>>>>>>>  main_write_form");
-
+		TokenMngUtil.saveToken(request);
+		model.addAttribute("TOKEN_KEY", request.getAttribute("TOKEN_KEY"));
 		return "main/write_form";
 	}
+
+	@RequestMapping(value={"main_write_submit.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView main_write_submit(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
+		logger.info(">>>>>>>>  main_write_submit");
+		logger.info(mainVo.toString());
+		logger.info((String) request.getAttribute("TOKEN_KEY"));
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main/write_submit_end");
+		int count = 0;
+
+		if (TokenMngUtil.isTokenValid(request)) {
+			logger.info("@@@@@@@@ : CSRF 공격 방어");
+			// 세션 삭제 (세션을 먼저 삭제해야함)
+			TokenMngUtil.resetToken(request);
+			// DB 로직 구현
+			// count = mainService.insert();
+			count = 1;
+		}
+		if(count == 1) {
+			mav.addObject("msg", "success");
+		} else {
+			mav.addObject("msg", "fail");
+		}
+		return mav;
+	}
+
+
+
 
 	@RequestMapping(value={"statistics.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String statistics(Model model) throws RichardException{

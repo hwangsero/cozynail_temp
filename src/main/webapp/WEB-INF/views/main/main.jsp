@@ -7,7 +7,6 @@
 	  <title>Richard MAIN</title>
 	  <link rel='stylesheet' href="<c:url value='/css/timeline.css' />">
 	  <script src='<c:url value="/js/pagejs/main/main.js" />'></script>
-	  <script async src="//www.instagram.com/embed.js"></script>
 	</head>
 <body>
 
@@ -21,81 +20,51 @@
     </div>
 
     <ul class="timeline col-sm-12">
-        <li>
-          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+
+    <c:forEach var="vo" items="${mainList}" varStatus="status">
+   	<c:if test="${status.count %2 != 0 }">
+   		<li>
+   	</c:if>
+   	<c:if test="${status.count %2 == 0 }">
+   		<li class="timeline-inverted">
+   	</c:if>
+   	<c:choose>
+   		<c:when test="${vo.color == 'GN' }">
+   		  <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+   		</c:when>
+   		<c:when test="${vo.color == 'SK' }">
+   		  <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
+   		</c:when>
+   		<c:when test="${vo.color == 'BL' }">
+   		  <div class="timeline-badge primary"><i class="glyphicon glyphicon-credit-card"></i></div>
+   		</c:when>
+   		<c:when test="${vo.color == 'RE' }">
+   		  <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+   		</c:when>
+   		<c:when test="${vo.color == 'OR' }">
+   		  <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+   		</c:when>
+   		<c:otherwise>
+   		  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+   		</c:otherwise>
+   	</c:choose>
           <div class="timeline-panel">
+        <!-- 관리자 :: S -->
 	        <button type="button" class="btn btn-dark" onclick="">수정</button>
         	<button type="button" class="btn btn-dark" onclick="">삭제</button>
-        	<p>작성자 이름 - 전화번호</p>
+        	<p>${vo.userNm} : ${vo.userTel }</p>
+        <!-- 관리자 :: E -->
             <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>2020.06.28</small></p>
+              <h4 class="timeline-title">${vo.title }</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>${vo.updateDate }</small></p>
             </div>
             <div class="timeline-body">
-              <img src="<c:url value='/img/cozy/95799837_137445281229552_3014634905752523466_n.jpg' />" />
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
-              Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
-              Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-              Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim.
-              Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              <img src="${vo.photoUrl }" />
+              <p>${vo.content}</p>
             </div>
           </div>
         </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <img src="<c:url value='/img/cozy/93600498_244156393616139_6459269023249327437_n.jpg' />">
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <img src="<c:url value='/img/cozy/93189889_169012144566792_7288159270551491299_n.jpg' />">
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-credit-card"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <img src="<c:url value='/img/cozy/91618656_2811207475663361_255030066860166892_n.jpg' />">
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <img src="<c:url value='/img/cozy/100947322_290022428680257_4490345737638263887_n.jpg' />" />
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
+    </c:forEach>
     </ul>
 </div>
 </body>

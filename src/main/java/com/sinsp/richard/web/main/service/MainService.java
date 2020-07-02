@@ -1,6 +1,9 @@
 package com.sinsp.richard.web.main.service;
 
+import java.util.ArrayList;
+
+import com.sinsp.richard.web.main.vo.MainVo;
 
 public interface MainService {
-	public void getMainList();
+	public ArrayList<MainVo> getMainList();
 }
