@@ -3,18 +3,6 @@
 
 <mapper namespace="CalendarMapper">
 
-   <!-- DB의 자료를 가져올때 DB Table의 컬럼명과 자바빈 클래스의 변수명을 맞춰 주면,
-   자동으로 데이터를 입력시켜주지만 DB Table과 변수명이 다를 경우도 있다. -->
-   <!-- <resultMap id="studyListResult" type="com.co.kr.common.vo.StudyListVo">
-      <result property="id" column="CODE_ID" jdbcType="VARCHAR" />
-      <result property="nm" column="CODE_NM" jdbcType="VARCHAR" />
-      <result property="sex" column="SEX_CODE" jdbcType="VARCHAR" />
-   </resultMap> -->
-
-   <!-- 주의사항
-   이렇게 하나씩 대입되는 이름들을 맞춰주면 데이터를 잘 받아온다
-   주의할 점은 이름이 다른 것들만 써주는 것이 아니라 써주려면 전부 다 써줘야 한다는 것 -->
-
    <select id="selectCalendarAll" resultType="com.sinsp.richard.web.calendar.vo.reserveVO" parameterType="com.sinsp.richard.web.calendar.vo.reserveVO">
         SELECT
 			 rm.RESERVE_TIME as reserveTime

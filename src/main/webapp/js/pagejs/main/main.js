@@ -46,16 +46,22 @@ function Save(){
 	}
 }
 
-function idCheck(){
+function deleteItem(no, title){
 	$.ajax({
 		type:"post",
-	   	url:"/user/user_id_check_ajax.do",
-	    dataType:"json",
+	   	url:"/main_delete_item.do",
+	   	dataType:"json",
+	   	data:{
+	   		no : no,
+	   		title : title
+	   	},
 	    success:function(data){
-	    	//alert(data.result);
-	    	alert(data.msg);
-	    	if(data.result == 'Y'){
-	    		isIdOk = true;
+	    	if(data.result == 'Succ'){
+	    		alert("삭제 성공");
+	    	} else if (data.result == 'Fail'){
+	    		alert("삭제 실패");
+	    	} else {
+	    		alert("삭제 실패");
 	    	}
 	    },
 	    error: function(xhr,status,error){
@@ -67,6 +73,11 @@ function idCheck(){
 	    complete:function()
 	    {
 	     	//여기에 로딩중 아이콘 hide
+	    	window.location.href = 'main.do'
 	    }
     });
+}
+
+function updateItem(no){
+	window.location.href = "/main_update_item.do?no="+no
 }

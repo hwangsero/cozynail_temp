@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MainMapper">
+
+   <sql id="UserWhereInclude">
+      WHERE USER_ID = #{userId}
+   </sql>
+
+   <insert id="insertTimeline" parameterType="com.sinsp.richard.web.main.vo.MainVo">
+      INSERT INTO TIME_LINE
+         (
+			tl_title,
+			tl_photo,
+			tl_content,
+			user_tel,
+			user_nm,
+			tl_color,
+			create_date,
+			update_date
+         ) VALUES (
+			#{ title},
+			#{ photoUrl},
+			#{ content},
+			#{ userTel},
+			#{ userNm},
+			#{ color},
+			CURRENT_TIMESTAMP,
+			CURRENT_TIMESTAMP
+         )
+      /* com.sinsp.richard.web.main.dao.mainDao.insertTimeline */
+   </insert>
+   <select id="getMainList" resultType="com.sinsp.richard.web.main.vo.MainVo">
+      SELECT tl_no as no,
+      		 tl_title as title,
+			 tl_photo as photoUrl,
+			 tl_content as content,
+			 user_tel as userTel,
+			 user_nm as userNm,
+			 tl_color as color,
+			 create_date as createDate,
+			 update_date as updateDate
+	  FROM TIME_LINE
+	  order by no desc
+      /* com.sinsp.richard.web.main.dao.mainDao.getMainList */
+   </select>
+
+   <delete id="deleteMainItem" parameterType="com.sinsp.richard.web.main.vo.MainVo">
+     DELETE FROM time_line
+	 WHERE  tl_no 		= #{ no}
+	 AND 	tl_title 	= #{ title}
+   </delete>
+
+   <select id="getMainItem" parameterType="com.sinsp.richard.web.main.vo.MainVo" resultType="com.sinsp.richard.web.main.vo.MainVo">
+      SELECT * FROM time_line
+	 	WHERE  tl_no 		= #{ no}
+      /* com.sinsp.richard.web.main.dao.mainDao.getMainList */
+   </select>
+
+
+</mapper>

@@ -21,7 +21,7 @@
               <h4 class="alert-heading">타임 라인 등록</h4>
               <p>타임라인 등록 화면</p>
             </div>
-			<form class="form" name="timeline-form">
+			<form class="form" name="timeline-form" enctype="multipart/form-data">
 			  <div class="form-group row">
 			    <label for="title" class="col-sm-2 col-form-label">핀 색깔</label>
 			    <div class="btn-group col-sm-10" role="group" aria-label="color pick">

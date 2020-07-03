@@ -50,8 +50,8 @@
    	</c:choose>
           <div class="timeline-panel">
         <!-- 관리자 :: S -->
-	        <button type="button" class="btn btn-dark" onclick="">수정</button>
-        	<button type="button" class="btn btn-dark" onclick="">삭제</button>
+	        <button type="button" class="btn btn-dark" onclick="updateItem('${vo.no }')">수정</button>
+        	<button type="button" class="btn btn-dark" onclick="deleteItem('${vo.no }','${vo.title }')">삭제</button>
         	<p>${vo.userNm} : ${vo.userTel }</p>
         <!-- 관리자 :: E -->
             <div class="timeline-heading">
@@ -59,7 +59,7 @@
               <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>${vo.updateDate }</small></p>
             </div>
             <div class="timeline-body">
-              <img src="${vo.photoUrl }" />
+              <img src="${vo.photoUrl }" /> <!-- photo, content null 허용. -->
               <p>${vo.content}</p>
             </div>
           </div>

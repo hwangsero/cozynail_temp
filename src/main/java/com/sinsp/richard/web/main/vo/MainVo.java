@@ -2,6 +2,8 @@ package com.sinsp.richard.web.main.vo;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -19,7 +21,9 @@ public class MainVo implements Serializable{
 	private String createDate; // 등록일자
 	private String updateDate; // 수정일자
 
-	/*
+	MultipartFile photo;
+
+	/* color
 	 	GN(그린)
 		SK(스카이)
 		BL(블루)

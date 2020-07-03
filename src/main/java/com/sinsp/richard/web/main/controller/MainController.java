@@ -1,6 +1,9 @@
 package com.sinsp.richard.web.main.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sinsp.richard.common.exception.RichardException;
@@ -79,19 +83,43 @@ public class MainController {
 	@RequestMapping(value={"main_write_submit.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView main_write_submit(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(">>>>>>>>  main_write_submit");
-		logger.info(mainVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main/write_submit_end");
 		int count = 0;
-
 		if (TokenMngUtil.isTokenValid(request)) {
 			logger.info("@@@@@@@@ : CSRF 공격 방어");
 			// 세션 삭제 (세션을 먼저 삭제해야함)
 			TokenMngUtil.resetToken(request);
+
+			//file 처리 :: S
+			String uploadPath=request.getSession().getServletContext().getRealPath("/upload/main/photo/");
+			File target = new File(uploadPath);
+			//폴더 없으면 폴더 생성
+            if(!target.exists()) target.mkdirs();
+
+	        MultipartFile photo = mainVo.getPhoto(); //나중에 공통함수에 다시 정리할것.
+	        logger.info("================== file start ==================");
+            logger.info("파일 이름: "+photo.getName());
+            logger.info("파일 실제 이름: "+photo.getOriginalFilename());
+            logger.info("파일 크기: "+photo.getSize());
+            logger.info("content type: "+photo.getContentType());
+            logger.info("================== file   END ==================");
+
+            String saveFileName = UUID.randomUUID().toString().replaceAll("-", "") + photo.getOriginalFilename();
+            target = new File(uploadPath, saveFileName);
+            try {
+				photo.transferTo(target);
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+            //file 처리 :: E
+            logger.info("/upload/main/photo/" + saveFileName);
+            mainVo.setPhotoUrl("/upload/main/photo/" + saveFileName);
 			// DB 로직 구현
-			// count = mainService.insert();
-			count = 1;
+            logger.info(mainVo.toString());
+			count = (int)mainService.insertTimeline(mainVo);
+			logger.info("$$$$$count: "+count);
 		}
 		if(count == 1) {
 			mav.addObject("msg", "success");
@@ -101,8 +129,34 @@ public class MainController {
 		return mav;
 	}
 
+	@RequestMapping(value={"main_delete_item.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView main_delete_item(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("jsonView");
+		int no = Integer.parseInt(request.getParameter("no"));
+		mainVo.setNo(no);
+		mainVo.setTitle(request.getParameter("title"));
+		logger.info("################################"+mainVo.toString());
+		int count = (int)mainService.deleteItem(mainVo);
+		if(count == 1) {
+			mav.addObject("result", "Succ");
+		} else {
+			mav.addObject("result", "Fail");
+		}
+		return mav;
+	}
 
-
+	@RequestMapping(value={"main_update_item.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView main_update_item(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main/write_form");
+		int no = Integer.parseInt(request.getParameter("no"));
+		mainVo.setNo(no);
+		logger.info("################################"+mainVo.toString());
+		mav.addObject("mainVo", mainService.getMainItem(mainVo));
+		mav.addObject("Type","M"); //수정모드
+		return mav;
+	}
 
 	@RequestMapping(value={"statistics.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public String statistics(Model model) throws RichardException{
