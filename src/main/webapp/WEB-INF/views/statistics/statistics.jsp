@@ -5,6 +5,7 @@
 	<title>Home</title>
 	<!-- 차트 링크 -->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
@@ -100,6 +101,7 @@
 		</table>
 	</div>
 </div>
+
 <script>
 //   var data = [
 //     {
@@ -139,10 +141,15 @@
 //     })
 //   })
 
+
+	$(document).ready(function() {
+		goSearch();
+	}
+
 /* 조회 */
 function goSearch() {
 	$.ajax({
-		url : "/",
+		url : "/getYearStaList.json",
 		data : convertToObject($("#frm"), true),
 		type : 'POST',
 		success : onSuccess
