@@ -196,14 +196,6 @@ public class UserController {
 		return mav;
 	}
 
-	// 예제용. 추후에 지울 예정.
-	@RequestMapping(value="log.do", method={RequestMethod.POST, RequestMethod.GET})
-	public String log(UserVo vo, Model model) throws RichardException{
-		vo.setName("윤지선");
-		logger.info(">>>>>>>>" + vo.toString());
-		userService.insertLog(vo);
-		return "user/log";
-	}
 	// 회원 로그인/가입 메인 페이지
 	@RequestMapping(value="login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String login() throws RichardException{
