@@ -16,7 +16,7 @@
 		INNER JOIN naildb.client_master cm
 		ON rm.CLIENT_NO = cm.CLIENT_NO
 		LEFT JOIN naildb.work_master wm
-		ON rm.WORK_STATE = wm.WORK_STATE
+		ON rm.WORK_KIND = wm.WORK_KIND
 		LEFT JOIN naildb.pay_master pm
 		ON rm.PAY_STATE = pm.PAY_STATE
 		LEFT JOIN naildb.worker_master wrm

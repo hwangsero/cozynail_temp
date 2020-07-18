@@ -19,8 +19,13 @@
 }
 
 .detail-input {
-	width: 390px; 
+	width: 390px;
 	height: 41px;
 	border-spacing: 0px;
 	font-size: 14pt;
+}
+
+.searchImg {
+	width: 10px;
+	height: 10px;
 }

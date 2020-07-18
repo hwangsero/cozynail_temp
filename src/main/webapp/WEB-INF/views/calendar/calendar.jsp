@@ -18,6 +18,33 @@
 	<link rel="stylesheet" href='<c:url value="/js/utils/fullcalendar/timegrid/main.css" />'/>
 </head>
 <body>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<input type="text" id="search"/>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid" style="min-height: 66vh;">
         <div class="row">
           <div id='calendar' class="form-group col-md-offset-2 col-md-10 ">
@@ -40,47 +67,93 @@
 			</div>
         </div>
 </div>
-
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var calendarList = <%= (List)request.getAttribute("calList") %>;
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      eventClick: function(info) {
-        console.log(info.event);
-        location.href="/1/detail.do"
-      },
-      eventDrop: function(info) {
-        console.log(info.event)
-      },
-      dateClick: function() {
-        alert('a day has been clicked!');
-      },
-      locale: 'ko',
-      plugins: [ 'dayGrid','interaction', 'timeGrid', 'list' ],
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,dayGridWeek,dayGridDay,listMonth'
-      },
-      navLinks: true, // can click day/week names to navigate views
-      businessHours: true, // display business hours
-      editable: true,
-      events: [
-        {
-          title: 'Business Lunch',
-          start: '2020-05-31T13:00:00',
-          constraint: 'businessHours',
-          id: "10"
-        },
-      ]
-    });
-    calendar.render();
-    calendarList.forEach( function (ele) {
-      console.log(ele)
-    })
-  });
-</script>
+	  var calendarList;
 
+	  viewCalendar();
+	  search();
+
+  });
+
+  function viewCalendar() {
+	  calendarList = <%= (List)request.getAttribute("calList") %>;
+	    var calendarEl = document.getElementById('calendar');
+	    var calendarData = new Array();
+	    calendarList.forEach( function (e) {
+	       calendarData.push({
+	          title: e.clientNm + '(' + e.workNm + ')',
+	            start: e.reserveDate,
+	            end: e.reserveDate,
+	            id: e.RESERVE_NO
+	      })
+	    });
+	    console.log(calendarData);
+
+	    var calendar = new FullCalendar.Calendar(calendarEl, {
+	      eventClick: function(info) {
+	    	var reserveDate = "";
+	    	reserveDate +=	info.event.start.getFullYear() + "-";
+	    	reserveDate +=	(info.event.start.getMonth() + 1) + "-";
+	    	reserveDate +=	info.event.start.getDate();
+
+	       location.href="/" + reserveDate + "/detail.do"
+	      },
+	      eventDrop: function(info) {
+	        console.log(info.event)
+	      },
+	      dateClick: function() {
+	        alert('a day has been clicked!');
+	      },
+	      locale: 'ko',
+	      plugins: [ 'dayGrid','interaction', 'timeGrid', 'list' ],
+	      header: {
+	        left: 'prev,next today',
+	        center: 'title',
+	        right: 'dayGridMonth,dayGridWeek,dayGridDay,listMonth'
+	      },
+	      navLinks: true, // can click day/week names to navigate views
+	      businessHours: true, // display business hours
+	      editable: true,
+	      events: calendarData
+
+	    });
+	    calendar.render();
+	    calendarList.forEach( function (ele) {
+	      console.log(ele)
+	    })
+  }
+
+  function search() {
+	  let searchInput = document.querySelector('#search');
+	  let tempq = [{
+			  e : 'g',
+			  q : 'q',
+			  w : 'w',
+			  r : 'e'
+	  },
+	  {
+		  e : 'g1',
+		  q : 'q1',
+		  w : 'w1',
+		  r : 'e1'
+  }]
+	  searchInput.addEventListener('keyup', function() {
+			let searchVal = searchInput.value;
+			let searchResult = tempq.filter(e => e.e.includes(searchVal));
+			let modalBody = document.querySelector('.modal-body')
+
+			modalBody.innerText = '';
+			if(searchVal === '') {
+			 return;
+			}
+			for(let i = 0; i < searchResult.length; i++) {
+			var addDiv = document.createElement('div');
+			addDiv.innerText = searchResult[i].e;
+			modalBody.appendChild(addDiv);
+			}
+	  });
+  }
+</script>
 </body>
 </html>
