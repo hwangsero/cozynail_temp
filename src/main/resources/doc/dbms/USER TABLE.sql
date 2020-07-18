@@ -1,5 +1,5 @@
 CREATE TABLE `user_master` (
-  `USER_NO` varchar(4) NOT NULL COMMENT '고객번호',
+  `USER_NO` int NOT NULL AUTO_INCREMENT COMMENT '회원번호',
   `USER_ID` varchar(20) not null COMMENT '아이디',
   `USER_PW` varchar(128) NOT NULL COMMENT '비밀번호',
   `USER_NM` varchar(20) DEFAULT NULL COMMENT '이름',
