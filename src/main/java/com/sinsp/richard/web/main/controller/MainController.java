@@ -52,12 +52,7 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 
-	@RequestMapping(value={"user/main.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String main_con(Model model) throws RichardException{
-		return "redirect:/main.do";
-	}
-
-	@RequestMapping(value={"main.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value={"/main.do", "/user/main.do"}, method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView main(Model model) throws RichardException{
 		logger.info(">>>>>>>>  main");
 		ModelAndView mav = new ModelAndView();
@@ -72,7 +67,7 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value={"main_write_form.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/main_write_form.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String main_write(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info(">>>>>>>>  main_write_form");
 		TokenMngUtil.saveToken(request);
@@ -80,7 +75,7 @@ public class MainController {
 		return "main/write_form";
 	}
 
-	@RequestMapping(value={"main_write_submit.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/main_write_submit.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView main_write_submit(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(">>>>>>>>  main_write_submit");
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
@@ -129,7 +124,7 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value={"main_delete_item.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/main_delete_item.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView main_delete_item(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
@@ -146,7 +141,7 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value={"main_update_item.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/main_update_item.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView main_update_item(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main/write_form");
@@ -158,32 +153,32 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value={"statistics.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/statistics.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String statistics(Model model) throws RichardException{
 		logger.info(">>>>>>>>  statistics");
 		return "statistics/statistics";
 	}
-	@RequestMapping(value={"member.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/member.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String member(Model model) throws RichardException{
 		logger.info(">>>>>>>>  member");
 		return "member/member";
 	}
-	@RequestMapping(value={"wherecozynail.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/wherecozynail.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String place(Model model) throws RichardException{
 		logger.info(">>>>>>>>  wherecozynail");
 		return "information/map";
 	}
-	@RequestMapping(value={"rates.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/rates.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String rates(Model model) throws RichardException{
 		logger.info(">>>>>>>>  rates");
 		return "information/rates";
 	}
-	@RequestMapping(value={"onevsone.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/onevsone.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String onevsone(Model model) throws RichardException{
 		logger.info(">>>>>>>>  onevsone");
 		return "questions/1vs1";
 	}
-	@RequestMapping(value={"faq.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/faq.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String faq(Model model) throws RichardException{
 		logger.info(">>>>>>>>  faq");
 		return "questions/faq";

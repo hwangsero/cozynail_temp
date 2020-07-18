@@ -49,7 +49,7 @@ import com.sinsp.richard.web.user.vo.UserVo;
  */
 //@RestController
 @Controller
-@RequestMapping(value={"/user"})
+@RequestMapping(value="/user")
 public class UserController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -80,14 +80,14 @@ public class UserController {
 		return "user/EmplyrCreat";
 	}
 	// 회원 로그인/가입 메인 페이지
-	@RequestMapping(value={"user_login.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="user_login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String user_login() throws RichardException{
 
 		return "user/user_login";
 	}
 
 	// 회원 가입 form
-	@RequestMapping(value={"include_join.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="include_join.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String include_join(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info("include_join");
 		TokenMngUtil.saveToken(request);
@@ -95,7 +95,7 @@ public class UserController {
 		return "user/join/include_join";
 	}
 	// 회원 로그인 form
-	@RequestMapping(value={"include_login.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="include_login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String include_login(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info("include_login");
 		TokenMngUtil.saveToken(request);
@@ -104,7 +104,7 @@ public class UserController {
 	}
 
 	// 회원 가입 성공
-	@RequestMapping(value={"user_join_success.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="user_join_success.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String user_join_success(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
@@ -141,7 +141,7 @@ public class UserController {
 	}
 
 	//아이디 중복체크
-	@RequestMapping(value= {"user_id_check_ajax.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value= "user_id_check_ajax.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView user_id_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
@@ -159,7 +159,7 @@ public class UserController {
 	}
 
 	//닉네임 중복체크
-	@RequestMapping(value= {"user_nickname_check_ajax.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value= "user_nickname_check_ajax.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView user_nickname_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
@@ -177,7 +177,7 @@ public class UserController {
 	}
 
 	// 회원 로그인 성공/실패
-	@RequestMapping(value={"login_process.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="login_process.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView login_process(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
@@ -219,7 +219,7 @@ public class UserController {
 	}
 
 	// 예제용. 추후에 지울 예정.
-	@RequestMapping(value={"log.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="log.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String log(UserVo vo, Model model) throws RichardException{
 		vo.setName("윤지선");
 		logger.info(">>>>>>>>" + vo.toString());
@@ -227,7 +227,7 @@ public class UserController {
 		return "user/log";
 	}
 	// 회원 로그인/가입 메인 페이지
-	@RequestMapping(value={"login.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String login() throws RichardException{
 
 		return "user/login";
