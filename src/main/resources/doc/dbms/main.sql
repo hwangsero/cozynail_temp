@@ -1,13 +1,3 @@
-CREATE TABLE `client_master` (
-  `CLIENT_NO` varchar(4) DEFAULT NULL COMMENT '고객번호',
-  `CLIENT_NM` varchar(20) DEFAULT NULL COMMENT '이름',
-  `CLIENT_TEL` varchar(20) DEFAULT NULL COMMENT '연락처',
-  `COUPON` varchar(4) DEFAULT NULL COMMENT '쿠폰현황',
-  `CREATE_DATE` date DEFAULT NULL COMMENT '등록일자',
-  `UPDATE_DATE` date DEFAULT NULL COMMENT '수정일자'
-) COMMENT='고객'
-
-----------------------------------------------------
 CREATE TABLE `time_line` (
   `tl_no` int(11) NOT NULL AUTO_INCREMENT COMMENT '타임라인 번호',
   `tl_title` varchar(255) NOT NULL COMMENT '타임라인 제목',

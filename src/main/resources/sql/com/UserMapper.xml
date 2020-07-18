@@ -25,35 +25,25 @@
    <insert id="insertJoinUser" parameterType="com.sinsp.richard.web.user.vo.UserVo">
       INSERT INTO USER
          (
-            id,
-			password,
-			name,
-			nickname,
-			gender,
-			birth_date,
-			phone,
-			reg_date,
-			reg_ip,
-			last_login_ip,
-			last_login_date,
-			email,
-			email_yn,
-			address
+         	user_id,
+         	user_pw,
+         	user_nm,
+         	user_tel,
+         	user_rank,
+         	gender,
+         	birthdate,
+         	create_date,
+         	update_date
          ) VALUES (
          	#{id },
 			#{password },
 			#{name },
-			#{nickname },
-			#{gender },
-			#{birth_date },
 			#{phone },
+         	'G',
+         	#{gender },
+			#{birth_date },
 			CURRENT_TIMESTAMP,
-			#{reg_ip },
-			#{reg_ip },
-			CURRENT_TIMESTAMP,
-			#{email },
-			#{email_yn },
-			#{address }
+			CURRENT_TIMESTAMP
          )
       /* com.sinsp.richard.web.user.dao.userDao.insertJoinUser */
    </insert>

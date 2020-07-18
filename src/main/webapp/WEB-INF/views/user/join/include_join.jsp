@@ -43,16 +43,6 @@
 
   <div class="reg-title-con">
     <div class="reg-title">
-      별명
-    </div>
-    <div class="reg-input">
-      <input class="reg-submit" id="nickname" name="nickname" type="text">
-    </div>
-    <div id="nicknm" style="font-size:0.8em"></div>
-  </div>
-
-  <div class="reg-title-con">
-    <div class="reg-title">
       성별
     </div>
     <div class="reg-input">
@@ -93,34 +83,6 @@
     </div>
     <input type="hidden" name="phone" id="phone" />
   </div>
-
-  <div class="reg-title-con">
-    <div class="reg-title">
-      이메일
-    </div>
-    <div class="reg-input">
-      <input class="reg-submit" id="email" name="email" type="text">
-    </div>
-  </div>
-
-  <div class="reg-title-con">
-    <div class="reg-title">
-      이메일 수신여부
-    </div>
-    <div class="reg-checkbox">
-      <input class="reg-submit mr-2" id="email_yn" name="email_yn" type="checkbox">
-      <label for="">본 사이트에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</label>
-    </div>
-  </div>
-
-  <div class="reg-title-con mb-5">
-    <div class="reg-title">
-      주소
-    </div>
-    <div class="reg-input">
-      <input class="servay-input" id="address" name="address" placeholder="클릭하세요!" onclick="execDaumPostcode()" type="text" readonly/>
-  </div>
-</div>
 <!-- 중복방지 Token Parameter -->
 <input type="hidden" name="TOKEN_KEY" value="${TOKEN_KEY }" />
 <!-- 중복방지 Token Parameter -->
