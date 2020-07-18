@@ -54,31 +54,9 @@ public class UserController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-	//@Resource(name="spring") 리소스 쓰는게 좋음.
-	//https://countryxide.tistory.com/1
 	@Autowired //스프링에서 제공하는 어노테이션
 	private UserService userService;
 
-	//value={"/{menu}/EmplyrCreat.do", "/myweb.do"} 아주 유용.
-	//public void EmplyrCreat(@PathVariable("menu") String menu) uri를 변수로 사용할 수 있다.
-	//주소는 똑같은데 view페이지가 계속 바뀌어야 하는 페이지가 있을때 사용한다.
-	// 예제용. 추후에 지울 예정
-	@RequestMapping(value={"EmplyrCreat.do", "myweb.do"}, method= {RequestMethod.GET, RequestMethod.POST}) //method= {RequestMethod.GET, RequestMethod.POST}를 안써도 default값이 두개 다 허용함.
-	public String EmplyrCreat(Locale locale, Model model) {
-		//userService.getUserList();
-		//void로 return값이 없으면 EmplyrCreat의 view를 찾게 된다.EmplyrCreat.jsp
-		logger.info(">>>>>>>>EmplyrCreat");
-		//userService.getUserList();
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate );
-
-		return "user/EmplyrCreat";
-	}
 	// 회원 로그인/가입 메인 페이지
 	@RequestMapping(value="user_login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String user_login() throws RichardException{

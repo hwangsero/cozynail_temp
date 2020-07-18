@@ -18,7 +18,10 @@
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
-
+<video autoplay muted loop id="myVideo">
+  <source src="/video/main-video.mp4" type="video/mp4">
+</video>
+<div class="video-dim"></div>
   <!--로그인 :: S -->
   <div class="wrapper fadeInDown">
 
