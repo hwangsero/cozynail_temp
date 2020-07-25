@@ -52,7 +52,15 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 
-	@RequestMapping(value={"/main.do", "/user/main.do"}, method={RequestMethod.POST, RequestMethod.GET})
+	// 회원 로그인/가입 메인 페이지
+	@RequestMapping(value="/*/main.do", method={RequestMethod.POST, RequestMethod.GET})
+	public String login() throws RichardException{
+
+		return "redirect:/main.do";
+	}
+
+
+	@RequestMapping(value="/main.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView main(Model model) throws RichardException{
 		logger.info(">>>>>>>>  main");
 		ModelAndView mav = new ModelAndView();
@@ -182,5 +190,10 @@ public class MainController {
 	public String faq(Model model) throws RichardException{
 		logger.info(">>>>>>>>  faq");
 		return "questions/faq";
+	}
+	@RequestMapping(value="/user/EmplyrCreat.do", method={RequestMethod.POST, RequestMethod.GET})
+	public String EmplyrCreat(Model model) throws RichardException{
+		logger.info(">>>>>>>>  EmplyrCreat");
+		return "user/EmplyrCreat";
 	}
 }

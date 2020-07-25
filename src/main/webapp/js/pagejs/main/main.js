@@ -34,7 +34,7 @@ function Save(){
 	});
 
 	if(writeInput === checkInputLen){
-		if(confirm("제출 하시겠습니까?") == true){ //확인
+		if(confirm("저장 하시겠습니까?") == true){ //확인
 			if(doubleSubmitCheck()){return false;}
 			var form = $('form[name="timeline-form"]');
 			form.attr("method", "POST");
