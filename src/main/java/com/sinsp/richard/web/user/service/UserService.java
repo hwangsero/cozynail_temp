@@ -12,11 +12,10 @@ public interface UserService {
 
 	public boolean insertJoinUser(UserVo vo) throws RichardException;
 
-	public UserVo getUserInfo(String id) throws RichardException;
+	public UserVo getUserInfo(String id);
 
-	public boolean login(UserVo userVo) throws RichardException;
+	public boolean login(UserVo userVo);
 
-	public int getUserIdCount(String id) throws RichardException;
+	public int getUserIdCount(String id);
 
-	public int getUserNicknameCount(String nickname) throws RichardException;
 }

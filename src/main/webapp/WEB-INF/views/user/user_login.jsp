@@ -15,7 +15,6 @@
   <script src="<c:url value='/js/pagejs/user/join/include_join.js' />"></script>
   <script src="<c:url value='/js/pagejs/user/user_login.js' />"></script>
   <script src="<c:url value='/js/common.js' />"></script>
-  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 <video autoplay muted loop id="myVideo">

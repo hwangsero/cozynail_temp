@@ -16,22 +16,17 @@ public class UserVo implements Serializable{
 
 	private static final long serialVersionUID = -7240044547872807682L;
 
+	private int no;
 	private String id;
 	private String password;
 	private String name;
-	private String nickname;
+	private String phone;
+	private String mileage;
+	private String rank;
 	private String gender;
 	private String birth_date;
-	private String phone;
-	private String reg_date;
-	private String reg_ip;
-	private String last_login_ip;
-	private String last_login_date;
-	private String user_img;
-	private String email;
-	private String email_yn;
-	private String email_cert_yn;
-	private String address;
+	private String create_date;
+	private String update_date;
 
 	//class를 decompile하여 확인하면 getter, setter, tostring이 자동으로 생성되어 있는 것을 확인 할 수 있음.
 }

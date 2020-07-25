@@ -58,14 +58,14 @@ public class UserController {
 	private UserService userService;
 
 	// 회원 로그인/가입 메인 페이지
-	@RequestMapping(value="user_login.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user_login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String user_login() throws RichardException{
 
 		return "user/user_login";
 	}
 
 	// 회원 가입 form
-	@RequestMapping(value="include_join.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/include_join.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String include_join(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info("include_join");
 		TokenMngUtil.saveToken(request);
@@ -73,7 +73,7 @@ public class UserController {
 		return "user/join/include_join";
 	}
 	// 회원 로그인 form
-	@RequestMapping(value="include_login.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/include_login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String include_login(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info("include_login");
 		TokenMngUtil.saveToken(request);
@@ -82,7 +82,7 @@ public class UserController {
 	}
 
 	// 회원 가입 성공
-	@RequestMapping(value="user_join_success.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user_join_success.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String user_join_success(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
@@ -94,22 +94,6 @@ public class UserController {
 
 			// TODO
 
-			//아이피가 0:0:0:0:0:0:0:1 이라는건 ipv6의 주소를 가져온것으로 ipv4로 봤을때 127.0.0.1 이 맞다
-			//출처: https://rainny.tistory.com/177 [긍정적 사고방식^^]
-			//메뉴의 Run -> Run Configurations -> Arguments 탭 -> -Djava.net.preferIPv4Stack=true 추가
-			HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
-			String ip = req.getHeader("X-FORWARDED-FOR");
-			if (ip == null)
-				ip = req.getRemoteAddr();
-
-			userVo.setReg_ip(ip);
-
-			if(userVo.getEmail_yn().equals("1")){
-				userVo.setEmail_yn("Y");
-			} else {
-				userVo.setEmail_yn("N");
-			}
-
 			//비밀번호 암호화도 추후에 추가해야함.
 
 			// DB 로직 구현
@@ -119,7 +103,7 @@ public class UserController {
 	}
 
 	//아이디 중복체크
-	@RequestMapping(value= "user_id_check_ajax.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value= "/user_id_check_ajax.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView user_id_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
@@ -136,32 +120,14 @@ public class UserController {
 		return mav;
 	}
 
-	//닉네임 중복체크
-	@RequestMapping(value= "user_nickname_check_ajax.do", method={RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView user_nickname_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("jsonView");
-
-		int existingUser = userService.getUserNicknameCount(userVo.getNickname());
-
-		if(existingUser == 0) {
-			mav.addObject("result", "Y"); // Y/N
-			mav.addObject("msg", "사용 가능");
-		} else {
-			mav.addObject("result", "N"); // Y/N
-			mav.addObject("msg", "사용 불가능");
-		}
-		return mav;
-	}
-
 	// 회원 로그인 성공/실패
-	@RequestMapping(value="login_process.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/login_process.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView login_process(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
 
 		ModelAndView mav = new ModelAndView();
-
+		mav.setViewName("/user/login/user_login_fail");
 		if (TokenMngUtil.isTokenValid(request)) {
 
 			logger.info("@@@@@@@@ : CSRF 공격 방어");
@@ -188,18 +154,11 @@ public class UserController {
 				mav.setViewName("redirect:/main.do");
 
 			} else { // 로그인 실패시
-				mav.setViewName("redirect:/login/user_login_fail");
+				mav.setViewName("/user/login/user_login_fail");
 			}
 			// DB 로직 구현
 			// Login 로직
 		}
 		return mav;
-	}
-
-	// 회원 로그인/가입 메인 페이지
-	@RequestMapping(value="login.do", method={RequestMethod.POST, RequestMethod.GET})
-	public String login() throws RichardException{
-
-		return "user/login";
 	}
 }

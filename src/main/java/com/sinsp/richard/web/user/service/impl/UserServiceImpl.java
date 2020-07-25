@@ -41,13 +41,16 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserVo getUserInfo(String id) throws RichardException {
+	public UserVo getUserInfo(String id) {
 		return userDao.getUserInfo(id);
 	}
 
 	@Override
-	public boolean login(UserVo userVo) throws RichardException {
-		return userDao.login(userVo);
+	public boolean login(UserVo userVo){
+		if(this.getUserIdCount(userVo.getId()) == 1) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -56,13 +59,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int getUserIdCount(String id) throws RichardException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getUserNicknameCount(String nickname) throws RichardException {
+	public int getUserIdCount(String id) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

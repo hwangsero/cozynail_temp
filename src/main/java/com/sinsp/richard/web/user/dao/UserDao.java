@@ -33,11 +33,4 @@ public class UserDao extends CommonSqlDao{
 		return userVo;
 	}
 
-	public Boolean login(UserVo userVo) {
-		if(getSelect(prefix + "", userVo) == 1) {
-			return true;
-		}
-		return false;
-	}
-
 }
