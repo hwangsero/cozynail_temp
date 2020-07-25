@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class CalendarVo {
     String reserveNo;		//예약번호
-    String clientNo;		//고객번호
+    String userNo;		//고객번호
     String reserveTime;		//예약시간
     String workState;		//시술종류
     String otherInfo;		//기타사항
@@ -15,6 +15,6 @@ public class CalendarVo {
     String createDate;		//등록 일자
     String updateDate;		//수정 일자
     String reserveDate;		//예약 일자
-    String CLIENT_NM;
-    String WORK_NM;
+    String userNM;
+    String workNM;
 }

@@ -10,11 +10,11 @@ public class DetailVo implements Serializable {
 
 	private String reserveNo;
 	private String reserveTime;
-	private String clientNm;
-	private String clientTel;
+	private String userNm;
+	private String userTel;
 	private String workNm;
 	private String otherInfo;
 	private String payState;
 	private String workerNm;
-	private String coupon;
+	private String mileage;
 }

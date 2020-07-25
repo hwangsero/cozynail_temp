@@ -29,13 +29,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-      	<input type="text" id="search"/>
+      	<input type="text" id="search" placeholder="이름을 입력해주세요"/>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+      <ul class="modal-ul" >
         ...
+      </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -140,17 +142,22 @@
   }]
 	  searchInput.addEventListener('keyup', function() {
 			let searchVal = searchInput.value;
-			let searchResult = tempq.filter(e => e.e.includes(searchVal));
-			let modalBody = document.querySelector('.modal-body')
-
-			modalBody.innerText = '';
+			let searchResult = calendarList.filter(e => e.userNm.includes(searchVal));
+			let modalUl = document.querySelector('.modal-Ul')
+			modalUl.innerText = '';
 			if(searchVal === '') {
 			 return;
 			}
 			for(let i = 0; i < searchResult.length; i++) {
+			var addLi = document.createElement('li');
 			var addDiv = document.createElement('div');
-			addDiv.innerText = searchResult[i].e;
-			modalBody.appendChild(addDiv);
+			addLi.setAttribute("style","list-style:none");
+			addDiv.innerText = searchResult[i].userNm;
+			addDiv.setAttribute("OnClick","location.href='http://naver.com'");
+			addDiv.setAttribute("class","searchList");
+			addDiv.setAttribute("style","cursor:Pointer");
+			addLi.append(addDiv);
+			modalUl.append(addLi);
 			}
 	  });
   }

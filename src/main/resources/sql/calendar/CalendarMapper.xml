@@ -6,23 +6,24 @@
    <select id="selectCalendarAll" resultType="com.sinsp.richard.web.calendar.vo.reserveVO" parameterType="com.sinsp.richard.web.calendar.vo.reserveVO">
         SELECT
 			 rm.RESERVE_TIME as reserveTime
-			,cm.CLIENT_NM as clientNm
-			,cm.CLIENT_TEL as clientTel
+			,um.USER_NM as userNm
+			,um.USER_TEL as userTel
 			,wm.WORK_NM as workNm
 			,rm.OTHER_INFO as otherInfo
 			,rm.PAY_STATE as payState
 			,wrm.WORKER_NM as workerNm
-			,cm.COUPON as coupon
+			,um.MILEAGE as mileage
 			,DATE_FORMAT(rm.RESERVE_DATE,'%Y%m%d') as reserveDate
 		FROM naildb.reserve_master rm
-		INNER JOIN naildb.client_master cm
-		ON rm.CLIENT_NO = cm.CLIENT_NO
+		INNER JOIN naildb.user_master um
+		ON rm.USER_NO = um.USER_NO
 		LEFT JOIN naildb.work_master wm
 		ON rm.WORK_KIND = wm.WORK_KIND
 		LEFT JOIN naildb.pay_master pm
 		ON rm.PAY_STATE = pm.PAY_STATE
 		LEFT JOIN naildb.worker_master wrm
 		ON rm.WORKER_CODE = wrm.WORKER_CODE
+		WHERE rm.WORK_CATE = wm.WORK_CATE
    </select>
 
 </mapper>

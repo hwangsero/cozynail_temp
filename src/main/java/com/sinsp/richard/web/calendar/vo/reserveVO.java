@@ -5,12 +5,12 @@ import lombok.Data;
 public class reserveVO {
 
 	String reserveTime;
-	String clientNm;
-	String clientTel;
+	String userNm;
+	String userTel;
 	String workNm;
 	String otherInfo;
 	String payState;
 	String workerNm;
-	String coupon;
+	String mileage;
 	String reserveDate;
 }
