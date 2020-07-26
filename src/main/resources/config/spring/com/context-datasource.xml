@@ -10,7 +10,7 @@
 
    <bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-      <property name="url" value="jdbc:mysql://naildb.iptime.org:5896/naildb?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8"></property>
+      <property name="url" value="jdbc:mysql://naildb.iptime.org:5896/naildb?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8"></property>
       <property name="username" value="snoopy147"></property>
       <property name="password" value="wltjs147"></property>
    </bean><!--  연동만 하는 역할 -->
