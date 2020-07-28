@@ -144,24 +144,27 @@
 
 	$(document).ready(function() {
 		goSearch();
-	}
+	});
 
+
+// 	convertToObject($("#frm"), true),
 /* 조회 */
 function goSearch() {
+	var param = {"YYYYMM" : "YMD"};
+
 	$.ajax({
-		url : "/getYearStaList.json",
-		data : convertToObject($("#frm"), true),
+		url : "/statistics/getYearStaList.do",
+		data : JSON.stringify(param),
+		dataType : "json",
+		contentType: "application/json",
 		type : 'POST',
-		success : onSuccess
-	});
-	//Handler
-	function onSuccess(res,status,xhr){
-		var data = res.result;
-
-		if(data != null){
-
+		success : function (res,status,xhr){
+			var list = res.result;
+			alert("1111");
+			alert("2번째" + list);
+			//테스트중
 		}
-	}
+	});
 }
 
 $(document).ready(function(){
