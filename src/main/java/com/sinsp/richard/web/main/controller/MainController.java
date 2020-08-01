@@ -186,11 +186,6 @@ public class MainController {
 		logger.info(">>>>>>>>  onevsone");
 		return "questions/1vs1";
 	}
-	@RequestMapping(value="/faq.do", method={RequestMethod.POST, RequestMethod.GET})
-	public String faq(Model model) throws RichardException{
-		logger.info(">>>>>>>>  faq");
-		return "questions/faq";
-	}
 	@RequestMapping(value="/user/EmplyrCreat.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String EmplyrCreat(Model model) throws RichardException{
 		logger.info(">>>>>>>>  EmplyrCreat");
