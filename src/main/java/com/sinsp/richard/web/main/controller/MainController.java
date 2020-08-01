@@ -161,6 +161,58 @@ public class MainController {
 		return mav;
 	}
 
+	@RequestMapping(value="/main_update_submit.do", method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView main_update_submit(@ModelAttribute MainVo mainVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
+		logger.info(">>>>>>>>  main_update_submit");
+		logger.info((String) request.getAttribute("TOKEN_KEY"));
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main/write_submit_end"); // 여기서부터 다시 작업
+		int count = 0;
+		if (TokenMngUtil.isTokenValid(request)) {
+			logger.info("@@@@@@@@ : CSRF 공격 방어");
+			// 세션 삭제 (세션을 먼저 삭제해야함)
+			TokenMngUtil.resetToken(request);
+
+			// 사진이 변경 되었는지 여부부터 확인 후 변경 되었다면 다음 작업 진행.
+			// 변경되지 않았다면 그냥 그대로 진행
+			// type file 인 input으로 진행이 가능한가? 아니면 hidden으로 photo url input값을 변경해야하는가?
+			//file 처리 :: S
+			String uploadPath=request.getSession().getServletContext().getRealPath("/upload/main/photo/");
+			File target = new File(uploadPath);
+			//폴더 없으면 폴더 생성
+            if(!target.exists()) target.mkdirs();
+
+	        MultipartFile photo = mainVo.getPhoto(); //나중에 공통함수에 다시 정리할것.
+	        logger.info("================== file start ==================");
+            logger.info("파일 이름: "+photo.getName());
+            logger.info("파일 실제 이름: "+photo.getOriginalFilename());
+            logger.info("파일 크기: "+photo.getSize());
+            logger.info("content type: "+photo.getContentType());
+            logger.info("================== file   END ==================");
+
+            String saveFileName = UUID.randomUUID().toString().replaceAll("-", "") + photo.getOriginalFilename();
+            target = new File(uploadPath, saveFileName);
+            try {
+				photo.transferTo(target);
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+            //file 처리 :: E
+            logger.info("/upload/main/photo/" + saveFileName);
+            mainVo.setPhotoUrl("/upload/main/photo/" + saveFileName);
+			// DB 로직 구현
+            logger.info(mainVo.toString());
+			count = (int)mainService.insertTimeline(mainVo);
+			logger.info("$$$$$count: "+count);
+		}
+		if(count == 1) {
+			mav.addObject("msg", "success");
+		} else {
+			mav.addObject("msg", "fail");
+		}
+		return mav;
+	}
+
 	@RequestMapping(value="/statistics.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String statistics(Model model) throws RichardException{
 		logger.info(">>>>>>>>  statistics");

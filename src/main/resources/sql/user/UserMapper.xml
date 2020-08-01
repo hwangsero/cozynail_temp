@@ -43,7 +43,15 @@
    </select>
 
    <select id="getUserInfo" parameterType="com.sinsp.richard.web.user.vo.UserVo" resultType="com.sinsp.richard.web.user.vo.UserVo">
-      SELECT *
+      SELECT 	user_id,
+	         	user_pw,
+	         	user_nm,
+	         	user_tel,
+	         	user_rank,
+	         	gender,
+	         	birthdate,
+	         	create_date,
+	         	update_date
 	 	WHERE  user_id 		= #{ id}
       /* com.sinsp.richard.web.main.dao.userDao.getUserInfo */
    </select>

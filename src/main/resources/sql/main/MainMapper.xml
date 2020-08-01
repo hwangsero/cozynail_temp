@@ -52,7 +52,16 @@
    </delete>
 
    <select id="getMainItem" parameterType="com.sinsp.richard.web.main.vo.MainVo" resultType="com.sinsp.richard.web.main.vo.MainVo">
-      SELECT * FROM time_line
+      SELECT tl_no as no,
+      		 tl_title as title,
+			 tl_photo as photoUrl,
+			 tl_content as content,
+			 user_tel as userTel,
+			 user_nm as userNm,
+			 tl_color as color,
+			 create_date as createDate,
+			 update_date as updateDate
+      FROM time_line
 	 	WHERE  tl_no 		= #{ no}
       /* com.sinsp.richard.web.main.dao.mainDao.getMainList */
    </select>

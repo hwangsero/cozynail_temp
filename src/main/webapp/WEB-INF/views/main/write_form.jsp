@@ -31,11 +31,11 @@
 				    <button id="red" name="red" type="button" class="btn btn-danger">RED</button>
 				    <button id="orange" name="orange" type="button" class="btn btn-warning">ORANGE</button>
 				    <button id="gray" name="gray" type="button" class="btn btn-secondary">GRAY</button>
-				    <input id="color" name="color" type="text" class="form-control" readonly>
+				    <input id="color" name="color" type="text" class="form-control" readonly value="${mainVo.color }">
 			    </div>
 
 			  </div>
-
+<c:if test="${mainVo == null && Type!='M'}">
 			  <div class="form-group row">
 			    <label for="title" class="col-sm-2 col-form-label">제목</label>
 			    <div class="col-sm-10">
@@ -45,6 +45,7 @@
 			  <div class="form-group row">
 			    <label for="photo" class="col-sm-2 col-form-label">사진등록</label>
 			    <div class="col-sm-10">
+			      <img id="thumbnail" src="" alt="img-thumbnail" class="img-thumbnail" style="width:300px">
 			      <input id="photo" name="photo" type="file" class="form-control">
 			    </div>
 			  </div>
@@ -54,6 +55,29 @@
 			   	  <textarea id="content" name="content" class="form-control" rows="4"></textarea>
 			    </div>
 			  </div>
+</c:if>
+<c:if test="${mainVo != null && Type=='M'}">
+			  <div class="form-group row">
+			    <label for="title" class="col-sm-2 col-form-label">제목</label>
+			    <div class="col-sm-10">
+			      <input id="title" name="title" type="text" class="form-control" value="${mainVo.title }">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="photo" class="col-sm-2 col-form-label">사진등록</label>
+			    <div class="col-sm-10">
+			      <img id="thumbnail" src="${mainVo.photoUrl }" alt="img-thumbnail" class="img-thumbnail" style="width:300px">
+			      <input id="photo" name="photo" type="file" class="form-control">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="content" class="col-sm-2 col-form-label">내용</label>
+			    <div class="col-sm-10">
+			   	  <textarea id="content" name="content" class="form-control" rows="4">${mainVo.content }</textarea>
+			    </div>
+			  </div>
+</c:if>
+
 
 			  <!-- 중복방지 Token Parameter -->
 			  <input type="hidden" name="TOKEN_KEY" value="${TOKEN_KEY }" />
@@ -63,7 +87,12 @@
 	</div>
 
     <div class="row col-sm-12 justify-content-end">
+    <c:if test="${mainVo == null && Type!='M'}">
 		<button type="button" class="btn btn-dark" onclick="Save()">저장</button>
+	</c:if>
+	<c:if test="${mainVo != null && Type=='M'}">
+		<button type="button" class="btn btn-dark" onclick="Update()">수정</button>
+	</c:if>
     </div>
 
 </div>
