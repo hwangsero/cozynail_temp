@@ -23,14 +23,19 @@ public class UserDao extends CommonSqlDao{
 		return false;
 	}
 
-	public void getUserList() {
-		System.out.println(">>>>>>>>>>>>>>> sql sql");
+	public UserVo getUserInfo(String id) {
+		UserVo userVo = (UserVo) selectOne(prefix + "getUserInfo", id);
+		return userVo;
 	}
 
-	public UserVo getUserInfo(String id) {
-		UserVo userVo = new UserVo();
-		selectOne(prefix + "", id);
-		return userVo;
+	public int getUserIdCount(String id) {
+		int count = 0;
+		count = getSelect(prefix + "getUserIdCount", id);
+		return count;
+	}
+
+	public void getUserList() {
+		System.out.println(">>>>>>>>>>>>>>> sql getUserList");
 	}
 
 }

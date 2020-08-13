@@ -60,8 +60,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int getUserIdCount(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.getUserIdCount(id);
 	}
 
 }
