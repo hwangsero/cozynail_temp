@@ -22,6 +22,7 @@
               <p>타임라인 등록 화면</p>
             </div>
 			<form class="form" name="timeline-form" enctype="multipart/form-data">
+			<input id="no" name="no" type="hidden" class="form-control" value="${mainVo.no }">
 			  <div class="form-group row">
 			    <label for="title" class="col-sm-2 col-form-label">핀 색깔</label>
 			    <div class="btn-group col-sm-10" role="group" aria-label="color pick">
@@ -67,7 +68,7 @@
 			    <label for="photo" class="col-sm-2 col-form-label">사진등록</label>
 			    <div class="col-sm-10">
 			      <img id="thumbnail" src="${mainVo.photoUrl }" alt="img-thumbnail" class="img-thumbnail" style="width:300px">
-			      <input id="photo" name="photo" type="file" class="form-control">
+			      <input id="photo" name="photo" type="file">
 			    </div>
 			  </div>
 			  <div class="form-group row">
@@ -89,9 +90,11 @@
     <div class="row col-sm-12 justify-content-end">
     <c:if test="${mainVo == null && Type!='M'}">
 		<button type="button" class="btn btn-dark" onclick="Save()">저장</button>
+		<button type="button" class="btn btn-dark" onclick="location.href='main.do'">취소</button>
 	</c:if>
 	<c:if test="${mainVo != null && Type=='M'}">
 		<button type="button" class="btn btn-dark" onclick="Update()">수정</button>
+		<button type="button" class="btn btn-dark" onclick="location.href='main.do'">취소</button>
 	</c:if>
     </div>
 

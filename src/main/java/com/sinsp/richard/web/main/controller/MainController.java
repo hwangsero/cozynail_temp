@@ -158,6 +158,8 @@ public class MainController {
 		logger.info("################################"+mainVo.toString());
 		mav.addObject("mainVo", mainService.getMainItem(mainVo));
 		mav.addObject("Type","M"); //수정모드
+		TokenMngUtil.saveToken(request);
+		mav.addObject("TOKEN_KEY", request.getAttribute("TOKEN_KEY"));
 		return mav;
 	}
 
@@ -175,34 +177,35 @@ public class MainController {
 
 			// 사진이 변경 되었는지 여부부터 확인 후 변경 되었다면 다음 작업 진행.
 			// 변경되지 않았다면 그냥 그대로 진행
-			// type file 인 input으로 진행이 가능한가? 아니면 hidden으로 photo url input값을 변경해야하는가?
-			//file 처리 :: S
-			String uploadPath=request.getSession().getServletContext().getRealPath("/upload/main/photo/");
-			File target = new File(uploadPath);
-			//폴더 없으면 폴더 생성
-            if(!target.exists()) target.mkdirs();
+			if(mainVo.getPhotoUrl() != null && "".equals(mainVo.getPhotoUrl())) {
+				//file 처리 :: S
+				String uploadPath=request.getSession().getServletContext().getRealPath("/upload/main/photo/");
+				File target = new File(uploadPath);
+				//폴더 없으면 폴더 생성
+	            if(!target.exists()) target.mkdirs();
 
-	        MultipartFile photo = mainVo.getPhoto(); //나중에 공통함수에 다시 정리할것.
-	        logger.info("================== file start ==================");
-            logger.info("파일 이름: "+photo.getName());
-            logger.info("파일 실제 이름: "+photo.getOriginalFilename());
-            logger.info("파일 크기: "+photo.getSize());
-            logger.info("content type: "+photo.getContentType());
-            logger.info("================== file   END ==================");
+		        MultipartFile photo = mainVo.getPhoto(); //나중에 공통함수에 다시 정리할것.
+		        logger.info("================== file start ==================");
+	            logger.info("파일 이름: "+photo.getName());
+	            logger.info("파일 실제 이름: "+photo.getOriginalFilename());
+	            logger.info("파일 크기: "+photo.getSize());
+	            logger.info("content type: "+photo.getContentType());
+	            logger.info("================== file   END ==================");
 
-            String saveFileName = UUID.randomUUID().toString().replaceAll("-", "") + photo.getOriginalFilename();
-            target = new File(uploadPath, saveFileName);
-            try {
-				photo.transferTo(target);
-			} catch (IllegalStateException | IOException e) {
-				e.printStackTrace();
+	            String saveFileName = UUID.randomUUID().toString().replaceAll("-", "") + photo.getOriginalFilename();
+	            target = new File(uploadPath, saveFileName);
+	            try {
+					photo.transferTo(target);
+				} catch (IllegalStateException | IOException e) {
+					e.printStackTrace();
+				}
+	            logger.info("/upload/main/photo/" + saveFileName);
+	            mainVo.setPhotoUrl("/upload/main/photo/" + saveFileName);
+	            //file 처리 :: E
 			}
-            //file 처리 :: E
-            logger.info("/upload/main/photo/" + saveFileName);
-            mainVo.setPhotoUrl("/upload/main/photo/" + saveFileName);
 			// DB 로직 구현
             logger.info(mainVo.toString());
-			count = (int)mainService.insertTimeline(mainVo);
+			count = (int)mainService.updateItem(mainVo);
 			logger.info("$$$$$count: "+count);
 		}
 		if(count == 1) {

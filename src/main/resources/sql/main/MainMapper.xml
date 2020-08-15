@@ -69,12 +69,13 @@
    <update id="updateMainItem" parameterType="com.sinsp.richard.web.main.vo.MainVo">
 	 UPDATE time_line
 	 SET	 tl_title = #{ title},
-			 tl_photo = #{ photoUrl},
+	 <if test="photoUrl != null and photoUrl != ''">
+	 		 tl_photo = #{ photoUrl},
+	 </if>
 			 tl_content = #{ content},
 			 tl_color = #{ color},
 			 update_date = CURRENT_TIMESTAMP
 	 WHERE  tl_no 		= #{ no}
-	 	AND user_nm 	= #{ userNm}
    </update>
 
 </mapper>
