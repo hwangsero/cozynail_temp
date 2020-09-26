@@ -36,22 +36,24 @@
       /* com.sinsp.richard.web.user.dao.userDao.insertJoinUser */
    </insert>
 
-   <select id="getUserIdCount" parameterType="com.sinsp.richard.web.user.vo.UserVo" resultType="com.sinsp.richard.web.user.vo.UserVo">
+   <select id="getUserIdCount" parameterType="com.sinsp.richard.web.user.vo.UserVo" resultType="Integer">
       SELECT count(*)
+      FROM USER_MASTER
 	 	WHERE  user_id 		= #{ id}
       /* com.sinsp.richard.web.main.dao.userDao.getUserIdCount */
    </select>
 
    <select id="getUserInfo" parameterType="com.sinsp.richard.web.user.vo.UserVo" resultType="com.sinsp.richard.web.user.vo.UserVo">
-      SELECT 	user_id,
-	         	user_pw,
-	         	user_nm,
-	         	user_tel,
-	         	user_rank,
-	         	gender,
-	         	birthdate,
-	         	create_date,
-	         	update_date
+      SELECT 	user_id as id,
+	         	user_pw as password,
+	         	user_nm as name,
+	         	user_tel as phone,
+	         	user_rank as userRank,
+	         	gender as gender,
+	         	birthdate as birthDate,
+	         	create_date as createDate,
+	         	update_date as updateDate
+	 FROM USER_MASTER
 	 	WHERE  user_id 		= #{ id}
       /* com.sinsp.richard.web.main.dao.userDao.getUserInfo */
    </select>

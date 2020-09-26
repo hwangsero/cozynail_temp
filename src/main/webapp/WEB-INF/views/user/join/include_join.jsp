@@ -8,7 +8,7 @@
       고객 ID
     </div>
     <div class="reg-input">
-      <input class="reg-submit" id="id" name="id" type="text" placeholder="login">
+      <input class="reg-submit" id="id" name="id" type="text" placeholder="id">
     </div>
     <button type="button" class="btn btn-primary type2" onclick="idCheck();">중복체크</button>
   </div>

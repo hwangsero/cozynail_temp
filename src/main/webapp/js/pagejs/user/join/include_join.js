@@ -11,10 +11,12 @@ $(document).on('propertychange change keyup paste input','#nickname', function()
 
 var isIdOk = false;
 function idCheck(){
+	var frm = $("form[name='reg-wrap']");
 	$.ajax({
 		type:"post",
 	   	url:"/user/user_id_check_ajax.do",
 	    dataType:"json",
+	    data: frm.serialize(),
 	    success:function(data){
 	    	//alert(data.result);
 	    	alert(data.msg);
@@ -96,7 +98,7 @@ function userJoin() {
 			if(doubleSubmitCheck()){return false;}
 			var form = $('form[name="reg-wrap"]');
 			form.attr("method", "POST");
-			form.attr("action", "/user/user_join_success.do");
+			form.attr("action", "/user/join_process.do");
 		    form.submit();
 		} else {
 			return false;

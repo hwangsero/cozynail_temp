@@ -81,13 +81,16 @@ public class UserController {
 		return "user/login/include_login";
 	}
 
-	// 회원 가입 성공
-	@RequestMapping(value="/user_join_success.do", method={RequestMethod.POST, RequestMethod.GET})
-	public String user_join_success(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException{
+	// 회원 로그인 성공/실패
+	@RequestMapping(value="/join_process.do", method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView join_process(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
 
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/user/join/user_join_fail");
 		if (TokenMngUtil.isTokenValid(request)) {
+
 			logger.info("@@@@@@@@ : CSRF 공격 방어");
 			// 세션 삭제 (세션을 먼저 삭제해야함)
 			TokenMngUtil.resetToken(request);
@@ -97,9 +100,12 @@ public class UserController {
 			//비밀번호 암호화도 추후에 추가해야함.
 
 			// DB 로직 구현
-			userService.insertJoinUser(userVo);
+			if(userService.insertJoinUser(userVo)) {
+				mav.setViewName("/user/join/user_join_success");
+			}
 		}
-		return "user/join/user_join_success";
+
+		return mav;
 	}
 
 	//아이디 중복체크
@@ -108,6 +114,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
 
+		logger.info("아이디 중복체크: " + userVo.getId());
 		int existingUser = userService.getUserIdCount(userVo.getId());
 
 		if(existingUser == 0) {

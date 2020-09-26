@@ -14,10 +14,9 @@ public class UserDao extends CommonSqlDao{
 	private static String prefix = "UserMapper.";// /src/main/resources/sql/com/UserMapper.xml
 
 	public boolean insertJoinUser(UserVo vo) throws RichardException{
-		//<insert> 사용시 리턴값은 정상 일경우 null 값이 리턴됩니다.- iBatis 기준 ? 확인 필요.
 		Object obj = insert(prefix + "insertJoinUser", vo);
 		log.info(obj);
-		if(obj == null) {
+		if(obj != null) {
 			return true;
 		}
 		return false;

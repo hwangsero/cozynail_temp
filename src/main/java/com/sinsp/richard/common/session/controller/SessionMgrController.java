@@ -77,7 +77,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "user_login.do"
 					, "include_join.do"
 					, "include_login.do"
-					, "user_join_success.do"
+					, "join_process.do"
 					, "user_login_fail.do"
 					, "login_process.do"
 					, "user_id_check_ajax.do"

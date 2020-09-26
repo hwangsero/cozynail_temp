@@ -22,11 +22,11 @@ public class UserVo implements Serializable{
 	private String name;
 	private String phone;
 	private String mileage;
-	private String rank;
+	private String userRank;
 	private String gender;
-	private String birth_date;
-	private String create_date;
-	private String update_date;
+	private String birthDate;
+	private String createDate;
+	private String updateDate;
 
 	//class를 decompile하여 확인하면 getter, setter, tostring이 자동으로 생성되어 있는 것을 확인 할 수 있음.
 }
