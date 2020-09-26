@@ -21,7 +21,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+  예약 검색
 </button>
 
 <!-- Modal -->
@@ -36,7 +36,6 @@
       </div>
       <div class="modal-body">
       <ul class="modal-ul" >
-        ...
       </ul>
       </div>
       <div class="modal-footer">
@@ -53,114 +52,14 @@
 
           </div>
         </div>
-        <div class="price-con">
-			<div class="">
-			  <div class="">현금 : 1원</div>
-			  <div class="">이체 : 1원</div>
-			  <div class="">카드 : 1원</div>
-			  <div class="">현:영 : 1원</div>
-			  <div class="">외상 : 1원</div>
-			</div>
-			<div class="">
-			  <div class="">총 월 매출</div>
-			  <div class="">원장님 : 50원</div>
-			  <div class="">선생님A : 50원</div>
-			  <div class="">선생님B : 50원</div>
-			</div>
-        </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-	  var calendarList;
 
-	  viewCalendar();
-	  search();
-
-  });
-
-  function viewCalendar() {
-	  calendarList = <%= (List)request.getAttribute("calList") %>;
-	    var calendarEl = document.getElementById('calendar');
-	    var calendarData = new Array();
-	    calendarList.forEach( function (e) {
-	       calendarData.push({
-	          title: e.clientNm + '(' + e.workNm + ')',
-	            start: e.reserveDate,
-	            end: e.reserveDate,
-	            id: e.RESERVE_NO
-	      })
-	    });
-	    console.log(calendarData);
-
-	    var calendar = new FullCalendar.Calendar(calendarEl, {
-	      eventClick: function(info) {
-	    	var reserveDate = "";
-	    	reserveDate +=	info.event.start.getFullYear() + "-";
-	    	reserveDate +=	(info.event.start.getMonth() + 1) + "-";
-	    	reserveDate +=	info.event.start.getDate();
-
-	       location.href="/" + reserveDate + "/detail.do"
-	      },
-	      eventDrop: function(info) {
-	        console.log(info.event)
-	      },
-	      dateClick: function() {
-	        alert('a day has been clicked!');
-	      },
-	      locale: 'ko',
-	      plugins: [ 'dayGrid','interaction', 'timeGrid', 'list' ],
-	      header: {
-	        left: 'prev,next today',
-	        center: 'title',
-	        right: 'dayGridMonth,dayGridWeek,dayGridDay,listMonth'
-	      },
-	      navLinks: true, // can click day/week names to navigate views
-	      businessHours: true, // display business hours
-	      editable: true,
-	      events: calendarData
-
-	    });
-	    calendar.render();
-	    calendarList.forEach( function (ele) {
-	      console.log(ele)
-	    })
-  }
-
-  function search() {
-	  let searchInput = document.querySelector('#search');
-	  let tempq = [{
-			  e : 'g',
-			  q : 'q',
-			  w : 'w',
-			  r : 'e'
-	  },
-	  {
-		  e : 'g1',
-		  q : 'q1',
-		  w : 'w1',
-		  r : 'e1'
-  }]
-	  searchInput.addEventListener('keyup', function() {
-			let searchVal = searchInput.value;
-			let searchResult = calendarList.filter(e => e.userNm.includes(searchVal));
-			let modalUl = document.querySelector('.modal-Ul')
-			modalUl.innerText = '';
-			if(searchVal === '') {
-			 return;
-			}
-			for(let i = 0; i < searchResult.length; i++) {
-			var addLi = document.createElement('li');
-			var addDiv = document.createElement('div');
-			addLi.setAttribute("style","list-style:none");
-			addDiv.innerText = searchResult[i].userNm;
-			addDiv.setAttribute("OnClick","location.href='http://naver.com'");
-			addDiv.setAttribute("class","searchList");
-			addDiv.setAttribute("style","cursor:Pointer");
-			addLi.append(addDiv);
-			modalUl.append(addLi);
-			}
-	  });
-  }
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/pagejs/calendar/calendar.js"></script>
+<script id="template-search-list" type="text/template">
+<span style='width: 85px'> {userNm}</span>
+<span style='width: 150px'> {userTel} </span>
+<span style='width: 120px'> {reserveDate} </span>
+<span> {workerNm} </span>
 </script>
 </body>
 </html>
