@@ -241,7 +241,7 @@ public class MainController {
 		logger.info(">>>>>>>>  onevsone");
 		return "questions/1vs1";
 	}
-	@RequestMapping(value="/user/EmplyrCreat.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/EmplyrCreat.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String EmplyrCreat(Model model) throws RichardException{
 		logger.info(">>>>>>>>  EmplyrCreat");
 		return "user/EmplyrCreat";

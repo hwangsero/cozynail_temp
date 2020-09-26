@@ -82,6 +82,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "login_process.do"
 					, "user_id_check_ajax.do"
 					, "user_nickname_check_ajax.do"
+					, "user_logout.do"
 					, "myPageMain.do"
 					, "activeList.do"
 					, "likeUserList.do"

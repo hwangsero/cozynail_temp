@@ -14,11 +14,11 @@
     <div class="row page-header">
         <h1 id="timeline">Timeline</h1>
     </div>
-    <!-- jstl로 관리자 버튼 조절할것. -->
+<c:if test = "${rank eq 'M'}">
     <div class="row col-sm-12 justify-content-end">
 		<button type="button" class="btn btn-dark" onclick="location.href='main_write_form.do'">글쓰기</button>
     </div>
-
+</c:if>
     <ul class="timeline col-sm-12">
 
     <c:forEach var="vo" items="${mainList}" varStatus="status">
@@ -49,11 +49,11 @@
    		</c:otherwise>
    	</c:choose>
           <div class="timeline-panel">
-        <!-- 관리자 :: S -->
+<c:if test = "${rank eq 'M'}">
 	        <button type="button" class="btn btn-dark" onclick="updateItem('${vo.no }')">수정</button>
         	<button type="button" class="btn btn-dark" onclick="deleteItem('${vo.no }','${vo.title }')">삭제</button>
-        	<p>${vo.userNm} : ${vo.userTel }</p>
-        <!-- 관리자 :: E -->
+        	<p>${vo.userNm} : ${vo.userId }</p>
+</c:if>
             <div class="timeline-heading">
               <h4 class="timeline-title">${vo.title }</h4>
               <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>${vo.updateDate }</small></p>

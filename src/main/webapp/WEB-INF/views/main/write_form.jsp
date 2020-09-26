@@ -14,7 +14,7 @@
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
     </div>
-<!-- 핀의 색깔은 라디오버튼으로 추후에 추가 예정 일단은 회색으로 고정 -->
+
 <div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert">
@@ -22,7 +22,11 @@
               <p>타임라인 등록 화면</p>
             </div>
 			<form class="form" name="timeline-form" enctype="multipart/form-data">
-			<input id="no" name="no" type="hidden" class="form-control" value="${mainVo.no }">
+<c:if test="${mainVo != null && Type=='M'}">
+			<input id="no" name="no" type="hidden" value="${mainVo.no }">
+</c:if>
+			<input id="userNm" name="userNm" type="hidden" value="${name }">
+			<input id="userId" name="userId" type="hidden" value="${id }">
 			  <div class="form-group row">
 			    <label for="title" class="col-sm-2 col-form-label">핀 색깔</label>
 			    <div class="btn-group col-sm-10" role="group" aria-label="color pick">

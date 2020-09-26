@@ -153,7 +153,7 @@ public class UserController {
 				session.setAttribute("id", userInfo.getId());
 				// session 내부 객체
 				session.setAttribute("name", userInfo.getName());
-
+				session.setAttribute("rank", userInfo.getUserRank());
 
 				// 로그인 내역 추가
 				// insert DB
@@ -166,6 +166,19 @@ public class UserController {
 			// DB 로직 구현
 			// Login 로직
 		}
+		return mav;
+	}
+	// 로그아웃
+	@RequestMapping(value="/user_logout.do", method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView user_logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
+		ModelAndView mav = new ModelAndView();
+
+		//세션 삭제
+		session.removeAttribute("id");
+		session.removeAttribute("name");
+		session.removeAttribute("rank");
+
+		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
 }
