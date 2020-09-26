@@ -29,7 +29,7 @@
 			#{phone },
          	'G',
          	#{gender },
-			#{birth_date },
+			#{birthDate },
 			CURRENT_TIMESTAMP,
 			CURRENT_TIMESTAMP
          )
