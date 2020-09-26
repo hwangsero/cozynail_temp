@@ -24,6 +24,7 @@
 		LEFT JOIN naildb.worker_master wrm
 		ON rm.WORKER_CODE = wrm.WORKER_CODE
 		WHERE rm.WORK_CATE = wm.WORK_CATE
+		ORDER by reserveDate DESC
    </select>
 
 </mapper>

@@ -42,8 +42,9 @@ public class CalendarController {
         return "calendar/calendar";
     }
 
+    @ResponseBody
     @GetMapping(value = "/calendarInfo.do")
-    public @ResponseBody List<reserveVO> calendarInfo() {
+    public  List<reserveVO> calendarInfo() {
     	List<reserveVO> calList = calendarService.calendarSelectAll();
     	return calList;
     }
