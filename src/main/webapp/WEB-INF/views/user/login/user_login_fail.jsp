@@ -32,8 +32,6 @@
         <!-- Remind Passowrd -->
         <div id="formFooter">
 			<a class="underlineHover" href="<c:url value='main.do' />">Go to home</a>
-			<hr>
-			<a class="underlineHover" href="#">Forgot Password?</a>
         </div>
 		<!-- 로그인 탭 -->
         <!-- 회원가입 탭 -->
