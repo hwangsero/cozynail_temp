@@ -18,7 +18,53 @@ $(function () {
 	$('#gray').click(function() {
 		$('#color').val('GR');
 	});
+	$('#photo').on("change", showThumbnail);
 });
+function showThumbnail(el){
+	var files = el.target.files;
+	var arrFiles = Array.prototype.slice.call(files);
+
+	arrFiles.forEach(function(f) {
+		if(!f.type.match("image.*")){
+			alert("확장자는 이미지 확장자만 가능합니다.");
+			return false;
+		}
+
+		var reader = new FileReader();
+		reader.onload = function(el){
+			$('#thumbnail').attr("src", el.target.result);
+		}
+		reader.readAsDataURL(f);
+	});
+}
+
+function Update(){
+	var writeInput = 0;
+	var checkInputLen = $('.form-control').length;
+
+	$('.form-control').each(function (idx, ele){
+		if(ele.value.trim().length === 0){
+			alert("모든 창을 입력해주세요.");
+			(ele).focus;
+			return false;
+		} else {
+			writeInput ++;
+		}
+	});
+
+	if(writeInput === checkInputLen){
+		if(confirm("수정 하시겠습니까?") == true){ //확인
+			if(doubleSubmitCheck()){return false;}
+			var form = $('form[name="timeline-form"]');
+			form.attr("method", "POST");
+			form.attr("action", "/main_update_submit.do");
+		    form.submit();
+		} else {
+			return false;
+		}
+	}
+}
+
 function Save(){
 	var writeInput = 0;
 	var checkInputLen = $('.form-control').length;

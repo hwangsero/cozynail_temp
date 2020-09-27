@@ -15,8 +15,8 @@ public class MainVo implements Serializable{
 	private String title; // 제목
 	private String photoUrl; // 사진
 	private String content; // 내용
-	private String userTel; // 연락처
-	private String userNm; // 이름
+	private String userId; // 작성자 아이디
+	private String userNm; // 작성자 이름
 	private String color; // 핀 색깔
 	private String createDate; // 등록일자
 	private String updateDate; // 수정일자

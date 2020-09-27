@@ -34,3 +34,14 @@
 	padding: 0px;
 }
 
+.searchList span {
+	display: inline-block;
+}
+
+.searchList {
+	cursor:Pointer;
+}
+
+.searchList:hover {
+	background-color: #87ceeb;
+}

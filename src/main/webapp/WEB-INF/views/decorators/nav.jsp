@@ -14,8 +14,25 @@
             <img class="img-responsive img-rounded"src="<c:url value='/img/user.jpg' />" alt="User picture" style="height: auto;"/>
           </div>
           <div class="user-info">
-            <span class="user-name">윤지선</span>
-            <span class="user-role">Administrator</span>
+<c:choose>
+	<c:when test="${id ne null and id ne '' and name ne null and name ne '' }">
+			<span class="user-name">${name}</span>
+	</c:when>
+	<c:otherwise>
+			<span class="user-name"><a href="/user/user_login.do">로그인하러가기</a></span>
+	</c:otherwise>
+</c:choose>
+<c:choose>
+	<c:when test="${rank eq 'G' }">
+			<span class="user-role">일반회원</span>
+	</c:when>
+	<c:when test="${rank eq 'M' }">
+			<span class="user-role">관리자</span>
+	</c:when>
+	<c:otherwise>
+			<span class="user-role">비회원</span>
+	</c:otherwise>
+</c:choose>
             <span class="user-status">
               <i class="fa fa-circle"></i>
               <span>Online</span>
@@ -101,7 +118,7 @@
             </li>
             <!-- 추후에 지울 예정 -->
 			<li>
-              <a href="/user/EmplyrCreat.do">
+              <a href="/EmplyrCreat.do">
                 <i class="fa fa-calendar"></i>
                 <span>부트스트랩 샘플 페이지</span>
               </a>
@@ -129,8 +146,17 @@
           <span class="badge-sonar"></span>
         </a>-->
         <!-- 로그인/로그아웃 -->
-        <a href="/user/user_login.do" style="margin-top: 10px;">
+<c:choose>
+	<c:when test="${id ne null and id ne '' and name ne null and name ne '' }">
+		<a href="/user/user_logout.do" style="margin-top: 10px;">
+			<i class="fa fa-power-off"> 로그아웃</i>
+		</a>
+	</c:when>
+	<c:otherwise>
+		<a href="/user/user_login.do" style="margin-top: 10px;">
 			<i class="fa fa-power-off"> 로그인</i>
 		</a>
+	</c:otherwise>
+</c:choose>
       </div>
     </nav>

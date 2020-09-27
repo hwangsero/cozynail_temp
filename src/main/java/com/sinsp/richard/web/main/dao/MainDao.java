@@ -32,13 +32,15 @@ public class MainDao extends CommonSqlDao{
 	}
 
 	public Object updateItem(MainVo vo) throws RichardException{
-		Object obj = new Object();//update(prefix + "deleteMainItem", vo);
+		Object obj = update(prefix + "updateMainItem", vo);
 		log.info("updateItem mainDao: obj : " + obj);
 		return obj;
 	}
 
 	public Object getMainItem(MainVo vo) throws RichardException{
-		return selectOne(prefix + "getMainItem", vo);
+		Object obj = selectOne(prefix + "getMainItem", vo);
+		log.info("getMainItem mainDao: obj : " + obj);
+		return obj;
 	}
 
 }

@@ -47,10 +47,18 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public boolean login(UserVo userVo){
+		boolean tf = false;
+		System.out.println("login 가능한 아이디 인지 먼저 체크: "+ this.getUserIdCount(userVo.getId()));
 		if(this.getUserIdCount(userVo.getId()) == 1) {
-			return true;
+			tf = true;
 		}
-		return false;
+		//비밀번호 검증
+		UserVo user = userDao.getUserInfo(userVo.getId());
+		System.out.println(user);
+		if(!user.getPassword().equals(userVo.getPassword())) {
+			tf = false;
+		}
+		return tf;
 	}
 
 	@Override
@@ -60,8 +68,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int getUserIdCount(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.getUserIdCount(id);
 	}
 
 }

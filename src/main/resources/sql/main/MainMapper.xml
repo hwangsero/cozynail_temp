@@ -13,7 +13,7 @@
 			tl_title,
 			tl_photo,
 			tl_content,
-			user_tel,
+			user_id,
 			user_nm,
 			tl_color,
 			create_date,
@@ -22,7 +22,7 @@
 			#{ title},
 			#{ photoUrl},
 			#{ content},
-			#{ userTel},
+			#{ userId},
 			#{ userNm},
 			#{ color},
 			CURRENT_TIMESTAMP,
@@ -35,7 +35,7 @@
       		 tl_title as title,
 			 tl_photo as photoUrl,
 			 tl_content as content,
-			 user_tel as userTel,
+			 user_id as userId,
 			 user_nm as userNm,
 			 tl_color as color,
 			 create_date as createDate,
@@ -52,10 +52,30 @@
    </delete>
 
    <select id="getMainItem" parameterType="com.sinsp.richard.web.main.vo.MainVo" resultType="com.sinsp.richard.web.main.vo.MainVo">
-      SELECT * FROM time_line
+      SELECT tl_no as no,
+      		 tl_title as title,
+			 tl_photo as photoUrl,
+			 tl_content as content,
+			 user_id as userId,
+			 user_nm as userNm,
+			 tl_color as color,
+			 create_date as createDate,
+			 update_date as updateDate
+      FROM time_line
 	 	WHERE  tl_no 		= #{ no}
       /* com.sinsp.richard.web.main.dao.mainDao.getMainList */
    </select>
 
+   <update id="updateMainItem" parameterType="com.sinsp.richard.web.main.vo.MainVo">
+	 UPDATE time_line
+	 SET	 tl_title = #{ title},
+	 <if test="photoUrl != null and photoUrl != ''">
+	 		 tl_photo = #{ photoUrl},
+	 </if>
+			 tl_content = #{ content},
+			 tl_color = #{ color},
+			 update_date = CURRENT_TIMESTAMP
+	 WHERE  tl_no 		= #{ no}
+   </update>
 
 </mapper>
