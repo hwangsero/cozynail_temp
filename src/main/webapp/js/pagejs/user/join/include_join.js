@@ -14,7 +14,7 @@ function idCheck(){
 	var frm = $("form[name='reg-wrap']");
 	$.ajax({
 		type:"post",
-	   	url:"/user/user_id_check_ajax.do",
+	   	url:"/user/user_id_check.ajax",
 	    dataType:"json",
 	    data: frm.serialize(),
 	    success:function(data){

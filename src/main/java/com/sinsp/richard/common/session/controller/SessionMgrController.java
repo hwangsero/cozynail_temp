@@ -80,8 +80,6 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "join_process.do"
 					, "user_login_fail.do"
 					, "login_process.do"
-					, "user_id_check_ajax.do"
-					, "user_nickname_check_ajax.do"
 					, "user_logout.do"
 					, "myPageMain.do"
 					, "activeList.do"
@@ -116,12 +114,19 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 			}
 
 			if(uriData.length > 0) {
-
+				String lastUriData = uriData[uriData.length-1];
 				for(int j = 0; j< excludePage.length; j++) {
-					if(uriData[uriData.length-1].equals(excludePage[j])) {
+					if(lastUriData.equals(excludePage[j])) {
 						check = true;
 					}
 				}
+				//*.ajax 는 통과
+				int lastUriDataLength = lastUriData.length();
+				if(uriData[uriData.length-1].substring(lastUriDataLength-5).equals(".ajax")) {
+					check = true;
+				}
+
+
 			} else {
 				check = true;
 			}
@@ -138,7 +143,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 				//int userLevel = Integer.parseInt(loginService.selectLoginUserInfo((String)session.getAttribute("userId")));
 
 				if(session.getAttribute("userId") == null) {
-					response.sendRedirect("/login.login.do?GBN=SESSIONOUT");
+					response.sendRedirect("/login/login.do?GBN=SESSIONOUT");
 				} else {
 					result = true;
 				}

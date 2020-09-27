@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="<c:url value='/css/login.css' />">
   <link rel="stylesheet" href="<c:url value='/css/reg.css' />">
   <script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
-  <script src="<c:url value='/js/pagejs/user/login/include_login.js' />"></script>
-  <script src="<c:url value='/js/pagejs/user/join/include_join.js' />"></script>
+  <script src="<c:url value='/js/pagejs/user/login/include_login.js?ver=20200927' />"></script>
+  <script src="<c:url value='/js/pagejs/user/join/include_join.js?ver=20200927' />"></script>
   <script src="<c:url value='/js/pagejs/user/user_login.js' />"></script>
   <script src="<c:url value='/js/common.js' />"></script>
   <script src="<c:url value='/js/utils/CryptoJS/core.min.js' />"></script>

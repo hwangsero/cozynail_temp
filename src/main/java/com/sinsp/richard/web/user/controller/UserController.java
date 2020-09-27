@@ -107,7 +107,7 @@ public class UserController {
 	}
 
 	//아이디 중복체크
-	@RequestMapping(value= "/user_id_check_ajax.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value= "/user_id_check.ajax", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView user_id_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
