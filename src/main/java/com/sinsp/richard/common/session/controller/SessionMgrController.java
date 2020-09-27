@@ -77,11 +77,12 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "user_login.do"
 					, "include_join.do"
 					, "include_login.do"
-					, "user_join_success.do"
+					, "join_process.do"
 					, "user_login_fail.do"
 					, "login_process.do"
 					, "user_id_check_ajax.do"
 					, "user_nickname_check_ajax.do"
+					, "user_logout.do"
 					, "myPageMain.do"
 					, "activeList.do"
 					, "likeUserList.do"
@@ -102,6 +103,10 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "main_write_submit.do"
 					, "main_delete_item.do"
 					, "main_update_item.do"
+					, "getYearStaList.do"
+					, "main_update_submit.do"
+					, "calendarInfo.do"
+					, "registerReservation.do"
 					}; //체크 페이지
 
 			//String [] levelSubDir	= {"file", "image"};	// 권한 페이지
