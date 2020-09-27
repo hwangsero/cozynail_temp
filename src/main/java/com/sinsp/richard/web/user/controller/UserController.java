@@ -181,4 +181,5 @@ public class UserController {
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
+	//comment for merge test git
 }
