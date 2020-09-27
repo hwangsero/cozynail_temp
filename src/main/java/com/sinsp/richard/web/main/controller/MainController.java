@@ -71,7 +71,6 @@ public class MainController {
 		mav.addObject("mainList",list);
 
 		//관리자 여부 값 넘겨줘야함.
-
 		return mav;
 	}
 
