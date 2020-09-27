@@ -172,7 +172,7 @@ public class UserController {
 	public ModelAndView user_logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		ModelAndView mav = new ModelAndView();
 
-		//깃 테스트 깃 테스트
+		//dddddsfasdfsasdfasdfasdf테스트테스트
 		//세션 삭제
 //		session.removeAttribute("id");
 //		session.removeAttribute("name");
@@ -182,5 +182,4 @@ public class UserController {
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
-	//comment for merge test git
 }
