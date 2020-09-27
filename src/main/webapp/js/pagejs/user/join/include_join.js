@@ -86,7 +86,8 @@ function userJoin() {
 		alert("비밀번호가 일치하지 않습니다.");
 		return false;
 	}
-	$('#password').val($('#password1').val());
+	var shaPw = CryptoJS.SHA256($('#password1').val()).toString();
+	$('#password').val(shaPw);
 
 	if(!isIdOk){
 		alert("id 중복체크를 해주세요.");

@@ -10,8 +10,15 @@
         </div>
         <div class="sidebar-header">
           <div class="user-pic">
-            <!--프로필 사진-->
-            <img class="img-responsive img-rounded"src="<c:url value='/img/user.jpg' />" alt="User picture" style="height: auto;"/>
+          <!--프로필 사진-->
+<c:choose>
+	<c:when test="${userPhoto eq null or userPhoto eq ''}">
+			<img class="img-responsive img-rounded"src="<c:url value='/img/user.jpg' />" alt="User picture" style="height: auto;"/>
+	</c:when>
+	<c:otherwise>
+			<img class="img-responsive img-rounded"src="<c:url value='${userPhoto }' />" alt="User picture" style="height: auto;"/>
+	</c:otherwise>
+</c:choose>
           </div>
           <div class="user-info">
 <c:choose>
@@ -99,6 +106,7 @@
                 </ul>
               </div>
             </li>
+<c:if test="${rank eq 'M' }">
             <li class="header-menu">
               <span>관리자페이지</span>
             </li>
@@ -116,6 +124,7 @@
                 <!-- <span class="badge badge-pill badge-warning">New</span> -->
               </a>
             </li>
+</c:if>
             <!-- 추후에 지울 예정 -->
 			<li>
               <a href="/EmplyrCreat.do">
@@ -139,15 +148,15 @@
         <a href="#" style="margin-top: 10px;">
           <i class="fa fa-envelope"></i>
           <span class="badge badge-pill badge-success notification">7</span>
-        </a>
-        <!--내 정보 수정
-        <a href="#" style="margin-top: 10px;">
-          <i class="fa fa-cog"></i>
-          <span class="badge-sonar"></span>
         </a>-->
-        <!-- 로그인/로그아웃 -->
 <c:choose>
 	<c:when test="${id ne null and id ne '' and name ne null and name ne '' }">
+        <!--내 정보 수정-->
+        <a href="#" style="margin-top: 10px;">
+          <i class="fa fa-cog"> 내 정보 수정</i>
+          <!-- 빨콩 <span class="badge-sonar"></span> -->
+        </a>
+        <!-- 로그인/로그아웃 -->
 		<a href="/user/user_logout.do" style="margin-top: 10px;">
 			<i class="fa fa-power-off"> 로그아웃</i>
 		</a>

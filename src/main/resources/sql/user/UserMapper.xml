@@ -51,6 +51,7 @@
 	         	user_rank as userRank,
 	         	gender as gender,
 	         	birthdate as birthDate,
+	         	user_photo as userPhoto,
 	         	create_date as createDate,
 	         	update_date as updateDate
 	 FROM USER_MASTER

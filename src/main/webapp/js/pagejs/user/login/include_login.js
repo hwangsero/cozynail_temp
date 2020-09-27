@@ -5,6 +5,8 @@ function userLogin() {
 		var form = $('form[name="login-form"]');
 		form.attr("method", "POST");
 		form.attr("action", "/user/login_process.do");
+		var shaPw = CryptoJS.SHA256($('#password').val()).toString();
+		$('#password').val(shaPw);
 	    form.submit();
 	} else {
 		return false;

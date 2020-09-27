@@ -60,7 +60,7 @@
       생년월일
     </div>
     <div class="reg-input-wrap">
-      <input type="date" name="birth_date" id="birth_date" />
+      <input type="date" name="birthDate" id="birthDate" />
     </div>
   </div>
 

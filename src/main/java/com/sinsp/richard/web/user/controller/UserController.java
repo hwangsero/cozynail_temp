@@ -81,7 +81,7 @@ public class UserController {
 		return "user/login/include_login";
 	}
 
-	// 회원 로그인 성공/실패
+	// 회원 가입 처리
 	@RequestMapping(value="/join_process.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView join_process(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(userVo.toString());
@@ -96,8 +96,6 @@ public class UserController {
 			TokenMngUtil.resetToken(request);
 
 			// TODO
-
-			//비밀번호 암호화도 추후에 추가해야함.
 
 			// DB 로직 구현
 			if(userService.insertJoinUser(userVo)) {
@@ -154,6 +152,7 @@ public class UserController {
 				// session 내부 객체
 				session.setAttribute("name", userInfo.getName());
 				session.setAttribute("rank", userInfo.getUserRank());
+				session.setAttribute("userPhoto", userInfo.getUserPhoto());
 
 				// 로그인 내역 추가
 				// insert DB
@@ -174,9 +173,10 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 
 		//세션 삭제
-		session.removeAttribute("id");
-		session.removeAttribute("name");
-		session.removeAttribute("rank");
+//		session.removeAttribute("id");
+//		session.removeAttribute("name");
+//		session.removeAttribute("rank");
+		session.invalidate();//기존의 세션 데이터를 모두 삭제
 
 		mav.setViewName("redirect:/main.do");
 		return mav;

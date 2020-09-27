@@ -67,7 +67,7 @@ public class MainController {
 		mav.setViewName("main/main");
 		ArrayList<MainVo> list = mainService.getMainList();// mainList 불러옴.
 
-		logger.info(list.toString());
+		//logger.info(list.toString());
 		mav.addObject("mainList",list);
 
 		//관리자 여부 값 넘겨줘야함.

@@ -25,6 +25,7 @@ public class UserVo implements Serializable{
 	private String userRank;
 	private String gender;
 	private String birthDate;
+	private String userPhoto;
 	private String createDate;
 	private String updateDate;
 

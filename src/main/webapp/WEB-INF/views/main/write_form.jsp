@@ -51,7 +51,7 @@
 			    <label for="photo" class="col-sm-2 col-form-label">사진등록</label>
 			    <div class="col-sm-10">
 			      <img id="thumbnail" src="/img/No_image_available.png" alt="No_image_available" class="img-thumbnail" style="width:300px">
-			      <input id="photo" name="photo" type="file" class="form-control">
+			      <input id="photo" name="photo" type="file">
 			    </div>
 			  </div>
 			  <div class="form-group row">

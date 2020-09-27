@@ -15,6 +15,8 @@
   <script src="<c:url value='/js/pagejs/user/join/include_join.js' />"></script>
   <script src="<c:url value='/js/pagejs/user/user_login.js' />"></script>
   <script src="<c:url value='/js/common.js' />"></script>
+  <script src="<c:url value='/js/utils/CryptoJS/core.min.js' />"></script>
+  <script src="<c:url value='/js/utils/CryptoJS/sha256.min.js' />"></script>
 </head>
 <body>
 <video autoplay muted loop id="myVideo">
