@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sinsp.richard.common.exception.RichardException;
 import com.sinsp.richard.web.calendar.service.CalendarService;
-import com.sinsp.richard.web.calendar.vo.reserveVO;
-
-import net.sf.json.JSONArray;
+import com.sinsp.richard.web.reservation.vo.ReserveVo;
 
 
 @Controller
@@ -44,8 +41,8 @@ public class CalendarController {
 
     @ResponseBody
     @GetMapping(value = "/calendarInfo.do")
-    public  List<reserveVO> calendarInfo() {
-    	List<reserveVO> calList = calendarService.calendarSelectAll();
+    public  List<ReserveVo> calendarInfo() {
+    	List<ReserveVo> calList = calendarService.calendarSelectAll();
     	return calList;
     }
 

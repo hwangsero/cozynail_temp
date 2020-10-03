@@ -6,14 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import com.sinsp.richard.common.dao.CommonSqlDao;
 import com.sinsp.richard.common.exception.RichardException;
-import com.sinsp.richard.web.calendar.vo.reserveVO;
+import com.sinsp.richard.web.reservation.vo.ReserveVo;
 
 @Repository
 public class DetailDao extends CommonSqlDao{
 
 	private static String prefix = "DetailMapper.";
 
-	public List<reserveVO> getReserveInfo(reserveVO vo) throws RichardException {
+	public List<ReserveVo> getReserveInfo(ReserveVo vo) throws RichardException {
 
 		return selectList( prefix + "getReserveInfo", vo);
 	}

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sinsp.richard.web.calendar.dao.CalendarDao;
 import com.sinsp.richard.web.calendar.service.CalendarService;
-import com.sinsp.richard.web.calendar.vo.reserveVO;
+import com.sinsp.richard.web.reservation.vo.ReserveVo;
 
 @Service
 public class CalendarServiceImpl implements CalendarService{
@@ -15,7 +15,7 @@ public class CalendarServiceImpl implements CalendarService{
 	@Autowired
     private CalendarDao calendarDao;
 
-    public List<reserveVO> calendarSelectAll() {
+    public List<ReserveVo> calendarSelectAll() {
         return calendarDao.calendarSelectAll();
     }
 

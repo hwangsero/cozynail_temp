@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.sinsp.richard.common.dao.CommonSqlDao;
+import com.sinsp.richard.web.comm.vo.PayMasterVo;
+import com.sinsp.richard.web.comm.vo.WorkMasterVo;
+import com.sinsp.richard.web.comm.vo.WorkerMasterVo;
 
 @Repository
 public class CommDao extends CommonSqlDao{
@@ -20,5 +23,20 @@ public class CommDao extends CommonSqlDao{
 	// navigation 카테고리 목록
 	public List<String> getCateList() {
 		return selectList(prefix + "getCategory");
+	}
+
+	// WorkMaster 전체 Select
+	public List<WorkMasterVo> getWorkMasterVoList() {
+		return selectList(prefix + "getWorkMasterVoList");
+	}
+
+	// WorkerMaster 전체 Select
+	public List<WorkerMasterVo> getWorkerMasterVoList() {
+		return selectList(prefix + "getWorkerMasterVoList");
+	}
+
+	// PayMaster 전체 Select
+	public List<PayMasterVo> getPayMasterVoList() {
+		return selectList(prefix + "getPayMasterVoList");
 	}
 }

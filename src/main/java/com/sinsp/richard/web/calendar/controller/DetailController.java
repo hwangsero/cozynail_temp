@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sinsp.richard.common.exception.RichardException;
 import com.sinsp.richard.common.util.TokenMngUtil;
 import com.sinsp.richard.web.calendar.service.DetailService;
-import com.sinsp.richard.web.calendar.vo.reserveVO;
+import com.sinsp.richard.web.reservation.vo.ReserveVo;
 
 
 @Controller
@@ -43,7 +43,7 @@ public class DetailController {
 	@RequestMapping(value = "/getReserveInfo.do", method = { RequestMethod.GET, RequestMethod.POST })
 	@ResponseBody
     public Map<String, Object> selectReserveInfo(		//세션에서 아이디를 받아서 기본정보를 리턴해줌
-			reserveVO vo,
+			ReserveVo vo,
 			HttpServletRequest request, HttpServletResponse response,
             Locale locale, Model model, HttpSession session) throws RichardException{
 			logger.info(">>>>>>>> : " + vo.toString());

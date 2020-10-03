@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.sinsp.richard.common.exception.RichardException;
 import com.sinsp.richard.web.calendar.dao.DetailDao;
 import com.sinsp.richard.web.calendar.service.DetailService;
-import com.sinsp.richard.web.calendar.vo.reserveVO;
+import com.sinsp.richard.web.reservation.vo.ReserveVo;
 
 @Service
 public class DetailServiceImpl implements DetailService{
@@ -17,7 +17,7 @@ public class DetailServiceImpl implements DetailService{
 	DetailDao detailDao;
 
 	@Override
-	public List<reserveVO> getReserveInfo(reserveVO vo) throws RichardException {
+	public List<ReserveVo> getReserveInfo(ReserveVo vo) throws RichardException {
 		return detailDao.getReserveInfo(vo);
 	}
 

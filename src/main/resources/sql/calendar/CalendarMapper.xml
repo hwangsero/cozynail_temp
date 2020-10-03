@@ -3,7 +3,7 @@
 
 <mapper namespace="CalendarMapper">
 
-   <select id="selectCalendarAll" resultType="com.sinsp.richard.web.calendar.vo.reserveVO" parameterType="com.sinsp.richard.web.calendar.vo.reserveVO">
+   <select id="selectCalendarAll" resultType="com.sinsp.richard.web.reservation.vo.ReserveVo" parameterType="com.sinsp.richard.web.reservation.vo.ReserveVo">
         SELECT
 			 rm.RESERVE_TIME as reserveTime
 			,um.USER_NM as userNm

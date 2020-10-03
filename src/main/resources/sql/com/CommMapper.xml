@@ -15,4 +15,19 @@
       /* com.sinsp.richard.web.comm.dao.commDao.getCategory */
    </select>
 
+   <select id="getWorkMasterVoList" resultType="com.sinsp.richard.web.comm.vo.WorkMasterVo">
+		SELECT *
+		FROM WORK_MASTER
+   </select>
+
+   <select id="getWorkerMasterVoList" resultType="com.sinsp.richard.web.comm.vo.WorkerMasterVo">
+		SELECT *
+		FROM WORKER_MASTER
+   </select>
+
+   <select id="getPayMasterVoList" resultType="com.sinsp.richard.web.comm.vo.PayMasterVo">
+		SELECT *
+		FROM PAY_MASTER
+   </select>
+
 </mapper>
