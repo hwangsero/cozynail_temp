@@ -3,6 +3,7 @@ package com.sinsp.richard.web.reservation.vo;
 import java.util.List;
 
 import com.sinsp.richard.web.comm.vo.PayMasterVo;
+import com.sinsp.richard.web.comm.vo.UserMasterVo;
 import com.sinsp.richard.web.comm.vo.WorkMasterVo;
 import com.sinsp.richard.web.comm.vo.WorkerMasterVo;
 

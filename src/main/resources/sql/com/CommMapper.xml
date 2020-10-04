@@ -18,16 +18,25 @@
    <select id="getWorkMasterVoList" resultType="com.sinsp.richard.web.comm.vo.WorkMasterVo">
 		SELECT *
 		FROM WORK_MASTER
+		ORDER BY WORK_NM
    </select>
 
    <select id="getWorkerMasterVoList" resultType="com.sinsp.richard.web.comm.vo.WorkerMasterVo">
 		SELECT *
 		FROM WORKER_MASTER
+		ORDER BY WORKER_NM
    </select>
 
    <select id="getPayMasterVoList" resultType="com.sinsp.richard.web.comm.vo.PayMasterVo">
 		SELECT *
 		FROM PAY_MASTER
+		ORDER BY PAY_NM
+   </select>
+
+   <select id="getUserMasterVoList" resultType="com.sinsp.richard.web.comm.vo.UserMasterVo">
+		SELECT *
+		FROM USER_MASTER
+		ORDER BY USER_NM, USER_TEL
    </select>
 
 </mapper>
