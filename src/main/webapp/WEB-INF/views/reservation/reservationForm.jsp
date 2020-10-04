@@ -12,8 +12,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert">
-              <h4 class="alert-heading">신규 회원 등록</h4>
-              <p>회원 가입 입력 양식</p>
+              <h4 class="alert-heading">예약 등록</h4>
             </div>
             <!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -70,7 +69,7 @@
 			    <label class="col-sm-2 col-form-label">시술종류</label>
 			    <div class="col-sm-10">
 			    <c:forEach items="${reserveFormInfo.workMasterList}" var="workInfo">
-			     <label>${workInfo.workNm }<input id="workNm" name="workNm" type="checkbox" value="네일" checked class="form-control"></label>
+			     <label>${workInfo.workNm }<input id="workNm" name="workNm" type="checkbox" value="네일" class="form-control"></label>
 			    </c:forEach>
 			    </div>
 			  </div>
@@ -138,8 +137,8 @@
 </script>
 <script type="text/javascript" src="${pagecontext.request.contextPath }/js/pagejs/reservation/reservationForm.js"></script>"
 <script id="template-search-list" type="text/template">
-<span style='width: 85px'> {userNm}</span>
-<span style='width: 150px'> {userTel} </span>
+<span class="searchName" style='width: 85px'> {userNm}</span>
+<span class="searchTel" style='width: 150px'> {userTel} </span>
 </script>
 </body>
 </html>

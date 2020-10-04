@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', ()=>{
 	getUserInfoAjax();
-
+	clickUserInfo();
+	clickSearchBtn();
 })
 
 	function getUserInfoAjax() {
@@ -15,9 +16,17 @@ window.addEventListener('DOMContentLoaded', ()=>{
 		xhr.send();
 	}
 
+	function clickSearchBtn() {
+		btnSearch = document.querySelector('.btn-primary');
+		let modalUl = document.querySelector('.modal-Ul');
+		btnSearch.addEventListener('click',()=>{
+			document.querySelector('#search').value = '';
+			modalUl.innerText = '';
+		})
+	}
+
   function search(userInfo) {
 	  let searchInput = document.querySelector('#search');
-	  searchInput.innerText = "";
 	  searchInput.addEventListener('keyup', function() {
 			let searchVal = searchInput.value;
 			let searchResult = userInfo.filter(e => e.userNm.includes(searchVal));
@@ -42,3 +51,28 @@ window.addEventListener('DOMContentLoaded', ()=>{
 			}
 	  });
   }
+
+  	function clickUserInfo() {
+  		let modalBody = document.querySelector('.modal-body');
+  		let btnClick = document.querySelector('.btn-secondary');
+
+  		modalBody.addEventListener('click',(e) => {
+  			if(!e.target.classList.contains('searchList') && !e.target.classList.contains('searchName') && !e.target.classList.contains('searchTel') )
+  				return;
+
+  			let divSearchList = e.target.closest('.searchList');
+  			let searchName;
+  			let searchTel;
+  			divSearchList.childNodes.forEach((item)=>{
+  				if(item.nodeName == 'SPAN' && item.classList.contains('searchName'))
+  					searchName = item.innerText;
+  				else if(item.nodeName == 'SPAN' && item.classList.contains('searchTel'))
+  					searchTel = item.innerText;
+  			})
+
+  			document.querySelector('#name').value = searchName;
+  			document.querySelector('#phone').value = searchTel;
+  			btnClick.click();
+
+  		})
+  	}
