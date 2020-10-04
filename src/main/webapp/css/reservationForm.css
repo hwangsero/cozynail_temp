@@ -1,0 +1,26 @@
+
+.modal-ul {
+	padding: 0px;
+}
+
+.searchList span {
+	display: inline-block;
+}
+
+.searchList {
+	cursor:Pointer;
+}
+
+.searchList:hover {
+	background-color: #87ceeb;
+}
+
+.div-name {
+	width: 50%;
+	display: inline-block;
+}
+
+.div-phone {
+	width: 50%;
+	display: inline-block;
+}
