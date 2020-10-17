@@ -2,6 +2,9 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	getUserInfoAjax();
 	clickUserInfo();
 	clickSearchBtn();
+	checkPayPrice();
+	clickBtnReserve();
+	checkWorkCate();
 })
 
 	function getUserInfoAjax() {
@@ -76,3 +79,43 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
   		})
   	}
+  	function clickBtnReserve() {
+  		let btnReserve = document.querySelector('.btn-reserve');
+  		btnReserve.addEventListener('click',()=> {
+  			if(checkReserveDate()) alert('good');
+  			else alert('no!!')
+  		})
+  	}
+
+  	function checkPayPrice() {
+  		let inputPayPrice = document.querySelector('#payPrice');
+  		inputPayPrice.addEventListener('input',(e) => {
+  			e.target.value = e.target.value.replace(/[^0-9]/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  		})
+  	}
+
+  	function checkReserveDate() {
+  		let inputReserveDate = document.querySelector('#reserveDate');
+  		if(inputReserveDate.value === '') {
+  			inputReserveDate.setAttribute('placeholder','내용을 입력해주세요')
+  			return false;
+  		}
+  		return true;
+  	}
+
+  	function checkReserveTime() {
+  		let inputReserveTime = document.querySelector('#reserveTime');
+  		if(inputReserveTime.value === '') return false;
+  		return true;
+  	}
+
+  	function checkWorkCate() {
+  		let count = 0;
+  		let divWorkCate = document.querySelector('.divWorkInfo');
+  		divWorkCate.childNodes.forEach((item)=> {
+  			if(item.tagName === 'LABEL' && item.firstElementChild.checked) count++;
+  		})
+  		alert(count);
+  	}
+
+  	//금액 이랑 이름 추가

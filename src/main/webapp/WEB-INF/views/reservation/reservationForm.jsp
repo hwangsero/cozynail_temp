@@ -60,17 +60,18 @@
 			    </div>
 			  </div>
 			  <div class="form-group row">
-			    <label for="reserveDate" class="col-sm-2 col-form-label">예약시간</label>
+			    <label for="reserveTime" class="col-sm-2 col-form-label">예약시간</label>
 			    <div class="col-sm-10">
-			      <input id="reserveDate" type="time" class="form-control">
+			      <input id="reserveTime" type="time" class="form-control">
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label class="col-sm-2 col-form-label">시술종류</label>
-			    <div class="col-sm-10">
+			    <div class="col-sm-10 divWorkInfo">
 			    <c:forEach items="${reserveFormInfo.workMasterList}" var="workInfo">
 			     <label>${workInfo.workNm }<input id="workNm" name="workNm" type="checkbox" value="네일" class="form-control"></label>
 			    </c:forEach>
+			    <input type="hidden" id="workCount" value="0"/>
 			    </div>
 			  </div>
 			  <div class="form-group row">
@@ -79,10 +80,10 @@
 			    <c:forEach items="${reserveFormInfo.payMasterList}" var="payInfo">
 				    <c:choose>
 				    	<c:when test="${payInfo.payNm eq '현금'}">
-				    		 <label>${payInfo.payNm }(${payInfo.payMark })<input id="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>
+				    		 <label>${payInfo.payNm }(${payInfo.payMark })<input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>
 				    	</c:when>
 				    	<c:otherwise>
-				    		 <label>${payInfo.payNm }<input id="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>
+				    		 <label>${payInfo.payNm }<input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>
 				    	</c:otherwise>
 				    </c:choose>
 			    </c:forEach>
@@ -113,7 +114,7 @@
 
 			  <div class="form-group row">
 			    <div class="col">
-			      <input type="button" class="btn btn-dark" value="저장" onclick="validForm()">
+			      <input type="button" class="btn-reserve btn-dark" value="저장">
 			    </div>
 			  </div>
 			  <!-- 중복방지 Token Parameter -->
@@ -133,7 +134,6 @@
 		form.action = "${pageContext.request.contextPath}/registersuccess.do"
 		form.submit();
 	}
-
 </script>
 <script type="text/javascript" src="${pagecontext.request.contextPath }/js/pagejs/reservation/reservationForm.js"></script>"
 <script id="template-search-list" type="text/template">
