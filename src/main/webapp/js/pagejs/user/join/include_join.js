@@ -1,6 +1,6 @@
 
 var oldVal = "";
-$(document).on('propertychange change keyup paste input','#nickname', function() {
+$(document).on('propertychange change keyup paste input','#nickname', function() { // input(propertychange)
 	var currentVal = $(this).val().trim();
     if(currentVal == oldVal) {
     	nicknameCheck();

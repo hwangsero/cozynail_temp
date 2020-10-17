@@ -152,7 +152,7 @@
 <c:choose>
 	<c:when test="${id ne null and id ne '' and name ne null and name ne '' }">
         <!--내 정보 수정-->
-        <a href="#" style="margin-top: 10px;">
+        <a href="/mypage/mypage_info.do" style="margin-top: 10px;">
           <i class="fa fa-cog"> 내 정보 수정</i>
           <!-- 빨콩 <span class="badge-sonar"></span> -->
         </a>

@@ -218,5 +218,56 @@
 	</div>
 	</div>
 	<!-- List 두번째 타입 끝 -->
+
+	<!-- Table CheckBox -->
+	<div>
+		<table class="table">
+		 <thead class="thead-dark">
+		   <tr>
+		      <th>눈썹정리</th>
+		      <th>발각질</th>
+		      <th>발젤</th>
+		      <th>발케어</th>
+		      <th>눈썹정리</th>
+		      <th>발각질</th>
+		      <th>발젤</th>
+		      <th>발케어</th>
+		      <th>눈썹정리</th>
+		      <th>발각질</th>
+		      <th>발젤</th>
+		      <th>발케어</th>
+		      <th>눈썹정리</th>
+		      <th>발각질</th>
+		      <th>발젤</th>
+		      <th>발케어</th>
+		      <th>눈썹정리</th>
+		      <th>18번쨰</th>
+		   </tr>
+		 </thead>
+		 <tbody>
+		   <tr>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		      <td><input id="workNm" name="workNm" type="checkbox" value="네일" ></td>
+		   </tr>
+		 </tbody>
+		</table>
+	</div>
+
 </body>
 </html>

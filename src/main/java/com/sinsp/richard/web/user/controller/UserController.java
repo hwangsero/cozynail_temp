@@ -49,7 +49,6 @@ import com.sinsp.richard.web.user.vo.UserVo;
  */
 //@RestController
 @Controller
-@RequestMapping(value="/user")
 public class UserController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -58,14 +57,14 @@ public class UserController {
 	private UserService userService;
 
 	// 회원 로그인/가입 메인 페이지
-	@RequestMapping(value="/user_login.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user/user_login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String user_login() throws RichardException{
 
 		return "user/user_login";
 	}
 
 	// 회원 가입 form
-	@RequestMapping(value="/include_join.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user/include_join.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String include_join(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info("include_join");
 		TokenMngUtil.saveToken(request);
@@ -73,7 +72,7 @@ public class UserController {
 		return "user/join/include_join";
 	}
 	// 회원 로그인 form
-	@RequestMapping(value="/include_login.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user/include_login.do", method={RequestMethod.POST, RequestMethod.GET})
 	public String include_login(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
 		logger.info("include_login");
 		TokenMngUtil.saveToken(request);
@@ -82,7 +81,7 @@ public class UserController {
 	}
 
 	// 회원 가입 처리
-	@RequestMapping(value="/join_process.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user/join_process.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView join_process(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
@@ -107,7 +106,7 @@ public class UserController {
 	}
 
 	//아이디 중복체크
-	@RequestMapping(value= "/user_id_check.ajax", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value= "/user/user_id_check.ajax", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView user_id_check(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response) throws RichardException {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
@@ -126,7 +125,7 @@ public class UserController {
 	}
 
 	// 회원 로그인 성공/실패
-	@RequestMapping(value="/login_process.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user/login_process.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView login_process(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		logger.info(userVo.toString());
 		logger.info((String) request.getAttribute("TOKEN_KEY"));
@@ -168,7 +167,7 @@ public class UserController {
 		return mav;
 	}
 	// 로그아웃
-	@RequestMapping(value="/user_logout.do", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/user/user_logout.do", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView user_logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws RichardException{
 		ModelAndView mav = new ModelAndView();
 
@@ -182,7 +181,12 @@ public class UserController {
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
-	//comment for merge test git
-	//commnet for merge test git2
-	//comment for merge test git3
+	// 마이페이지 정보수정
+	@RequestMapping(value="/mypage/mypage_info.do", method={RequestMethod.POST, RequestMethod.GET})
+	public String mypage_info(Model model, HttpServletRequest request, HttpServletResponse response) throws RichardException{
+		logger.info("mypage_info");
+		TokenMngUtil.saveToken(request);
+		model.addAttribute("TOKEN_KEY", request.getAttribute("TOKEN_KEY"));
+		return "user/mypage/mypage_info";
+	}
 }
