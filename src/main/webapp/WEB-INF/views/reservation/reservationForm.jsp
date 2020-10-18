@@ -18,6 +18,7 @@
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 			  회원 검색
 			</button>
+			<span style='color: red' id="msgUserInfo">&nbsp&nbsp회원검색을 통해 회원정보를 선택해주세요</span>
             <!-- Modal -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
@@ -69,9 +70,8 @@
 			    <label class="col-sm-2 col-form-label">시술종류</label>
 			    <div class="col-sm-10 divWorkInfo">
 			    <c:forEach items="${reserveFormInfo.workMasterList}" var="workInfo">
-			     <label>${workInfo.workNm }<input id="workNm" name="workNm" type="checkbox" value="네일" class="form-control"></label>
+			     <label>${workInfo.workNm }<input name="workNm" type="checkbox" value="네일" class="form-control"></label>&nbsp&nbsp
 			    </c:forEach>
-			    <input type="hidden" id="workCount" value="0"/>
 			    </div>
 			  </div>
 			  <div class="form-group row">
@@ -80,10 +80,11 @@
 			    <c:forEach items="${reserveFormInfo.payMasterList}" var="payInfo">
 				    <c:choose>
 				    	<c:when test="${payInfo.payNm eq '현금'}">
-				    		 <label>${payInfo.payNm }(${payInfo.payMark })<input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>
+				    		 <label>${payInfo.payNm }(${payInfo.payMark })&nbsp<input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>&nbsp&nbsp
 				    	</c:when>
 				    	<c:otherwise>
-				    		 <label>${payInfo.payNm }<input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>
+				    		 <label>${payInfo.payNm }&nbsp
+				    		 <input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>&nbsp&nbsp
 				    	</c:otherwise>
 				    </c:choose>
 			    </c:forEach>
@@ -92,7 +93,7 @@
 			  <div class="form-group row">
 			    <label for="payPrice" class="col-sm-2 col-form-label">결제금액</label>
 			    <div class="col-sm-10">
-			      <input id="payPrice" type="text" class="form-control">
+			      <input id="payPrice" type="text" class="form-control" value=0>
 			    </div>
 			    </div>
 			    <div class="form-group row">

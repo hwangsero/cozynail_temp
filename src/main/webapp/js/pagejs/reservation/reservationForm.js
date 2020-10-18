@@ -1,10 +1,9 @@
 window.addEventListener('DOMContentLoaded', ()=>{
 	getUserInfoAjax();
 	clickUserInfo();
+	setPayPriceOnlyNumber()
 	clickSearchBtn();
-	checkPayPrice();
 	clickBtnReserve();
-	checkWorkCate();
 })
 
 	function getUserInfoAjax() {
@@ -76,28 +75,44 @@ window.addEventListener('DOMContentLoaded', ()=>{
   			document.querySelector('#name').value = searchName;
   			document.querySelector('#phone').value = searchTel;
   			btnClick.click();
-
-  		})
-  	}
-  	function clickBtnReserve() {
-  		let btnReserve = document.querySelector('.btn-reserve');
-  		btnReserve.addEventListener('click',()=> {
-  			if(checkReserveDate()) alert('good');
-  			else alert('no!!')
+  			document.querySelector('#msgUserInfo').style.display = "none";
   		})
   	}
 
-  	function checkPayPrice() {
+  	function setPayPriceOnlyNumber() {
   		let inputPayPrice = document.querySelector('#payPrice');
   		inputPayPrice.addEventListener('input',(e) => {
   			e.target.value = e.target.value.replace(/[^0-9]/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,',');
   		})
   	}
 
+  	function clickBtnReserve() {
+  		let btnReserve = document.querySelector('.btn-reserve');
+  		btnReserve.addEventListener('click',()=> {
+  			if(checkAllForm()) alert('good');
+  		})
+  	}
+
+  	function checkAllForm() {
+  		if(checkUserInfo() && checkReserveDate() && checkReserveTime() && checkWorkCate() && checkPayPrice()) return true;
+  		return false;
+  	}
+
+  	function checkUserInfo() {
+  		let inputUserName = document.querySelector('#name');
+  		if(inputUserName.value === '') {
+  			alert('회원정보를 입력해주세요');
+  			inputUserName.focus();
+  			return false;
+  		}
+  		return true;
+  	}
+
   	function checkReserveDate() {
   		let inputReserveDate = document.querySelector('#reserveDate');
   		if(inputReserveDate.value === '') {
-  			inputReserveDate.setAttribute('placeholder','내용을 입력해주세요')
+  			alert('예약일자를 입력해주세요');
+  			inputReserveDate.focus();
   			return false;
   		}
   		return true;
@@ -105,7 +120,11 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
   	function checkReserveTime() {
   		let inputReserveTime = document.querySelector('#reserveTime');
-  		if(inputReserveTime.value === '') return false;
+  		if(inputReserveTime.value === '') {
+  			alert('예약시간을 입력해주세요');
+  			inputReserveTime.focus();
+  			return false;
+  		}
   		return true;
   	}
 
@@ -115,7 +134,22 @@ window.addEventListener('DOMContentLoaded', ()=>{
   		divWorkCate.childNodes.forEach((item)=> {
   			if(item.tagName === 'LABEL' && item.firstElementChild.checked) count++;
   		})
-  		alert(count);
+  		if(count < 1) {
+  			alert('시술종류를 선택해주세요');
+  			divWorkCate.focus();
+  			return false;
+  		}
+  		return true;
+  	}
+
+  	function checkPayPrice() {
+  		let inputPayPrice = document.querySelector('#payPrice');
+  		if(inputPayPrice.value === '') {
+  			alert('결제금액을 입력해주세요');
+  			inputPayPrice.focus();
+  			return false;
+  		}
+  		return true;
   	}
 
   	//금액 이랑 이름 추가
