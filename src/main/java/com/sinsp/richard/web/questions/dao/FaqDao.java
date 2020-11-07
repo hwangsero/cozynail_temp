@@ -10,9 +10,13 @@ import com.sinsp.richard.web.questions.vo.FaqVo;
 @Repository
 public class FaqDao extends CommonSqlDao{
 
-	private static String prefix = "FaqMapper.";
-	
-	public List<FaqVo> findListFaq() {
-		return selectList(prefix + "findListFaq");
-	}
+    private static String prefix = "FaqMapper.";
+    
+    public List<FaqVo> findListFaq() {
+        return selectList(prefix + "findListFaq");
+    }
+    
+    public void insertFaq(FaqVo faqVo) {
+        insert(prefix + "insertFaq", faqVo);
+    }
 }

@@ -4,8 +4,32 @@
 <mapper namespace="FaqMapper">
     
     <select id="findListFaq" resultType="com.sinsp.richard.web.questions.vo.FaqVo">
-<!--     <select id="findListFaq" resultType="com.sinsp.richard.web.vo.FaqVo"> -->
-      SELECT 1 FROM DUAL
-   </select>
+        SELECT FM.FAQ_NO
+             , FM.FAQ_GRP_CD
+             , FM.FAQ_TITLE
+             , FM.FAQ_CONTENTS
+          FROM FAQ_MASTER FM
+         ORDER BY FM.FAQ_NO DESC
+    </select>
+    
+    <insert id="insertFaq" parameterType="com.sinsp.richard.web.questions.vo.FaqVo">
+        INSERT INTO FAQ_MASTER (
+            FAQ_GRP_CD
+          , FAQ_TITLE
+          , FAQ_CONTENTS
+          , CREATE_ID
+          , CREATE_DATETIME
+          , UPDATE_ID
+          , UPDATE_DATETIME
+         ) VALUES (
+            #{faqGrpCd}
+          , #{faqTitle}
+          , #{faqContents}
+          , #{createId}
+          , CURRENT_TIMESTAMP
+          , #{updateId}
+          , CURRENT_TIMESTAMP
+         )
+    </insert>
 
 </mapper>

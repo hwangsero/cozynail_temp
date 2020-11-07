@@ -95,6 +95,7 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "rates.do"
 					, "onevsone.do"
 					, "faq.do"
+					, "saveFaq.do"
 					, "login.do"
 					, "main_write_form.do"
 					, "getReserveInfo.do"
