@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReservationMapper">
+
+	<insert id="insertReservation" parameterType="com.sinsp.richard.web.reservation.vo.ReserveVo" useGeneratedKeys="true" keyProperty="reserveNo">
+        INSERT INTO RESERVE_MASTER
+        (
+        	USER_NO
+        	, WORKER_NO
+        	, PAY_STATE
+        	, RESERVE_DATE
+        	, RESERVE_TIME
+        	, PAY_PRICE
+        	, OTHER_INFO
+        	, CREATE_DATE
+        	, UPDATE_DATE
+        )
+        VALUES
+        (
+        	#{userNo}
+        	, #{workerNo}
+        	, #{payState}
+        	, #{reserveDate}
+        	, #{reserveTime}
+        	, #{payPrice}
+        	, #{otherInfo}
+        	, now()
+        	, now()
+        )
+   </insert>
+
+   <insert id="insertWorks" parameterType="java.util.List">
+        INSERT INTO RESERVE_WORK
+        (
+        	RESERVE_NO
+        	, WORK_NO
+        )
+        VALUES
+        	 <foreach collection="list" item="item" separator=",">
+        (
+        #{item.reserveNo}
+        	 , #{item.workNo}
+        )
+        	 </foreach>
+   </insert>
+
+   <select id="selectReservationDetail" resultType="com.sinsp.richard.web.reservation.vo.ReserveVo" parameterType="int">
+	   SELECT
+				 rm.RESERVE_NO as reserveNo
+				,rm.USER_NO as userNo
+				,rm.WORKER_NO as workerNo
+				,rm.RESERVE_TIME as reserveTime
+				,rm.RESERVE_DATE as reserveDate
+				,um.USER_NM as userNm
+				,um.USER_TEL as userTel
+				,rm.OTHER_INFO as otherInfo
+				,wrm.WORKER_NM as workerNm
+				,wrm.WORKER_TEL as workerTel
+				,rm.PAY_STATE as payState
+				,pm.PAY_NM as payNm
+				,rm.PAY_PRICE as payPrice
+				,um.MILEAGE as mileage
+				,DATE_FORMAT(rm.CREATE_DATE,'%Y-%m-%d') as createDate
+				,DATE_FORMAT(rm.UPDATE_DATE,'%Y-%m-%d') as updateDate
+			FROM naildb.reserve_master rm
+			INNER JOIN naildb.user_master um
+			ON rm.USER_NO = um.USER_NO
+			LEFT JOIN naildb.pay_master pm
+			ON rm.PAY_STATE = pm.PAY_STATE
+			LEFT JOIN naildb.worker_master wrm
+			ON rm.WORKER_NO = wrm.WORKER_NO
+			WHERE rm.RESERVE_NO = #{reserveNo}
+	</select>
+
+	<select id="selectReservationWorks" resultType="String" parameterType="int">
+	   SELECT
+			WORK_NM AS workNm
+		FROM
+			WORK_MASTER
+		WHERE
+			WORK_NO
+		IN
+		(
+			SELECT
+				WORK_NO
+			FROM
+				RESERVE_WORK
+			WHERE
+				RESERVE_NO = #{reserveNo}
+		)
+	</select>
+</mapper>
