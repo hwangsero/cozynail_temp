@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class WorkerMasterVo {
-    String workerCode;
+    int workerNo;
     String workerNm;
     String workerTel;
     String workerMark;

@@ -28,14 +28,6 @@ public class CalendarController {
 
     @RequestMapping(value = "/calendar.do", method=RequestMethod.GET)
     public String calendarMain(Model model) throws JsonProcessingException {
-//        List<reserveVO> calList = calendarService.calendarSelectAll();
-//        JSONArray result = new JSONArray();
-//        for(int i=0;i<calList.size();i++) {
-//            String json = new ObjectMapper().writeValueAsString(calList.get(i));
-////            System.out.println(json);
-//            result.add(json);
-//        }
-//        model.addAttribute("calList", result);
         return "calendar/calendar";
     }
 
@@ -45,11 +37,5 @@ public class CalendarController {
     	List<ReserveVo> calList = calendarService.calendarSelectAll();
     	return calList;
     }
-
-    @RequestMapping(value={"/{id}/detail.do"}, method={RequestMethod.POST, RequestMethod.GET})
-	public String calen_ex2(Model model) throws RichardException{
-		logger.info(">>>>>>>>  calendar_detail");
-		return "calendar/detail";
-	}
 
 }

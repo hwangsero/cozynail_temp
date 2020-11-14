@@ -104,9 +104,10 @@ public class SessionMgrController extends HandlerInterceptorAdapter{
 					, "main_update_item.do"
 					, "main_update_submit.do"
 					, "calendarInfo.do"
-					, "registerReservation.do"
+					, "register.do"
 					, "userInfo.do"
 					, "mypage_info.do"
+					, "detail.do"
 					}; //체크 페이지
 
 			//String [] levelSubDir	= {"file", "image"};	// 권한 페이지

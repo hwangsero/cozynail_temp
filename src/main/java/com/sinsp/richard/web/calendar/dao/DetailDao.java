@@ -14,7 +14,6 @@ public class DetailDao extends CommonSqlDao{
 	private static String prefix = "DetailMapper.";
 
 	public List<ReserveVo> getReserveInfo(ReserveVo vo) throws RichardException {
-
 		return selectList( prefix + "getReserveInfo", vo);
 	}
 

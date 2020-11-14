@@ -23,10 +23,10 @@ function viewCalendar(obj) {
 	    console.log(calendarList);
 	    calendarList.forEach( function (e) {
 	       calendarData.push({
-	          title: e.userNm + '(' + e.workerNm + ')',
+	          title: e.reserveTime + " " + e.userNm + '(' + e.workerNm + ')',
 	            start: e.reserveDate.replace(/(.{4})/,"$1-").replace(/(.{7})/,"$1-"),
 	            end: e.reserveDate.replace(/(.{4})/,"$1-").replace(/(.{7})/,"$1-"),
-	            id: e.RESERVE_NO
+	            id: e.reserveNo
 	      })
 	    });
 	    console.log(calendarData);
@@ -38,9 +38,7 @@ function viewCalendar(obj) {
 	    	reserveDate +=	(info.event.start.getMonth() + 1) + "-";
 	    	reserveDate +=	info.event.start.getDate();
 
-	       location.href="/" + reserveDate + "/detail.do"
-	        console.log(1)
-	        console.log(reserveDate)
+	       location.href="/reservation/detail.do?reserveNo=" + info.event.id;
 	      },
 	      eventDrop: function(info) {
 	        console.log(info.event)

@@ -5,25 +5,28 @@
 
    <select id="selectCalendarAll" resultType="com.sinsp.richard.web.reservation.vo.ReserveVo" parameterType="com.sinsp.richard.web.reservation.vo.ReserveVo">
         SELECT
-			 rm.RESERVE_TIME as reserveTime
+			 rm.RESERVE_NO as reserveNo
+			,rm.USER_NO as userNo
+			,rm.WORKER_NO as workerNo
+			,rm.RESERVE_TIME as reserveTime
 			,um.USER_NM as userNm
 			,um.USER_TEL as userTel
-			,wm.WORK_NM as workNm
 			,rm.OTHER_INFO as otherInfo
-			,rm.PAY_STATE as payState
 			,wrm.WORKER_NM as workerNm
+			,wrm.WORKER_TEL as workerTel
+			,rm.PAY_STATE as payState
+			,rm.PAY_PRICE as payPrice
 			,um.MILEAGE as mileage
 			,DATE_FORMAT(rm.RESERVE_DATE,'%Y%m%d') as reserveDate
+			,DATE_FORMAT(rm.CREATE_DATE,'%Y%m%d') as createDate
+			,DATE_FORMAT(rm.UPDATE_DATE,'%Y%m%d') as updateDate
 		FROM naildb.reserve_master rm
 		INNER JOIN naildb.user_master um
 		ON rm.USER_NO = um.USER_NO
-		LEFT JOIN naildb.work_master wm
-		ON rm.WORK_KIND = wm.WORK_KIND
 		LEFT JOIN naildb.pay_master pm
 		ON rm.PAY_STATE = pm.PAY_STATE
 		LEFT JOIN naildb.worker_master wrm
-		ON rm.WORKER_CODE = wrm.WORKER_CODE
-		WHERE rm.WORK_CATE = wm.WORK_CATE
+		ON rm.WORKER_NO = wrm.WORKER_NO
 		ORDER by reserveDate DESC
    </select>
 

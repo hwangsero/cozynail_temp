@@ -41,36 +41,37 @@
 			  </div>
 			</div>
 
-			<form class="login" name="login-form">
+			<form class="form-reserve" name="form-reserve" action="reservation/register.do" method="post">
+			<input id="userNo" name="userNo" type="hidden" class="form-control" readonly>
 			  <div class="form-group row div-name">
 			    <label for="name" class="col-sm-2 col-form-label">이름</label>
 			    <div class="col-sm-10">
-			      <input id="name" type="text" class="form-control" readonly>
+			      <input id="name" name="userNm" type="text" class="form-control" readonly>
 			    </div>
 			  </div>
 			  <div class="form-group row div-phone">
 			    <label for="phone" class="col-sm-2 col-form-label">연락처</label>
 			    <div class="col-sm-10">
-			      <input id="phone" type="text" class="form-control" readonly>
+			      <input id="phone" name="userTel" type="text" class="form-control" readonly>
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label for="reserveDate" class="col-sm-2 col-form-label">예약일자</label>
 			    <div class="col-sm-10">
-			      <input id="reserveDate" type="date" class="form-control">
+			      <input id="reserveDate" name="reserveDate" type="date" class="form-control">
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label for="reserveTime" class="col-sm-2 col-form-label">예약시간</label>
 			    <div class="col-sm-10">
-			      <input id="reserveTime" type="time" class="form-control">
+			      <input id="reserveTime" name="reserveTime" type="time" class="form-control">
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label class="col-sm-2 col-form-label">시술종류</label>
 			    <div class="col-sm-10 divWorkInfo">
 			    <c:forEach items="${reserveFormInfo.workMasterList}" var="workInfo">
-			     <label>${workInfo.workNm }<input name="workNm" type="checkbox" value="네일" class="form-control"></label>&nbsp&nbsp
+			     <label>${workInfo.workNm }<input name="workNo" type="checkbox" value="${workInfo.workNo}" class="form-control"></label>&nbsp&nbsp
 			    </c:forEach>
 			    </div>
 			  </div>
@@ -93,23 +94,23 @@
 			  <div class="form-group row">
 			    <label for="payPrice" class="col-sm-2 col-form-label">결제금액</label>
 			    <div class="col-sm-10">
-			      <input id="payPrice" type="text" class="form-control" value=0>
+			      <input id="payPrice" name="payPrice" type="text" class="form-control" value=0>
 			    </div>
 			    </div>
 			    <div class="form-group row">
-			    <label for="workerInfo" class="col-sm-2 col-form-label">근무자</label>
+			    <label for="workerMater" class="col-sm-2 col-form-label">근무자</label>
 			    <div class="col-sm-10">
-			      <select name="workerInfo">
+			      <select name="workerNo">
 			      <c:forEach items="${reserveFormInfo.workerMasterList}" var="workerInfo">
-			      	<option value="근무자정보">${workerInfo.workerNm} ${workerInfo.workerTel }</option>
+			      	<option value="${workerInfo.workerNo}">${workerInfo.workerNm} ${workerInfo.workerTel }</option>
 			      </c:forEach>
 			      </select>
 			    </div>
 			    </div>
 			    <div class="form-group row">
-			    <label for="name" class="col-sm-2 col-form-label">기타</label>
+			    <label for="otherInfo" class="col-sm-2 col-form-label">기타</label>
 			    <div class="col-sm-10">
-			      <input id="name" type="text" class="form-control">
+			      <input id="otherInfo" name="otherInfo" type="text" class="form-control">
 			    </div>
 			  </div>
 
@@ -140,6 +141,8 @@
 <script id="template-search-list" type="text/template">
 <span class="searchName" style='width: 85px'> {userNm}</span>
 <span class="searchTel" style='width: 150px'> {userTel} </span>
+<span class="searchId" style='width: 150px'> {userId} </span>
+<input class="searchNo" type="hidden" style='width: 0px' value='{userNo}'/>
 </script>
 </body>
 </html>

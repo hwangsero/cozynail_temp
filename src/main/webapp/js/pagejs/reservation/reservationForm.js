@@ -44,6 +44,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
 				var templateList = document.querySelector('#template-search-list').innerHTML;
 				templateList = templateList.replace("{userNm}",searchResult[i].userNm + " ");
 				templateList = templateList.replace("{userTel}",searchResult[i].userTel.replace(/(.{3})/,"$1-").replace(/(.{8})/,"$1-") + " ");
+				templateList = templateList.replace("{userId}",searchResult[i].userId + " ");
+				templateList = templateList.replace("{userNo}",searchResult[i].userNo);
 				addDiv.innerHTML = templateList;
 				/* addDiv.setAttribute("OnClick","location.href='http://naver.com'")*/;
 				addDiv.setAttribute("class","searchList");
@@ -65,15 +67,19 @@ window.addEventListener('DOMContentLoaded', ()=>{
   			let divSearchList = e.target.closest('.searchList');
   			let searchName;
   			let searchTel;
+  			let searchNo;
   			divSearchList.childNodes.forEach((item)=>{
   				if(item.nodeName == 'SPAN' && item.classList.contains('searchName'))
   					searchName = item.innerText;
   				else if(item.nodeName == 'SPAN' && item.classList.contains('searchTel'))
   					searchTel = item.innerText;
+  				else if(item.nodeName == 'INPUT' && item.classList.contains('searchNo'))
+  					searchNo = item.value;
   			})
 
   			document.querySelector('#name').value = searchName;
   			document.querySelector('#phone').value = searchTel;
+  			document.querySelector('#userNo').value = searchNo;
   			btnClick.click();
   			document.querySelector('#msgUserInfo').style.display = "none";
   		})
@@ -88,8 +94,9 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
   	function clickBtnReserve() {
   		let btnReserve = document.querySelector('.btn-reserve');
+  		let formReserve = document.querySelector('.form-reserve');
   		btnReserve.addEventListener('click',()=> {
-  			if(checkAllForm()) alert('good');
+  			if(checkAllForm()) formReserve.submit();
   		})
   	}
 
