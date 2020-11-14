@@ -56,9 +56,9 @@ public class ReservationController {
 
     @GetMapping(value = "reservation/detail.do")
     public ModelAndView reservationDetail(@RequestParam int reserveNo) {
-    	System.out.println("ssss : " + reserveNo);
     	ModelAndView mav = new ModelAndView();
     	ReserveVo reserveVo = reserveService.getReservationDetail(reserveNo);
+    	System.out.println(reserveVo.toString());
     	mav.addObject("reserveInfo", reserveVo);
     	mav.setViewName("reservation/reservationDetail");
     	return mav;

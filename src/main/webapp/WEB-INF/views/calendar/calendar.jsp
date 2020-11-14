@@ -56,10 +56,11 @@
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/pagejs/calendar/calendar.js"></script>
 <script id="template-search-list" type="text/template">
-<span style='width: 85px'> {userNm}</span>
-<span style='width: 150px'> {userTel} </span>
-<span style='width: 120px'> {reserveDate} </span>
-<span> {workerNm} </span>
+<span class='searchInfo' style='width: 85px'> {userNm}</span>
+<span class='searchInfo' style='width: 150px'> {userTel} </span>
+<span class='searchInfo' style='width: 120px'> {reserveDate} </span>
+<span class='searchInfo'> {workerNm} </span>
+<input class='searchReserveNo searchInfo' type='hidden' value='{reserveNo}'/>
 </script>
 </body>
 </html>

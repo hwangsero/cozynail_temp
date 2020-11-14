@@ -12,34 +12,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert">
-              <h4 class="alert-heading">예약 등록</h4>
+              <h4 class="alert-heading">예약 상세</h4>
             </div>
-            <!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-			  회원 검색
-			</button>
-			<span style='color: red' id="msgUserInfo">&nbsp&nbsp회원검색을 통해 회원정보를 선택해주세요</span>
-            <!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			      	<input type="text" id="search" placeholder="이름을 입력해주세요"/>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-			      <ul class="modal-ul" >
-			      </ul>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
 
 			<form class="form-reserve" name="form-reserve" action="reservation/register.do" method="post">
 			<input id="userNo" name="userNo" type="hidden" class="form-control" readonly>
@@ -70,47 +44,34 @@
 			  <div class="form-group row">
 			    <label class="col-sm-2 col-form-label">시술종류</label>
 			    <div class="col-sm-10 divWorkInfo">
-			    <c:forEach items="${reserveFormInfo.workMasterList}" var="workInfo">
-			     <label>${workInfo.workNm }<input name="workNo" type="checkbox" value="${workInfo.workNo}" class="form-control"></label>&nbsp&nbsp
+			    <c:forEach items="${reserveInfo.reserveWorks}" var="workNm" varStatus="workInfo">
+			    <c:if test="${workInfo.index != 0 }">,&nbsp</c:if>
+			     ${workNm}
 			    </c:forEach>
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label class="col-sm-2 col-form-label">결제방법</label>
 			    <div class="col-sm-10">
-			    <c:forEach items="${reserveFormInfo.payMasterList}" var="payInfo">
-				    <c:choose>
-				    	<c:when test="${payInfo.payNm eq '현금'}">
-				    		 <label>${payInfo.payNm }(${payInfo.payMark })&nbsp<input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>&nbsp&nbsp
-				    	</c:when>
-				    	<c:otherwise>
-				    		 <label>${payInfo.payNm }&nbsp
-				    		 <input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>&nbsp&nbsp
-				    	</c:otherwise>
-				    </c:choose>
-			    </c:forEach>
+			   <span>${reserveInfo.payNm}</span>
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label for="payPrice" class="col-sm-2 col-form-label">결제금액</label>
 			    <div class="col-sm-10">
-			      <input id="payPrice" name="payPrice" type="text" class="form-control" value=0>
+			      <input id="payPrice" name="payPrice" type="text" class="form-control" value="${reserveInfo.payPrice}" readonly>
 			    </div>
 			    </div>
 			    <div class="form-group row">
 			    <label for="workerMater" class="col-sm-2 col-form-label">근무자</label>
 			    <div class="col-sm-10">
-			      <select name="workerNo">
-			      <c:forEach items="${reserveFormInfo.workerMasterList}" var="workerInfo">
-			      	<option value="${workerInfo.workerNo}">${workerInfo.workerNm} ${workerInfo.workerTel }</option>
-			      </c:forEach>
-			      </select>
+			      <span>${reserveInfo.workerNm}</span>
 			    </div>
 			    </div>
 			    <div class="form-group row">
 			    <label for="otherInfo" class="col-sm-2 col-form-label">기타</label>
 			    <div class="col-sm-10">
-			      <input id="otherInfo" name="otherInfo" type="text" class="form-control">
+			      <input id="otherInfo" name="otherInfo" type="text" class="form-control" value="${reserveInfo.otherInfo}" readonly>
 			    </div>
 			  </div>
 

@@ -81,7 +81,7 @@
 			    <c:forEach items="${reserveFormInfo.payMasterList}" var="payInfo">
 				    <c:choose>
 				    	<c:when test="${payInfo.payNm eq '현금'}">
-				    		 <label>${payInfo.payNm }(${payInfo.payMark })&nbsp<input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>&nbsp&nbsp
+				    		 <label>${payInfo.payNm }(${payInfo.payMark })&nbsp<input class="payState" name="payState" type="radio" value="${payInfo.payState }" checked class="form-control"></label>&nbsp&nbsp
 				    	</c:when>
 				    	<c:otherwise>
 				    		 <label>${payInfo.payNm }&nbsp

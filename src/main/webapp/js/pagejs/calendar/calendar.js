@@ -2,9 +2,10 @@ let calendarList;
 window.addEventListener('DOMContentLoaded', ()=>{
 	getCalendatInfoAjax();
 	search();
+	clickUserInfo();
 })
 
-  function getCalendatInfoAjax() {
+	function getCalendatInfoAjax() {
     	let xhr = new XMLHttpRequest;
     	xhr.onload = function(e) {
     	 	if(xhr.status == 200) {
@@ -16,7 +17,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     	xhr.send();
     }
 
-function viewCalendar(obj) {
+	function viewCalendar(obj) {
 	    calendarList = obj;
 	    var calendarEl = document.getElementById('calendar');
 	    var calendarData = new Array();
@@ -85,8 +86,8 @@ function viewCalendar(obj) {
 				templateList = templateList.replace("{userTel}",searchResult[i].userTel.replace(/(.{3})/,"$1-").replace(/(.{8})/,"$1-") + " ");
 				templateList = templateList.replace("{reserveDate}",searchResult[i].reserveDate.replace(/(.{4})/,"$1-").replace(/(.{7})/,"$1-") + " ");
 				templateList = templateList.replace("{workerNm}",searchResult[i].workerNm);
+				templateList = templateList.replace("{reserveNo}",searchResult[i].reserveNo);
 				addDiv.innerHTML = templateList;
-				/* addDiv.setAttribute("OnClick","location.href='http://naver.com'")*/;
 				addDiv.setAttribute("class","searchList");
 				addDiv.setAttribute("style","cursor:Pointer");
 				addLi.append(addDiv);
@@ -94,3 +95,16 @@ function viewCalendar(obj) {
 			}
 	  });
   }
+
+  	function clickUserInfo() {
+		let modalBody = document.querySelector('.modal-body');
+		modalBody.addEventListener('click',(e) => {
+			if(!e.target.classList.contains('searchInfo'))
+  				return;
+			let divSearchList = e.target.closest('.searchList');
+			divSearchList.childNodes.forEach((item)=>{
+  				if(item.nodeName == 'INPUT' && item.classList.contains('searchReserveNo'))
+  					location.href="/reservation/detail.do?reserveNo=" + item.value;
+			})
+		})
+  	}
