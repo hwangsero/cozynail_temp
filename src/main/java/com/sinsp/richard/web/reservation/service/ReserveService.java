@@ -11,4 +11,6 @@ public interface ReserveService {
 	public List<UserMasterVo> getUserInfoList();
 	public void insertReservation(ReserveVo reserveVo, String[] selectedWorks);
 	public ReserveVo getReservationDetail(int reserveVo);
+	public void deleteReservation(int reserveNo);
+	public void updateReservation(ReserveVo reserveVo, String[] selectedWorks);
 }

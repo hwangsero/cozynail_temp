@@ -25,8 +25,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	    calendarList.forEach( function (e) {
 	       calendarData.push({
 	          title: e.reserveTime + " " + e.userNm + '(' + e.workerNm + ')',
-	            start: e.reserveDate.replace(/(.{4})/,"$1-").replace(/(.{7})/,"$1-"),
-	            end: e.reserveDate.replace(/(.{4})/,"$1-").replace(/(.{7})/,"$1-"),
+	            start: e.reserveDate,
+	            end: e.reserveDate,
 	            id: e.reserveNo
 	      })
 	    });
@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	    	reserveDate +=	(info.event.start.getMonth() + 1) + "-";
 	    	reserveDate +=	info.event.start.getDate();
 
-	       location.href="/reservation/detail.do?reserveNo=" + info.event.id;
+	       location.href="/reservation.do?reserveNo=" + info.event.id;
 	      },
 	      eventDrop: function(info) {
 	        console.log(info.event)
@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 				var templateList = document.querySelector('#template-search-list').innerHTML;
 				templateList = templateList.replace("{userNm}",searchResult[i].userNm + " ");
 				templateList = templateList.replace("{userTel}",searchResult[i].userTel.replace(/(.{3})/,"$1-").replace(/(.{8})/,"$1-") + " ");
-				templateList = templateList.replace("{reserveDate}",searchResult[i].reserveDate.replace(/(.{4})/,"$1-").replace(/(.{7})/,"$1-") + " ");
+				templateList = templateList.replace("{reserveDate}",searchResult[i].reserveDate + " ");
 				templateList = templateList.replace("{workerNm}",searchResult[i].workerNm);
 				templateList = templateList.replace("{reserveNo}",searchResult[i].reserveNo);
 				addDiv.innerHTML = templateList;
@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 			let divSearchList = e.target.closest('.searchList');
 			divSearchList.childNodes.forEach((item)=>{
   				if(item.nodeName == 'INPUT' && item.classList.contains('searchReserveNo'))
-  					location.href="/reservation/detail.do?reserveNo=" + item.value;
+  					location.href="/reservation.do?reserveNo=" + item.value;
 			})
 		})
   	}

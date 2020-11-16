@@ -23,6 +23,7 @@ public class ReserveServiceImpl implements ReserveService{
 	@Autowired
     private CommDao commDao;
 
+	// 예약 등록 페이지 정보 가져오기
 	@Override
 	public ReserveFormVo getReserveFormVoList() {
 		ReserveFormVo reserveFormVo = new ReserveFormVo();
@@ -32,11 +33,7 @@ public class ReserveServiceImpl implements ReserveService{
 		return reserveFormVo;
 	}
 
-	@Override
-	public List<UserMasterVo> getUserInfoList() {
-		return commDao.getUserMasterVoList();
-	}
-
+	// 예약 등록
 	@Override
 	public void insertReservation(ReserveVo reserveVo, String[] selectedWorks) {
 		int reserveNo = reserveDao.insertReservation(reserveVo);
@@ -50,6 +47,7 @@ public class ReserveServiceImpl implements ReserveService{
 		reserveDao.insertWork(works);
 	}
 
+	// 예약 상세 정보 가져오기
 	@Override
 	public ReserveVo getReservationDetail(int reserveNo) {
 		ReserveVo reserveVo = reserveDao.selectReservationDetail(reserveNo);
@@ -57,4 +55,32 @@ public class ReserveServiceImpl implements ReserveService{
 		return reserveVo;
 	}
 
+	// 예약 정보 수정
+	@Override
+	public void updateReservation(ReserveVo reserveVo, String[] selectedWorks) {
+		reserveDao.updateReservation(reserveVo);
+		int reserveNo = reserveVo.getReserveNo();
+		List<Map<String,Integer>> works = new LinkedList<>();
+		for(int i = 0; i < selectedWorks.length; i++) {
+			Map<String, Integer> work = new HashMap<>();
+			work.put("reserveNo", reserveNo);
+			work.put("workNo", Integer.parseInt(selectedWorks[i]));
+			works.add(work);
+		}
+		reserveDao.deleteReservationWorks(reserveNo);
+		reserveDao.insertWork(works);
+	}
+
+	// 예약 삭제
+	@Override
+	public void deleteReservation(int reserveNo) {
+		reserveDao.deleteReservation(reserveNo);
+		reserveDao.deleteReservationWorks(reserveNo);
+	}
+
+	// 회원 정보 가져오기
+	@Override
+	public List<UserMasterVo> getUserInfoList() {
+		return commDao.getUserMasterVoList();
+	}
 }

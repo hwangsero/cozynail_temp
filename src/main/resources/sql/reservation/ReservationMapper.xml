@@ -90,4 +90,36 @@
 				RESERVE_NO = #{reserveNo}
 		)
 	</select>
+
+	<delete id="deleteReservationWorks" parameterType="int">
+	   DELETE
+		FROM
+			RESERVE_WORK
+		WHERE
+			RESERVE_NO = #{reserveNo}
+	</delete>
+
+	<delete id="deleteReservation" parameterType="int">
+	   DELETE
+		FROM
+			RESERVE_MASTER
+		WHERE
+			RESERVE_NO = #{reserveNo}
+	</delete>
+
+	<update id="updateReservation" parameterType="com.sinsp.richard.web.reservation.vo.ReserveVo">
+	   UPDATE
+	   		RESERVE_MASTER
+		SET
+			RESERVE_TIME = #{reserveTime}
+			, OTHER_INFO = #{otherInfo}
+			, PAY_STATE = #{payState}
+			, PAY_PRICE = #{payPrice}
+			, WORKER_NO = #{workerNo}
+			, UPDATE_DATE = now()
+			, RESERVE_DATE = #{reserveDate}
+		WHERE
+			RESERVE_NO = #{reserveNo}
+	</update>
+
 </mapper>

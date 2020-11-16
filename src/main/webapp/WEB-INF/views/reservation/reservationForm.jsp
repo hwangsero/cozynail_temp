@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page session="false" %>
 <html>
 <head>
@@ -35,13 +36,12 @@
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
 			      </div>
 			    </div>
 			  </div>
 			</div>
 
-			<form class="form-reserve" name="form-reserve" action="reservation/register.do" method="post">
+			<form class="form-reserve" name="form-reserve" action="/reservation.do" method="post">
 			<input id="userNo" name="userNo" type="hidden" class="form-control" readonly>
 			  <div class="form-group row div-name">
 			    <label for="name" class="col-sm-2 col-form-label">이름</label>
@@ -58,13 +58,13 @@
 			  <div class="form-group row">
 			    <label for="reserveDate" class="col-sm-2 col-form-label">예약일자</label>
 			    <div class="col-sm-10">
-			      <input id="reserveDate" name="reserveDate" type="date" class="form-control">
+			      <input id="reserveDate" name="reserveDate" type="date" class="form-control" >
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label for="reserveTime" class="col-sm-2 col-form-label">예약시간</label>
 			    <div class="col-sm-10">
-			      <input id="reserveTime" name="reserveTime" type="time" class="form-control">
+			      <input id="reserveTime" name="reserveTime" type="time" class="form-control" >
 			    </div>
 			  </div>
 			  <div class="form-group row">
@@ -85,7 +85,7 @@
 				    	</c:when>
 				    	<c:otherwise>
 				    		 <label>${payInfo.payNm }&nbsp
-				    		 <input class="payState" name="payState" type="radio" value="카드" checked class="form-control"></label>&nbsp&nbsp
+				    		 <input class="payState" name="payState" type="radio" value="${payInfo.payState }" checked class="form-control"></label>&nbsp&nbsp
 				    	</c:otherwise>
 				    </c:choose>
 			    </c:forEach>
@@ -94,7 +94,7 @@
 			  <div class="form-group row">
 			    <label for="payPrice" class="col-sm-2 col-form-label">결제금액</label>
 			    <div class="col-sm-10">
-			      <input id="payPrice" name="payPrice" type="text" class="form-control" value=0>
+			      <input id="payPrice" name="payPrice" type="text" class="form-control" >
 			    </div>
 			    </div>
 			    <div class="form-group row">
@@ -102,13 +102,15 @@
 			    <div class="col-sm-10">
 			      <select name="workerNo">
 			      <c:forEach items="${reserveFormInfo.workerMasterList}" var="workerInfo">
-			      	<option value="${workerInfo.workerNo}">${workerInfo.workerNm} ${workerInfo.workerTel }</option>
+			      	<option value="${workerInfo.workerNo}">${workerInfo.workerNm}
+			      	${fn:substring(workerInfo.workerTel, 0, 3)}-${fn:substring(workerInfo.workerTel, 3, fn:length(workerInfo.workerTel)-4)}-${fn:substring(workerInfo.workerTel, fn:length(workerInfo.workerTel)-4, fn:length(workerInfo.workerTel))}
+			      	</option>
 			      </c:forEach>
 			      </select>
 			    </div>
 			    </div>
 			    <div class="form-group row">
-			    <label for="otherInfo" class="col-sm-2 col-form-label">기타</label>
+			    <label for="otherInfo" class="col-sm-2 col-form-label"  >기타</label>
 			    <div class="col-sm-10">
 			      <input id="otherInfo" name="otherInfo" type="text" class="form-control">
 			    </div>

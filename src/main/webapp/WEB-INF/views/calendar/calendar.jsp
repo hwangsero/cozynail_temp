@@ -23,6 +23,9 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   예약 검색
 </button>
+<button type="button" class="btn btn-primary" onclick="location.href='/reservation/register.do'">
+  예약 등록
+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,7 +43,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

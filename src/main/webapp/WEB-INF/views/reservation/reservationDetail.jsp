@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page session="false" %>
 <html>
 <head>
@@ -15,7 +17,7 @@
               <h4 class="alert-heading">예약 상세</h4>
             </div>
 
-			<form class="form-reserve" name="form-reserve" action="reservation/register.do" method="post">
+			<form class="form-reserve" name="form-reserve">
 			<input id="userNo" name="userNo" type="hidden" class="form-control" readonly>
 			  <div class="form-group row div-name">
 			    <label for="name" class="col-sm-2 col-form-label">이름</label>
@@ -26,7 +28,8 @@
 			  <div class="form-group row div-phone">
 			    <label for="phone" class="col-sm-2 col-form-label">연락처</label>
 			    <div class="col-sm-10">
-			      <input id="phone" name="userTel" type="text" class="form-control" value="${reserveInfo.userTel}" readonly>
+			      <input id="phone" name="userTel" type="text" class="form-control"
+			      value="${fn:substring(reserveInfo.userTel, 0, 3)}-${fn:substring(reserveInfo.userTel, 3, fn:length(reserveInfo.userTel)-4)}-${fn:substring(reserveInfo.userTel, fn:length(reserveInfo.userTel)-4, fn:length(reserveInfo.userTel))}" readonly>
 			    </div>
 			  </div>
 			  <div class="form-group row">
@@ -59,7 +62,8 @@
 			  <div class="form-group row">
 			    <label for="payPrice" class="col-sm-2 col-form-label">결제금액</label>
 			    <div class="col-sm-10">
-			      <input id="payPrice" name="payPrice" type="text" class="form-control" value="${reserveInfo.payPrice}" readonly>
+			   <fmt:formatNumber type="number" maxFractionDigits="3" value="${reserveInfo.payPrice}" var="price"/>
+			      <input id="payPrice" name="payPrice" type="text" class="form-control" value="${price}" readonly>
 			    </div>
 			    </div>
 			    <div class="form-group row">
@@ -77,13 +81,15 @@
 
 			  <div class="form-group row">
 			    <div class="col">
-			      <input type="button" class="btn-reserve btn-dark" value="저장">
 			    </div>
 			  </div>
 			  <!-- 중복방지 Token Parameter -->
+			   <input type="hidden" id="input-reserveNo" name="reserveNo" value="${reserveInfo.reserveNo }">
 			  <input type="hidden" name="TOKEN_KEY" value="${TOKEN_KEY }" />
 			  <!-- 중복방지 Token Parameter -->
 			</form>
+			      <input type="button" class="btn-reserve-update btn-dark" value="수정" onclick="location.href='reservation/updateForm.do?reserveNo=${reserveInfo.reserveNo}'">
+			      <input type="button" class="btn-reserve-delete btn-dark" value="삭제">
 		</div>
 	</div>
 </div>
@@ -98,7 +104,7 @@
 		form.submit();
 	}
 </script>
-<script type="text/javascript" src="${pagecontext.request.contextPath }/js/pagejs/reservation/reservationForm.js"></script>"
+<script type="text/javascript" src="${pagecontext.request.contextPath }/js/pagejs/reservation/reservationDetail.js"></script>"
 <script id="template-search-list" type="text/template">
 <span class="searchName" style='width: 85px'> {userNm}</span>
 <span class="searchTel" style='width: 150px'> {userTel} </span>

@@ -17,7 +17,7 @@
 			,rm.PAY_STATE as payState
 			,rm.PAY_PRICE as payPrice
 			,um.MILEAGE as mileage
-			,DATE_FORMAT(rm.RESERVE_DATE,'%Y%m%d') as reserveDate
+			,rm.RESERVE_DATE as reserveDate
 			,DATE_FORMAT(rm.CREATE_DATE,'%Y%m%d') as createDate
 			,DATE_FORMAT(rm.UPDATE_DATE,'%Y%m%d') as updateDate
 		FROM naildb.reserve_master rm

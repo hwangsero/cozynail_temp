@@ -6,6 +6,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	clickBtnReserve();
 })
 
+	// Ajax를 통해 회원 정보 가져오기
 	function getUserInfoAjax() {
 		let xhr = new XMLHttpRequest;
 		xhr.onload = function(e) {
@@ -18,6 +19,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 		xhr.send();
 	}
 
+	// 검색 버튼 클릭 이벤트
 	function clickSearchBtn() {
 		btnSearch = document.querySelector('.btn-primary');
 		let modalUl = document.querySelector('.modal-Ul');
@@ -27,15 +29,16 @@ window.addEventListener('DOMContentLoaded', ()=>{
 		})
 	}
 
-  function search(userInfo) {
-	  let searchInput = document.querySelector('#search');
-	  searchInput.addEventListener('keyup', function() {
+	// 검색 기능 구현
+	function search(userInfo) {
+		let searchInput = document.querySelector('#search');
+		searchInput.addEventListener('keyup', function() {
 			let searchVal = searchInput.value;
 			let searchResult = userInfo.filter(e => e.userNm.includes(searchVal));
 			let modalUl = document.querySelector('.modal-Ul')
 			modalUl.innerText = '';
 			if(searchVal === '') {
-			 return;
+				return;
 			}
 			for(let i = 0; i < searchResult.length; i++) {
 				var addLi = document.createElement('li');
@@ -47,23 +50,22 @@ window.addEventListener('DOMContentLoaded', ()=>{
 				templateList = templateList.replace("{userId}",searchResult[i].userId + " ");
 				templateList = templateList.replace("{userNo}",searchResult[i].userNo);
 				addDiv.innerHTML = templateList;
-				/* addDiv.setAttribute("OnClick","location.href='http://naver.com'")*/;
 				addDiv.setAttribute("class","searchList");
 				addDiv.setAttribute("style","cursor:Pointer");
 				addLi.append(addDiv);
 				modalUl.append(addLi);
 			}
-	  });
-  }
+		});
+	}
 
-  	function clickUserInfo() {
-  		let modalBody = document.querySelector('.modal-body');
+	// 검색 창에서 회원정보 클릭 이벤트
+	function clickUserInfo() {
+		let modalBody = document.querySelector('.modal-body');
   		let btnClick = document.querySelector('.btn-secondary');
 
   		modalBody.addEventListener('click',(e) => {
   			if(!e.target.classList.contains('searchList') && !e.target.classList.contains('searchName') && !e.target.classList.contains('searchTel') )
   				return;
-
   			let divSearchList = e.target.closest('.searchList');
   			let searchName;
   			let searchTel;
@@ -76,7 +78,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
   				else if(item.nodeName == 'INPUT' && item.classList.contains('searchNo'))
   					searchNo = item.value;
   			})
-
   			document.querySelector('#name').value = searchName;
   			document.querySelector('#phone').value = searchTel;
   			document.querySelector('#userNo').value = searchNo;
@@ -85,26 +86,34 @@ window.addEventListener('DOMContentLoaded', ()=>{
   		})
   	}
 
-  	function setPayPriceOnlyNumber() {
+	// 금액 창에 숫자만 입력되고 ',' 찍어주기
+	function setPayPriceOnlyNumber() {
   		let inputPayPrice = document.querySelector('#payPrice');
   		inputPayPrice.addEventListener('input',(e) => {
   			e.target.value = e.target.value.replace(/[^0-9]/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,',');
   		})
   	}
 
+	// 예약 버튼 클릭 이벤트
   	function clickBtnReserve() {
   		let btnReserve = document.querySelector('.btn-reserve');
   		let formReserve = document.querySelector('.form-reserve');
   		btnReserve.addEventListener('click',()=> {
-  			if(checkAllForm()) formReserve.submit();
+  			if(checkAllForm()) {
+  				if(confirm(btnReserve.value + "하시겠습니까?")) {
+  					formReserve.submit();
+  				}
+  			}
   		})
   	}
 
+  	// 전체 유효성 검사
   	function checkAllForm() {
   		if(checkUserInfo() && checkReserveDate() && checkReserveTime() && checkWorkCate() && checkPayPrice()) return true;
   		return false;
   	}
 
+  	// 회원 정보 유효성 검사
   	function checkUserInfo() {
   		let inputUserName = document.querySelector('#name');
   		if(inputUserName.value === '') {
@@ -115,6 +124,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
   		return true;
   	}
 
+  	// 예약 일자 유효성 검사
   	function checkReserveDate() {
   		let inputReserveDate = document.querySelector('#reserveDate');
   		if(inputReserveDate.value === '') {
@@ -125,6 +135,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
   		return true;
   	}
 
+  	// 예약 시간 유효성 검사
   	function checkReserveTime() {
   		let inputReserveTime = document.querySelector('#reserveTime');
   		if(inputReserveTime.value === '') {
@@ -135,6 +146,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
   		return true;
   	}
 
+  	// 시술 종류 유효성 검사
   	function checkWorkCate() {
   		let count = 0;
   		let divWorkCate = document.querySelector('.divWorkInfo');
@@ -149,6 +161,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
   		return true;
   	}
 
+  	// 결제 금액 유효성 검사
   	function checkPayPrice() {
   		let inputPayPrice = document.querySelector('#payPrice');
   		if(inputPayPrice.value === '') {
@@ -158,5 +171,3 @@ window.addEventListener('DOMContentLoaded', ()=>{
   		}
   		return true;
   	}
-
-  	//금액 이랑 이름 추가
